@@ -12,6 +12,7 @@ export { Footer } from './Footer';
 
 // Section Components
 export { Hero } from './Hero';
+export { AboutSection } from './AboutSection';
 export { ExpertiseSection } from './ExpertiseSection';
 export { ExpertiseCard, ServerIcon, LayoutIcon, CogIcon } from './ExpertiseCard';
 export { ProjectsSection } from './ProjectsSection';

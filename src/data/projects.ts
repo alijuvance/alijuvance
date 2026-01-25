@@ -11,6 +11,7 @@ export interface Project {
   solution: string;
   metrics: string[];
   stack: string[];
+  category?: 'Fullstack' | 'Frontend' | 'Backend' | 'DevOps'; // Added category
 }
 
 /**
@@ -33,6 +34,7 @@ export const projects: Project[] = [
       'Coûts d\'infrastructure réduits de 35%',
     ],
     stack: ['Node.js', 'Go', 'Redis', 'Elasticsearch', 'PostgreSQL', 'Docker', 'Kubernetes'],
+    category: 'Backend',
   },
   {
     id: 'fintech-security',
@@ -49,6 +51,7 @@ export const projects: Project[] = [
       'Conformité PCI-DSS maintenue',
     ],
     stack: ['Java', 'Spring Boot', 'Apache Kafka', 'Python', 'TensorFlow', 'TimescaleDB'],
+    category: 'Fullstack',
   },
   {
     id: 'saas-migration',
@@ -65,5 +68,6 @@ export const projects: Project[] = [
       'SLA passé de 99.5% à 99.95%',
     ],
     stack: ['.NET Core', 'Azure', 'Terraform', 'GitHub Actions', 'React', 'SQL Server'],
+    category: 'DevOps',
   },
 ];
