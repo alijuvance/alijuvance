@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   PORTFOLIO - GLOBAL STYLES
+   Swiss Design / International Typographic Style
+   ============================================ */
+
+@layer base {
+  /* Smooth scrolling for the entire page */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Base body styles with theme transitions */
+  body {
+    @apply bg-background text-primary antialiased;
+    @apply dark:bg-background-dark dark:text-primary-dark;
+    @apply transition-colors duration-300;
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl leading-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent dark:ring-accent-dark ring-offset-2;
+    @apply ring-offset-background dark:ring-offset-background-dark;
+  }
+}
+
+@layer components {
+  /* Container utility for consistent max-widths */
+  .container-section {
+    @apply max-w-6xl mx-auto px-6 md:px-8;
+  }
+
+  /* Section padding consistency */
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+
+  /* Primary button style */
+  .btn-primary {
+    @apply inline-flex items-center justify-center;
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply bg-accent text-white;
+    @apply hover:bg-accent-hover;
+    @apply dark:bg-accent-dark dark:hover:bg-accent-dark-hover;
+    @apply transition-all duration-200;
+    @apply focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
+  /* Secondary/outline button style */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center;
+    @apply px-6 py-3 rounded-lg font-medium;
+    @apply border-2 border-primary text-primary;
+    @apply hover:bg-primary hover:text-white;
+    @apply dark:border-primary-dark dark:text-primary-dark;
+    @apply dark:hover:bg-primary-dark dark:hover:text-background-dark;
+    @apply transition-all duration-200;
+  }
+
+  /* Card base style */
+  .card {
+    @apply bg-surface dark:bg-surface-dark;
+    @apply rounded-xl p-6 md:p-8;
+    @apply border border-gray-100 dark:border-gray-800;
+    @apply transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:shadow-lg hover:border-gray-200;
+    @apply dark:hover:border-gray-700;
+    @apply hover:-translate-y-1;
+  }
+
+  /* Badge/tag style for tech stack */
+  .tech-badge {
+    @apply inline-flex items-center gap-1.5;
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-gray-100 text-gray-700;
+    @apply dark:bg-gray-800 dark:text-gray-300;
+  }
+
+  /* Section title styling */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+    @apply text-primary dark:text-primary-dark;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-secondary dark:text-secondary-dark text-center;
+    @apply max-w-2xl mx-auto mb-12;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-accent to-blue-600;
+    @apply dark:from-accent-dark dark:to-blue-400;
+  }
+
+  /* Subtle animation delay utilities */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+}
+
+/* Selection styling */
+::selection {
+  @apply bg-accent/20 dark:bg-accent-dark/20;
+}
+
+/* Custom scrollbar for dark mode */
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-600;
+  }
+}
+
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+.dark ::-webkit-scrollbar-track {
+  @apply bg-background-dark;
+}
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-700 rounded-full;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}
+
+/* Smooth link underline animation */
+.link-hover {
+  position: relative;
+}
+.link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  @apply bg-accent dark:bg-accent-dark;
+  transition: width 0.3s ease;
+}
+.link-hover:hover::after {
+  width: 100%;
+}
