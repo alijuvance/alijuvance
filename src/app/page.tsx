@@ -2,31 +2,38 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { ExpertiseSection } from '@/components/ExpertiseSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
-import { TimelineSection } from '@/components/TimelineSection';
+import { AnimatedTimelineSection } from '@/components/AnimatedTimeline';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { Footer } from '@/components/Footer';
+import { CommandPalette } from '@/components/CommandPalette';
+import { ConsoleEasterEgg } from '@/components/ConsoleEasterEgg';
 
 /**
  * Home Page - One-Page Portfolio
  * 
  * Architecture:
  * - Server Component (default) for optimal performance
- * - Client components only where interactivity is needed (Header, ContactForm)
+ * - Client components for animations (Framer Motion)
  * - Semantic HTML5 structure for accessibility and SEO
  * - Smooth scroll navigation between sections
  * 
- * Sections:
- * 1. Hero - Above the fold, first impression
- * 2. Expertise - Core competencies and philosophy
- * 3. Projects - Case studies with business impact
- * 4. Experience - Career timeline
- * 5. Testimonials - Social proof
- * 6. Footer - Contact form and social links
+ * Features:
+ * - Spotlight effect on project cards
+ * - Scroll-based timeline animation
+ * - Command Palette (Ctrl+K)
+ * - Page transitions
+ * - Console Easter Egg
  */
 
 export default function HomePage() {
   return (
     <>
+      {/* Console Easter Egg for developers */}
+      <ConsoleEasterEgg />
+
+      {/* Command Palette (Ctrl+K) */}
+      <CommandPalette />
+
       {/* Skip to main content - Accessibility */}
       <a
         href="#main-content"
@@ -49,8 +56,8 @@ export default function HomePage() {
         {/* Case Studies - The Core */}
         <ProjectsSection />
 
-        {/* Career Timeline */}
-        <TimelineSection />
+        {/* Career Timeline with Scroll Animation */}
+        <AnimatedTimelineSection />
 
         {/* Social Proof */}
         <TestimonialsSection />

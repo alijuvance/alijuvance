@@ -1,8 +1,11 @@
+'use client';
+
 import { Project } from '@/data/projects';
+import { SpotlightCard } from './SpotlightCard';
 
 /**
- * Project Card Component
- * Narrative-focused case study card
+ * Project Card Component with Spotlight Effect
+ * Narrative-focused case study card with cursor-following glow
  * Structure: Challenge → Solution → Metrics (storytelling approach)
  */
 
@@ -12,74 +15,76 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="card border-l-4 border-l-accent dark:border-l-accent-dark">
-      {/* Header */}
-      <header className="mb-6">
-        <h3 className="text-2xl font-bold text-primary dark:text-primary-dark mb-2">
-          {project.title}
-        </h3>
-        <p className="text-sm font-medium text-accent dark:text-accent-dark uppercase tracking-wide">
-          {project.role}
-        </p>
-      </header>
+    <SpotlightCard className="border border-gray-100 dark:border-gray-800">
+      <article className="card border-l-4 border-l-accent dark:border-l-accent-dark">
+        {/* Header */}
+        <header className="mb-6">
+          <h3 className="text-2xl font-bold text-primary dark:text-primary-dark mb-2">
+            {project.title}
+          </h3>
+          <p className="text-sm font-medium text-accent dark:text-accent-dark uppercase tracking-wide">
+            {project.role}
+          </p>
+        </header>
 
-      {/* Challenge Section */}
-      <div className="mb-6">
-        <h4 className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
-          <ChallengeIcon className="w-4 h-4" />
-          Le Défi
-        </h4>
-        <p className="text-primary dark:text-primary-dark leading-relaxed">
-          {project.challenge}
-        </p>
-      </div>
-
-      {/* Solution Section */}
-      <div className="mb-6">
-        <h4 className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
-          <SolutionIcon className="w-4 h-4" />
-          La Stratégie Technique
-        </h4>
-        <p className="text-primary dark:text-primary-dark leading-relaxed">
-          {project.solution}
-        </p>
-      </div>
-
-      {/* Metrics Section */}
-      <div className="mb-6">
-        <h4 className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
-          <MetricsIcon className="w-4 h-4" />
-          L&apos;Impact Business
-        </h4>
-        <ul className="space-y-2">
-          {project.metrics.map((metric, index) => (
-            <li
-              key={index}
-              className="flex items-start gap-3 text-primary dark:text-primary-dark"
-            >
-              <span className="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                <CheckIcon className="w-3 h-3 text-green-600 dark:text-green-400" />
-              </span>
-              <span>{metric}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Tech Stack */}
-      <footer className="pt-6 border-t border-gray-100 dark:border-gray-800">
-        <h4 className="text-xs font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
-          Stack Technique
-        </h4>
-        <div className="flex flex-wrap gap-2">
-          {project.stack.map((tech) => (
-            <span key={tech} className="tech-badge">
-              {tech}
-            </span>
-          ))}
+        {/* Challenge Section */}
+        <div className="mb-6">
+          <h4 className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
+            <ChallengeIcon className="w-4 h-4" />
+            Le Défi
+          </h4>
+          <p className="text-primary dark:text-primary-dark leading-relaxed">
+            {project.challenge}
+          </p>
         </div>
-      </footer>
-    </article>
+
+        {/* Solution Section */}
+        <div className="mb-6">
+          <h4 className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
+            <SolutionIcon className="w-4 h-4" />
+            La Stratégie Technique
+          </h4>
+          <p className="text-primary dark:text-primary-dark leading-relaxed">
+            {project.solution}
+          </p>
+        </div>
+
+        {/* Metrics Section */}
+        <div className="mb-6">
+          <h4 className="flex items-center gap-2 text-sm font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
+            <MetricsIcon className="w-4 h-4" />
+            L&apos;Impact Business
+          </h4>
+          <ul className="space-y-2">
+            {project.metrics.map((metric, index) => (
+              <li
+                key={index}
+                className="flex items-start gap-3 text-primary dark:text-primary-dark"
+              >
+                <span className="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
+                  <CheckIcon className="w-3 h-3 text-green-600 dark:text-green-400" />
+                </span>
+                <span>{metric}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Tech Stack */}
+        <footer className="pt-6 border-t border-gray-100 dark:border-gray-800">
+          <h4 className="text-xs font-semibold text-secondary dark:text-secondary-dark uppercase tracking-wider mb-3">
+            Stack Technique
+          </h4>
+          <div className="flex flex-wrap gap-2">
+            {project.stack.map((tech) => (
+              <span key={tech} className="tech-badge">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </footer>
+      </article>
+    </SpotlightCard>
   );
 }
 
