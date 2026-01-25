@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero';
 import { ExpertiseSection } from '@/components/ExpertiseSection';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { AnimatedTimelineSection } from '@/components/AnimatedTimeline';
+import { SkillsSection } from '@/components/SkillsSection';
 import { TestimonialsSection } from '@/components/TestimonialsSection';
 import { Footer } from '@/components/Footer';
 import { CommandPalette } from '@/components/CommandPalette';
@@ -18,8 +19,11 @@ import { ConsoleEasterEgg } from '@/components/ConsoleEasterEgg';
  * - Smooth scroll navigation between sections
  * 
  * Features:
- * - Spotlight effect on project cards
+ * - 3D hover effect on project cards
  * - Scroll-based timeline animation
+ * - Animated skill meters with progress bars
+ * - Terminal-style code snippets
+ * - Sticky navigation with scroll spy
  * - Command Palette (Ctrl+K)
  * - Page transitions
  * - Console Easter Egg
@@ -42,7 +46,7 @@ export default function HomePage() {
         Aller au contenu principal
       </a>
 
-      {/* Fixed Navigation Header */}
+      {/* Fixed Navigation Header with Scroll Spy */}
       <Header />
 
       {/* Main Content */}
@@ -53,11 +57,14 @@ export default function HomePage() {
         {/* Expertise & Philosophy */}
         <ExpertiseSection />
 
-        {/* Case Studies - The Core */}
+        {/* Case Studies with 3D Cards */}
         <ProjectsSection />
 
         {/* Career Timeline with Scroll Animation */}
         <AnimatedTimelineSection />
+
+        {/* Skills with Animated Meters */}
+        <SkillsSection />
 
         {/* Social Proof */}
         <TestimonialsSection />

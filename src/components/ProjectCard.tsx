@@ -1,11 +1,11 @@
 'use client';
 
 import { Project } from '@/data/projects';
-import { SpotlightCard } from './SpotlightCard';
+import { Card3D } from './Card3D';
 
 /**
- * Project Card Component with Spotlight Effect
- * Narrative-focused case study card with cursor-following glow
+ * Project Card Component with 3D Hover Effect
+ * Narrative-focused case study card with 3D tilt on hover
  * Structure: Challenge → Solution → Metrics (storytelling approach)
  */
 
@@ -15,8 +15,8 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <SpotlightCard className="border border-gray-100 dark:border-gray-800">
-      <article className="card border-l-4 border-l-accent dark:border-l-accent-dark">
+    <Card3D className="w-full" intensity={8}>
+      <article className="card border-l-4 border-l-accent dark:border-l-accent-dark bg-surface dark:bg-surface-dark">
         {/* Header */}
         <header className="mb-6">
           <h3 className="text-2xl font-bold text-primary dark:text-primary-dark mb-2">
@@ -84,7 +84,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </footer>
       </article>
-    </SpotlightCard>
+    </Card3D>
   );
 }
 
