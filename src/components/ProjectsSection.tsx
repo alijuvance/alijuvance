@@ -33,30 +33,27 @@ export function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="section-padding bg-surface dark:bg-surface-dark"
+      className="section-padding"
       aria-labelledby="projects-title"
     >
       <div className="container-section">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 id="projects-title" className="section-title">
-            Mes Projets
+        <div className="mb-16">
+          <h2 id="projects-title" className="text-3xl font-bold text-primary dark:text-primary-dark mb-6">
+            Projets Sélectionnés
           </h2>
-          <p className="section-subtitle">
-            Une sélection de réalisations techniques et business.
-          </p>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        {/* Filter Tabs - Minimalist Text */}
+        <div className="flex flex-wrap gap-8 mb-16 border-b border-gray-100 dark:border-gray-800 pb-4">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`text-sm font-medium transition-colors relative pb-4 -mb-4 ${
                 activeCategory === category
-                  ? 'bg-accent text-white shadow-lg scale-105'
-                  : 'bg-background dark:bg-gray-800 text-secondary dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                  ? 'text-primary dark:text-primary-dark border-b-2 border-primary dark:border-primary-dark'
+                  : 'text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark'
               }`}
             >
               {category}

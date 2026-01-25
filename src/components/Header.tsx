@@ -71,36 +71,77 @@ export function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 dark:bg-background-dark/80 backdrop-blur-lg border-b border-gray-100 dark:border-gray-800 shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 py-6"
       initial={prefersReducedMotion ? {} : { y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="container-section" aria-label="Navigation principale">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo / Name */}
-          <motion.a
-            href="#hero"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick('#hero');
-            }}
-            className="text-lg font-bold text-primary dark:text-primary-dark hover:text-accent dark:hover:text-accent-dark transition-colors"
-            whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-            whileTap={prefersReducedMotion ? {} : { scale: 0.95 }}
-          >
-            Portfolio<span className="text-accent dark:text-accent-dark">.</span>
-          </motion.a>
+      <nav className="container-section flex items-center justify-between">
+        {/* Logo */}
+        <a 
+          href="#hero" 
+          onClick={(e) => { e.preventDefault(); handleNavClick('#hero'); }}
+          className="text-xl font-bold tracking-tighter text-primary dark:text-primary-dark"
+        >
+          Ali<span className="text-accent dark:text-accent-dark">.</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.id;
-              return (
+        {/* Minimalist Nav */}
+        <div className="flex items-center gap-6 md:gap-8">
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                className={`text-sm font-medium transition-colors ${
+                  activeSection === link.id
+                    ? 'text-primary dark:text-primary-dark'
+                    : 'text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <button
+            onClick={toggleTheme}
+            className="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
+            aria-label="Toggle theme"
+          >
+            {resolvedTheme === 'dark' ? (
+              <SunIcon className="w-5 h-5" />
+            ) : (
+              <MoonIcon className="w-5 h-5" />
+            )}
+          </button>
+
+          {/* Mobile Menu Button - Minimal */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden text-primary dark:text-primary-dark"
+          >
+            {isMobileMenuOpen ? (
+              <CloseIcon className="w-6 h-6" />
+            ) : (
+              <MenuIcon className="w-6 h-6" />
+            )}
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="fixed inset-0 bg-background dark:bg-background-dark z-40 flex items-center justify-center p-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className="flex flex-col gap-8 text-center">
+              {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -108,139 +149,15 @@ export function Header() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
-                    isActive
-                      ? 'text-accent dark:text-accent-dark'
-                      : 'text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark'
-                  }`}
+                  className="text-2xl font-bold text-primary dark:text-primary-dark"
                 >
                   {link.label}
-                  {/* Active indicator */}
-                  {isActive && (
-                    <motion.div
-                      className="absolute bottom-0 left-2 right-2 h-0.5 bg-accent dark:bg-accent-dark rounded-full"
-                      layoutId="activeSection"
-                      transition={{
-                        type: 'spring',
-                        stiffness: 380,
-                        damping: 30,
-                      }}
-                    />
-                  )}
                 </a>
-              );
-            })}
-
-            {/* Keyboard shortcut hint */}
-            <div className="ml-2 px-2 py-1 text-xs text-secondary dark:text-secondary-dark bg-surface dark:bg-surface-dark rounded border border-gray-200 dark:border-gray-700">
-              ⌘K
+              ))}
             </div>
-
-            {/* Theme Toggle */}
-            <motion.button
-              onClick={toggleTheme}
-              className="ml-2 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label={`Passer en mode ${resolvedTheme === 'dark' ? 'clair' : 'sombre'}`}
-              whileHover={prefersReducedMotion ? {} : { scale: 1.1 }}
-              whileTap={prefersReducedMotion ? {} : { scale: 0.9 }}
-            >
-              <AnimatePresence mode="wait">
-                {resolvedTheme === 'dark' ? (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <SunIcon className="w-5 h-5 text-primary-dark" />
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <MoonIcon className="w-5 h-5 text-primary" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="flex md:hidden items-center gap-4">
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label={`Passer en mode ${resolvedTheme === 'dark' ? 'clair' : 'sombre'}`}
-              whileTap={{ scale: 0.9 }}
-            >
-              {resolvedTheme === 'dark' ? (
-                <SunIcon className="w-5 h-5 text-primary-dark" />
-              ) : (
-                <MoonIcon className="w-5 h-5 text-primary" />
-              )}
-            </motion.button>
-
-            <motion.button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="Menu de navigation"
-              aria-expanded={isMobileMenuOpen}
-              whileTap={{ scale: 0.9 }}
-            >
-              {isMobileMenuOpen ? (
-                <CloseIcon className="w-6 h-6 text-primary dark:text-primary-dark" />
-              ) : (
-                <MenuIcon className="w-6 h-6 text-primary dark:text-primary-dark" />
-              )}
-            </motion.button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              className="md:hidden py-4 border-t border-gray-100 dark:border-gray-800"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="flex flex-col gap-2">
-                {navLinks.map((link) => {
-                  const isActive = activeSection === link.id;
-                  return (
-                    <motion.a
-                      key={link.href}
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleNavClick(link.href);
-                      }}
-                      className={`text-base font-medium py-2 px-3 rounded-lg transition-colors ${
-                        isActive
-                          ? 'text-accent dark:text-accent-dark bg-accent/10 dark:bg-accent-dark/10'
-                          : 'text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark'
-                      }`}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {link.label}
-                    </motion.a>
-                  );
-                })}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-
-      {/* Scroll progress indicator */}
-      <ScrollProgress />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }

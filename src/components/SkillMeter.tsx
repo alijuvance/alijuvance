@@ -58,36 +58,14 @@ interface SkillBarProps {
 function SkillBar({ skill, index, isInView, prefersReducedMotion }: SkillBarProps) {
   return (
     <motion.div
-      initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{
-        duration: 0.4,
-        delay: prefersReducedMotion ? 0 : index * 0.1,
-      }}
+      initial={prefersReducedMotion ? {} : { opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : {}}
+      transition={{ delay: index * 0.05 }}
+      className="inline-block mr-4 mb-2"
     >
-      <div className="flex justify-between items-center mb-2">
-        <span className="text-sm font-medium text-primary dark:text-primary-dark">
-          {skill.name}
-        </span>
-        <span className="text-xs text-secondary dark:text-secondary-dark">
-          {skill.level}%
-        </span>
-      </div>
-      
-      {/* Progress bar container */}
-      <div className="h-2 bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-        {/* Animated fill */}
-        <motion.div
-          className="h-full rounded-full bg-gradient-to-r from-accent to-blue-500 dark:from-accent-dark dark:to-blue-400"
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-          transition={{
-            duration: prefersReducedMotion ? 0 : 1,
-            delay: prefersReducedMotion ? 0 : index * 0.1 + 0.3,
-            ease: 'easeOut',
-          }}
-        />
-      </div>
+      <span className="text-sm text-secondary dark:text-secondary-dark font-medium hover:text-primary dark:hover:text-primary-dark transition-colors cursor-default">
+        {skill.name}
+      </span>
     </motion.div>
   );
 }

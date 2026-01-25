@@ -55,22 +55,21 @@ export function AboutSection() {
             </p>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {/* Stats Grid - Minimalist Text Only */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="text-center p-6 rounded-xl bg-background dark:bg-background-dark border border-gray-100 dark:border-gray-800"
+                className="text-center"
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-accent dark:text-accent-dark mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-primary dark:text-primary-dark mb-2 tracking-tight">
                   {stat.value}
                 </div>
-                <div className="text-sm text-secondary dark:text-secondary-dark">
+                <div className="text-xs uppercase tracking-widest text-secondary dark:text-secondary-dark">
                   {stat.label}
                 </div>
               </motion.div>
