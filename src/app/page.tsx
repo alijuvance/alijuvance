@@ -1,3 +1,5 @@
+'use client';
+
 import { FloatingNav } from '@/components/FloatingNav';
 import { BentoGrid, BentoCard } from '@/components/BentoGrid';
 import { motion } from 'framer-motion';

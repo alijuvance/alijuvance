@@ -30,6 +30,7 @@ const config: Config = {
         },
         accent: {
           DEFAULT: '#ef4444', // Red 500
+          dark: '#ef4444',
           glow: 'rgba(239, 68, 68, 0.15)',
         },
         border: {
