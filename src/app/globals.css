@@ -15,9 +15,25 @@
 
   /* Base body styles with theme transitions */
   body {
-    @apply bg-background text-primary antialiased;
-    @apply dark:bg-background-dark dark:text-primary-dark;
+    @apply bg-black text-white antialiased;
     @apply transition-colors duration-300;
+    overflow-x: hidden;
+  }
+
+  /* Top Red Glow Effect (Reference Image) */
+  body::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1000px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(80px);
   }
 
   /* Typography defaults */
