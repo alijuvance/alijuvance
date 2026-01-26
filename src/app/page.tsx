@@ -5,31 +5,35 @@ import { BentoGrid, BentoCard } from '@/components/BentoGrid';
 import { AnimatedTimelineSection } from '@/components/AnimatedTimeline';
 import { ProjectsSection } from '@/components/ProjectsSection';
 import { SkillsSection } from '@/components/SkillsSection';
-import { AboutSection } from '@/components/AboutSection';
+// Note: AboutSection is removed as per new layout structure
 import { FeaturedSection } from '@/components/FeaturedSection';
 import { TextReveal } from '@/components/TextReveal';
 import { ButtonBorderBeam } from '@/components/ButtonBorderBeam';
-import { motion } from 'framer-motion';
+import { EducationRecognition } from '@/components/EducationRecognition';
+import { ContactVision } from '@/components/ContactVision';
+import { Footer } from '@/components/Footer';
 
 /**
- * Home Page - 'Laza' Style Structure
- * 1. Hero (Bento) with TextReveal and BorderBeam
+ * Home Page - Final 'Senior' Structure
+ * 1. Hero (Bento)
  * 2. Featured (Editorial)
- * 3. Experience (Stacked List)
+ * 3. Experience (Stacked)
  * 4. Projects (Grid)
  * 5. Skills
- * 6. Footer
+ * 6. Education & Recognition (New)
+ * 7. Contact Vision (New)
+ * 8. Footer (New)
  */
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background text-primary dark:bg-black dark:text-white font-sans pb-20 transition-colors">
+    <div className="min-h-screen bg-background text-primary dark:bg-black dark:text-white font-sans pb-0 transition-colors">
       
       {/* Floating Navigation */}
       <FloatingNav />
 
       {/* Main Content Container */}
-      <main className="pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-32">
+      <main className="pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-32 pb-32">
         
         {/* 1. HERO SECTION (Bento Grid) */}
         <section id="home">
@@ -110,13 +114,13 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 2. FEATURED SECTION (Large "About" Highlight) */}
+        {/* 2. FEATURED SECTION */}
         <FeaturedSection />
 
-        {/* 3. EXPERIENCE SECTION (Stacked List) */}
+        {/* 3. EXPERIENCE SECTION */}
         <AnimatedTimelineSection />
 
-        {/* 4. PROJECTS SECTION (Grid) */}
+        {/* 4. PROJECTS SECTION */}
         <section id="projects">
           <ProjectsSection />
         </section>
@@ -126,12 +130,16 @@ export default function HomePage() {
           <SkillsSection />
         </section>
 
-        {/* 6. ABOUT / FOOTER */}
-        <section id="about" className="border-t border-gray-100 dark:border-white/10 pt-20">
-          <AboutSection />
-        </section>
+        {/* 6. EDUCATION & RECOGNITION */}
+        <EducationRecognition />
+
+        {/* 7. CONTACT VISION */}
+        <ContactVision />
 
       </main>
+
+      {/* 8. FOOTER */}
+      <Footer />
     </div>
   );
 }
