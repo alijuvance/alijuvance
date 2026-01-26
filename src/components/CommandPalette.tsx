@@ -159,10 +159,10 @@ export function CommandPalette() {
               initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.95, y: -20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={prefersReducedMotion ? {} : { opacity: 0, scale: 0.95, y: -20 }}
-              transition={{ duration: 0.15 }}
+              transition={{ duration: 0.2, ease: "circOut" }}
             >
               <Command
-                className="bg-background dark:bg-background-dark border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl overflow-hidden"
+                className="glass-panel rounded-2xl overflow-hidden shadow-2xl"
                 label="Menu de commandes"
               >
                 {/* Search Input */}

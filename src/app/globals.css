@@ -140,6 +140,37 @@
   .animation-delay-100 {
     animation-delay: 100ms;
   }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  /* Glassmorphism 2.0 Utilities */
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply dark:bg-black/40 dark:backdrop-blur-2xl dark:border-white/5;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  .dark .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(239, 68, 68, 0.2);
+  }
 }
 
 /* Selection styling */
