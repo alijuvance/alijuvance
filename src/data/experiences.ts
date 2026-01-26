@@ -13,39 +13,39 @@ export interface Experience {
 
 /**
  * Career Experience Data
- * Key milestones and responsibilities
+ * Based on Ali Juvance's CV
  */
 export const experiences: Experience[] = [
   {
     id: 'exp-1',
-    period: '2020 - Présent',
-    role: 'Lead Developer & Architecte',
-    company: 'Consultant Indépendant',
+    period: 'Sept 2025 - Présent',
+    role: 'Développeur Web & Blockchain',
+    company: 'Ministère du Travail (MTEFP)',
     description:
-      'Accompagnement de startups et ETI dans la conception et la modernisation de leurs systèmes. Architecture microservices, migrations cloud, et mise en place de bonnes pratiques engineering.',
+      'Conception d\'un système sécurisé d\'authentification des diplômes via Blockchain et QR Code. Stack: NestJS, Next.js, Ethereum (Sepolia).',
   },
   {
     id: 'exp-2',
-    period: '2017 - 2020',
-    role: 'Senior Fullstack Developer',
-    company: 'Scale-up FinTech',
+    period: 'Sept 2024 - Nov 2024',
+    role: 'Développeur Fullstack',
+    company: 'Computer Store',
     description:
-      'Responsable technique d\'une équipe de 5 développeurs. Conception du système de paiement traitant 2M€ de transactions mensuelles. Mise en conformité PCI-DSS.',
+      'Développement d\'une application de gestion RH pour automatiser les tâches administratives et centraliser les données employés. Stack: React.js, NestJS, MySQL.',
   },
   {
     id: 'exp-3',
-    period: '2014 - 2017',
-    role: 'Développeur Backend Senior',
-    company: 'Agence Digitale Premium',
+    period: 'Mai 2024 - Juin 2024',
+    role: 'Développeur Polyvalent',
+    company: 'Projets Académiques & Freelance',
     description:
-      'Développement d\'applications web complexes pour des clients grands comptes. Spécialisation progressive en architecture logicielle et optimisation SQL.',
+      'Réalisation de solutions de gestion (Stock épicerie, Station-service) et sites web institutionnels. Technologies: Java, C#, HTML/CSS.',
   },
   {
     id: 'exp-4',
-    period: '2011 - 2014',
-    role: 'Développeur Web Fullstack',
-    company: 'Startup E-commerce',
+    period: 'Aout 2023 - Sept 2023',
+    role: 'Développeur C++ / Qt',
+    company: 'Projet Fin d\'Année',
     description:
-      'Première expérience en startup : développement complet (PHP/MySQL, JavaScript) d\'une plateforme e-commerce de A à Z. Apprentissage de l\'agilité et du delivery rapide.',
+      'Conception d\'un logiciel desktop optimisé pour la gestion de vente d\'une épicerie. Focus sur la performance et l\'interface utilisateur desktop.',
   },
 ];

@@ -17,7 +17,7 @@ export function FeaturedSection() {
           {/* Label */}
           <div className="md:col-span-3">
             <span className="inline-block px-3 py-1 rounded-full border border-gray-200 dark:border-white/10 text-xs font-mono text-secondary uppercase tracking-widest">
-              À Propos
+              Ali Juvance
             </span>
           </div>
 
@@ -29,7 +29,7 @@ export function FeaturedSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              Je conçois des architectures numériques qui allient <span className="text-accent">performance brute</span> et expérience utilisateur fluide.
+              Étudiant en Licence Pro à l&apos;ENI, je fusionne <span className="text-accent">Web Moderne</span> et <span className="text-accent">Blockchain</span>.
             </motion.h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -40,7 +40,7 @@ export function FeaturedSection() {
                 transition={{ delay: 0.2 }}
               >
                 <p className="text-secondary dark:text-gray-400 leading-relaxed text-lg">
-                  Mon approche est simple : chaque ligne de code doit avoir une raison d&apos;être. Je privilégie la maintenabilité et la scalabilité sur la complexité inutile.
+                  Passionné par l&apos;écosystème JavaScript (Next.js, NestJS) et les nouvelles technologies décentralisées (Web3). Je construis des solutions qui résolvent de vrais problèmes métier.
                 </p>
               </motion.div>
               
@@ -51,7 +51,7 @@ export function FeaturedSection() {
                 transition={{ delay: 0.4 }}
               >
                 <p className="text-secondary dark:text-gray-400 leading-relaxed text-lg">
-                  Spécialisé dans les écosystèmes React et Node.js, j&apos;accompagne les startups et entreprises dans la construction de leurs produits, de l&apos;idée au déploiement.
+                  Curieux et rigoureux, je maîtrise le cycle complet de développement, de la conception UML/Merise au déploiement. En dehors du code, je me ressource via la danse latine et les échecs.
                 </p>
               </motion.div>
             </div>

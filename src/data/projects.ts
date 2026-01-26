@@ -11,63 +11,60 @@ export interface Project {
   solution: string;
   metrics: string[];
   stack: string[];
-  category?: 'Fullstack' | 'Frontend' | 'Backend' | 'DevOps'; // Added category
+  category?: 'Fullstack' | 'Frontend' | 'Backend' | 'DevOps' | 'Blockchain';
 }
 
 /**
  * Sample Projects Data
- * Real-world case studies demonstrating business impact
+ * Real-world case studies based on Ali Juvance's work
  */
 export const projects: Project[] = [
   {
-    id: 'ecommerce-platform',
-    title: 'Refonte Plateforme E-commerce',
-    role: 'Lead Developer Backend',
+    id: 'diploma-auth',
+    title: 'Authentification Diplômes Blockchain',
+    role: 'Lead Developer',
     challenge:
-      'La plateforme existante (Legacy PHP 5.6) ne supportait plus la charge lors des pics de trafic (Black Friday). Temps de réponse moyens supérieurs à 5 secondes, taux d\'abandon de panier à 45%.',
+      'La falsification de diplômes et la lenteur des vérifications manuelles posaient un problème de confiance majeur pour le Ministère et les recruteurs.',
     solution:
-      'Migration progressive vers une architecture microservices Node.js/Go. Mise en place de Redis pour le caching intelligent et Elasticsearch pour la recherche produit. Implémentation d\'une stratégie de load balancing avec failover automatique.',
+      'Développement d\'une plateforme décentralisée sur Ethereum (Testnet Sepolia). Chaque diplôme est un token/hash unique vérifiable instantanément via QR Code, garantissant une immutabilité totale.',
     metrics: [
-      'Temps de chargement réduit de 80% (de 5s à 0.8s)',
-      '+25% de taux de conversion',
-      'Zéro downtime lors du dernier Black Friday (2M de visites)',
-      'Coûts d\'infrastructure réduits de 35%',
+      'Sécurité 100% inviolable (Blockchain)',
+      'Vérification instantanée (< 2s)',
+      'Digitalisation du processus complet',
     ],
-    stack: ['Node.js', 'Go', 'Redis', 'Elasticsearch', 'PostgreSQL', 'Docker', 'Kubernetes'],
-    category: 'Backend',
+    stack: ['Next.js', 'NestJS', 'Solidity', 'Ethereum', 'Web3.js', 'PostgreSQL'],
+    category: 'Blockchain',
   },
   {
-    id: 'fintech-security',
-    title: 'Système de Détection de Fraude',
-    role: 'Architecte Logiciel',
+    id: 'hr-management',
+    title: 'Digitalisation RH Computer Store',
+    role: 'Fullstack Developer',
     challenge:
-      'Une fintech traitant 500K transactions/jour avait un taux de faux positifs de 12% sur la détection de fraude, bloquant des clients légitimes et générant un volume d\'appels support insoutenable.',
+      'La gestion des employés reposait sur des processus papier et Excel dispersés, entraînant des erreurs de saisie et une perte de temps pour les managers.',
     solution:
-      'Conception d\'un pipeline de scoring en temps réel combinant règles métier et modèles ML. Architecture event-driven avec Kafka pour le traitement asynchrone. Dashboard temps réel pour l\'équipe anti-fraude.',
+      'Création d\'un portail employé/RH centralisé. Automatisation des congés, fiches de paie et suivi de carrière via une interface React fluide connectée à une API NestJS robuste.',
     metrics: [
-      'Taux de faux positifs réduit à 2.3% (-80%)',
-      'Détection en temps réel (<100ms)',
-      'Économie de 400K€/an en support client',
-      'Conformité PCI-DSS maintenue',
+      'Centralisation des données RH',
+      'Réduction des tâches admin manuelles',
+      'Interface temps réel',
     ],
-    stack: ['Java', 'Spring Boot', 'Apache Kafka', 'Python', 'TensorFlow', 'TimescaleDB'],
+    stack: ['React.js', 'NestJS', 'MySQL', 'TailwindCSS', 'TypeScript'],
     category: 'Fullstack',
   },
   {
-    id: 'saas-migration',
-    title: 'Migration Cloud & Modernisation SaaS',
-    role: 'Lead Dev Fullstack & DevOps',
+    id: 'stock-management',
+    title: 'Gestion Commerciale Desktop',
+    role: 'Développeur C++',
     challenge:
-      'Application SaaS B2B vieillissante (C# .NET Framework) hébergée on-premise. Coûts de maintenance élevés, impossibilité de scaler, et chaque déploiement nécessitait 4h de downtime.',
+      'Nécessité d\'une solution performante hors-ligne pour la gestion de vente d\'une épicerie avec un grand volume de transactions.',
     solution:
-      'Réécriture progressive vers .NET Core conteneurisé. Migration vers Azure avec infrastructure as code (Terraform). Pipeline CI/CD complet avec tests automatisés et déploiement blue-green.',
+      'Logiciel desktop natif développé en C++ avec framework Qt. Base de données locale optimisée et interface ergonomique pour une saisie rapide en caisse.',
     metrics: [
-      'Déploiements de 4h à 5 min (zero-downtime)',
-      'Scalabilité horizontale automatique',
-      'Time-to-market réduit de 60%',
-      'SLA passé de 99.5% à 99.95%',
+      'Performance native (haute rapidité)',
+      'Fonctionnement 100% hors-ligne',
+      'Gestion de stock temps réel',
     ],
-    stack: ['.NET Core', 'Azure', 'Terraform', 'GitHub Actions', 'React', 'SQL Server'],
-    category: 'DevOps',
+    stack: ['C++', 'Qt', 'SQL'],
+    category: 'Backend', // Desktop but fits close to backend logic
   },
 ];

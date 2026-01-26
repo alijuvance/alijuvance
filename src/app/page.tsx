@@ -82,17 +82,17 @@ export default function HomePage() {
                 <h2 className="text-xl font-bold mb-2">Mondial</h2>
                 <p className="text-sm text-secondary">Adaptabilité totale aux fuseaux horaires (UTC-8 à UTC+3).</p>
                 <div className="mt-4 flex gap-2 font-mono">
-                  <span className="px-2 py-1 rounded bg-surface dark:bg-black border border-gray-200 dark:border-white/10 text-xs text-secondary">PARIS</span>
-                  <span className="px-2 py-1 rounded bg-accent/10 border border-accent/20 text-xs text-accent">UTC+1</span>
+                  <span className="px-2 py-1 rounded bg-surface dark:bg-black border border-gray-200 dark:border-white/10 text-xs text-secondary">MADAGASCAR</span>
+                  <span className="px-2 py-1 rounded bg-accent/10 border border-accent/20 text-xs text-accent">UTC+3</span>
                 </div>
               </div>
               <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full bg-gradient-to-t from-accent to-transparent opacity-20 blur-md animate-pulse" />
             </BentoCard>
 
             <BentoCard colSpan={1} className="flex flex-col items-center justify-center text-center min-h-[300px]">
-              <h2 className="text-2xl font-bold mb-2">Un Projet ?</h2>
-              <p className="text-secondary mb-8 text-sm">Discutons de votre vision.</p>
-              <ButtonBorderBeam onClick={() => window.location.href = 'mailto:contact@example.com'}>
+              <h2 className="text-2xl font-bold mb-2">Ali Juvance</h2>
+              <p className="text-secondary mb-8 text-sm">Développeur Fullstack & Web3</p>
+              <ButtonBorderBeam onClick={() => window.location.href = 'mailto:alijuvance@gmail.com'}>
                 Me Contacter
               </ButtonBorderBeam>
             </BentoCard>
