@@ -1,149 +1,82 @@
 'use client';
 
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { experiences } from '@/data/experiences';
+import { Spotlight } from './Spotlight';
 
 /**
- * Animated Timeline Section Component
- * Features:
- * - SVG line that draws as user scrolls (pathLength animation)
- * - Timeline items fade in with y transform
- * - Respects prefers-reduced-motion
+ * Stacked Experiences Section (Laza Style)
+ * Large cards stacked vertically with rich detail.
  */
 
 export function AnimatedTimelineSection() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Transform scroll progress to path drawing
-  const pathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
-
   return (
-    <section
-      id="experience"
-      ref={containerRef}
-      className="section-padding relative"
-      aria-labelledby="experience-title"
-    >
+    <section id="experience" className="section-padding">
       <div className="container-section">
-        {/* Section Header */}
-        <motion.div
-          className="mb-20"
-          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 id="experience-title" className="section-title text-left">
-            Parcours
+        {/* Header */}
+        <div className="mb-20">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 font-sans tracking-tight">
+            Expérience <span className="text-secondary/40">Professionnelle</span>
           </h2>
-        </motion.div>
+          <div className="h-1 w-20 bg-accent rounded-full" />
+        </div>
 
-        {/* Timeline */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Animated SVG Line - Left Aligned */}
-          <svg
-            className="absolute left-0 md:left-8 top-0 h-full w-px"
-            viewBox="0 0 2 100"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-          >
-            {/* Background line (dark gray) */}
-            <line
-              x1="1"
-              y1="0"
-              x2="1"
-              y2="100"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="text-white/5"
-            />
-            {/* Animated line (accent color) */}
-            <motion.line
-              x1="1"
-              y1="0"
-              x2="1"
-              y2="100"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="text-accent"
-              style={{
-                pathLength: prefersReducedMotion ? 1 : pathLength,
-              }}
-            />
-          </svg>
-
-          {/* Timeline items */}
-          <div className="space-y-16 pl-8 md:pl-20">
-            {experiences.map((experience, index) => (
-              <TimelineItem
-                key={experience.id}
-                experience={experience}
-                index={index}
-                prefersReducedMotion={prefersReducedMotion || false}
-              />
-            ))}
-          </div>
+        {/* Stacked List */}
+        <div className="flex flex-col gap-8">
+          {experiences.map((exp, index) => (
+            <ExperienceCard key={exp.id} experience={exp} index={index} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-interface TimelineItemProps {
-  experience: {
-    id: string;
-    period: string;
-    role: string;
-    company: string;
-    description: string;
-  };
-  index: number;
-  prefersReducedMotion: boolean;
-}
-
-function TimelineItem({ experience, index, prefersReducedMotion }: TimelineItemProps) {
+function ExperienceCard({ experience, index }: { experience: any, index: number }) {
   return (
     <motion.div
-      className="relative"
-      initial={prefersReducedMotion ? {} : { opacity: 0, x: -20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{
-        duration: 0.5,
-        delay: prefersReducedMotion ? 0 : index * 0.1,
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ delay: index * 0.1 }}
+      className="group relative"
     >
-      {/* Dot on Line */}
-      <div 
-        className="absolute -left-[37px] md:-left-[53px] top-1.5 w-3 h-3 rounded-full bg-black border-2 border-accent shadow-[0_0_10px_rgba(239,68,68,0.5)] z-10"
-      />
-
-      {/* Content - Ghost Style */}
-      <div>
-        <div className="flex flex-col md:flex-row md:items-baseline gap-2 mb-2">
-          <h3 className="text-xl md:text-2xl font-bold text-white">
-            {experience.role}
-          </h3>
-          <span className="text-accent font-medium">@ {experience.company}</span>
-        </div>
-        
-        <div className="mb-4">
-          <span className="text-xs font-mono text-secondary uppercase tracking-widest">
+      <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-accent/50 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="relative pl-6 md:pl-10 py-4">
+        {/* Top Row: Role & Company & Date */}
+        <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-2">
+          <div>
+            <h3 className="text-2xl md:text-3xl font-bold font-sans group-hover:text-accent transition-colors">
+              {experience.role}
+            </h3>
+            <p className="text-lg text-secondary font-medium mt-1">
+              {experience.company}
+            </p>
+          </div>
+          
+          <div className="font-mono text-sm text-secondary/60 bg-surface dark:bg-white/5 px-3 py-1 rounded-full border border-gray-200 dark:border-white/5">
             {experience.period}
-          </span>
+          </div>
         </div>
 
-        <p className="text-secondary/80 leading-relaxed max-w-2xl">
+        {/* Description */}
+        <p className="text-secondary dark:text-gray-400 leading-relaxed max-w-3xl text-lg">
           {experience.description}
         </p>
+
+        {/* Tech Stack (Mockup if not in data) */}
+        <div className="flex flex-wrap gap-2 mt-6">
+           {['React', 'TypeScript', 'System Design'].map((tag, i) => (
+             <span key={i} className="text-xs font-mono text-secondary/60 border border-gray-200 dark:border-white/5 px-2 py-1 rounded hover:bg-surface dark:hover:bg-white/5 transition-colors">
+               {tag}
+             </span>
+           ))}
+        </div>
       </div>
+      
+      {/* Divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-white/10 to-transparent" />
     </motion.div>
   );
 }
