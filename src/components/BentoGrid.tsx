@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import { motion, useReducedMotion, useMotionValue, useTransform } from 'framer-motion';
+import { Spotlight } from './Spotlight';
 
 /**
  * BentoGrid Layout Component
@@ -85,16 +86,18 @@ export function BentoCard({ children, className = '', colSpan = 1, rowSpan = 1 }
         style={{ rotateX: prefersReducedMotion ? 0 : rotateX, rotateY: prefersReducedMotion ? 0 : rotateY }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       >
-        {/* Glossy Gradient Overlay (Dark Mode) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden dark:block rounded-3xl" />
-        
-        {/* Red Glow Effect from Bottom (Dark Mode) */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-accent/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block" />
+        <Spotlight className="h-full w-full rounded-3xl" fill="rgba(255, 255, 255, 0.05)">
+          {/* Glossy Gradient Overlay (Dark Mode) */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden dark:block rounded-3xl" />
+          
+          {/* Red Glow Effect from Bottom (Dark Mode) */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-accent/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block" />
 
-        {/* Content */}
-        <div className="relative z-10 w-full h-full p-6 md:p-8">
-          {children}
-        </div>
+          {/* Content */}
+          <div className="relative z-10 w-full h-full p-6 md:p-8">
+            {children}
+          </div>
+        </Spotlight>
       </motion.div>
     </motion.div>
   );

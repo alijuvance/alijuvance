@@ -56,8 +56,8 @@ export default function HomePage() {
               </h2>
               
               <div className="flex flex-wrap gap-2 mt-8">
-                {['Next.js 14', 'React Server Components', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'].map((tech) => (
-                  <span key={tech} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-secondary hover:bg-white/10 hover:text-white transition-colors cursor-default">
+                {['Next.js 14', 'React SC', 'TypeScript', 'Tailwind', 'Node.js', 'PostgreSQL', 'Docker', 'AWS'].map((tech) => (
+                  <span key={tech} className="px-3 py-1.5 rounded-lg bg-surface/50 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-xs text-secondary hover:text-primary dark:hover:text-white transition-colors cursor-default font-mono">
                     {tech}
                   </span>
                 ))}
@@ -71,9 +71,9 @@ export default function HomePage() {
               <div className="relative z-10">
                 <h2 className="text-xl font-bold mb-2">Collaboration Mondiale</h2>
                 <p className="text-sm text-secondary">Adaptabilité totale aux fuseaux horaires (UTC-8 à UTC+3).</p>
-                <div className="mt-4 flex gap-2">
-                  <span className="px-2 py-1 rounded bg-black border border-white/10 text-xs text-secondary">PARIS</span>
-                  <span className="px-2 py-1 rounded bg-accent/20 border border-accent/20 text-xs text-accent">UTC+1</span>
+                <div className="mt-4 flex gap-2 font-mono">
+                  <span className="px-2 py-1 rounded bg-surface dark:bg-black border border-gray-200 dark:border-white/10 text-xs text-secondary">PARIS</span>
+                  <span className="px-2 py-1 rounded bg-accent/10 border border-accent/20 text-xs text-accent">UTC+1</span>
                 </div>
               </div>
               <div className="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full bg-gradient-to-t from-accent to-transparent opacity-20 blur-md animate-pulse" />
