@@ -82,11 +82,11 @@ export function BentoCard({ children, className = '', colSpan = 1, rowSpan = 1 }
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className="w-full h-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/5 group-hover:border-accent dark:group-hover:border-white/10 rounded-3xl"
+        className="w-full h-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/5 group-hover:border-gray-300 dark:group-hover:border-white/10 rounded-3xl"
         style={{ rotateX: prefersReducedMotion ? 0 : rotateX, rotateY: prefersReducedMotion ? 0 : rotateY }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       >
-        <Spotlight className="h-full w-full rounded-3xl" fill="rgba(255, 255, 255, 0.05)">
+        <Spotlight className="h-full w-full rounded-3xl" fill="rgba(255, 255, 255, 0.03)">
           {/* Glossy Gradient Overlay (Dark Mode) */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden dark:block rounded-3xl" />
           
