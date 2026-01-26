@@ -4,8 +4,8 @@ import { Project } from '@/data/projects';
 import { motion, useReducedMotion } from 'framer-motion';
 
 /**
- * Project Card Component - Minimalist
- * Simple, vertically stacked content. No 3D, no heavy borders.
+ * Project Card Component - Data Dense
+ * Detailed metrics, badges, and action links.
  */
 
 interface ProjectCardProps {
@@ -35,7 +35,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Content */}
         <div className="md:col-span-3 space-y-6">
-          {/* Challenge & Solution combined for flow */}
+          {/* Challenge & Solution */}
           <div className="prose prose-sm dark:prose-invert max-w-none text-secondary dark:text-secondary-dark">
             <p>
               <strong className="text-primary dark:text-primary-dark font-semibold">Challenge:</strong> {project.challenge}
@@ -45,27 +45,35 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </p>
           </div>
 
-          {/* Metrics - Simple List */}
-          <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-primary dark:text-primary-dark">
+          {/* Metrics - Data Density (Principle 10) */}
+          <div className="grid grid-cols-2 gap-4 my-6">
             {project.metrics.map((metric, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent dark:bg-accent-dark/50" />
-                {metric}
-              </li>
+              <div key={index} className="flex flex-col">
+                <span className="text-2xl font-bold font-mono text-primary dark:text-white">{metric.split(' ')[0]}</span>
+                <span className="text-xs text-secondary uppercase tracking-wider">{metric.split(' ').slice(1).join(' ')}</span>
+              </div>
             ))}
-          </ul>
+          </div>
 
-          {/* Tech Stack - Simple Text */}
-          <div className="flex flex-wrap gap-2 text-xs font-mono text-secondary dark:text-secondary-dark pt-2">
-            {project.stack.map((tech, i) => (
-              <span key={tech}>
-                {tech}{i < project.stack.length - 1 ? ' /' : ''}
-              </span>
-            ))}
+          {/* Tech Stack & Action */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-100 dark:border-white/5">
+            <div className="flex flex-wrap gap-2">
+              {project.stack.map((tech) => (
+                <span key={tech} className="px-2 py-1 text-xs font-mono rounded bg-gray-100 dark:bg-zinc-800 text-secondary dark:text-zinc-400 border border-gray-200 dark:border-white/10">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            
+            <a href="#" className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline decoration-accent/30 underline-offset-4 transition-all group/link">
+              Voir le cas
+              <svg className="w-4 h-4 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
     </motion.article>
   );
 }
-

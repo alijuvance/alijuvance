@@ -7,11 +7,13 @@ import { ProjectsSection } from '@/components/ProjectsSection';
 import { SkillsSection } from '@/components/SkillsSection';
 import { AboutSection } from '@/components/AboutSection';
 import { FeaturedSection } from '@/components/FeaturedSection';
+import { TextReveal } from '@/components/TextReveal';
+import { ButtonBorderBeam } from '@/components/ButtonBorderBeam';
 import { motion } from 'framer-motion';
 
 /**
  * Home Page - 'Laza' Style Structure
- * 1. Hero (Bento)
+ * 1. Hero (Bento) with TextReveal and BorderBeam
  * 2. Featured (Editorial)
  * 3. Experience (Stacked List)
  * 4. Projects (Grid)
@@ -49,9 +51,11 @@ export default function HomePage() {
                     Disponible
                   </div>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold leading-tight max-w-2xl tracking-tight">
-                  Je transforme des défis complexes en <span className="text-secondary/60">systèmes élégants.</span>
-                </h1>
+                
+                <div className="text-4xl md:text-6xl font-bold leading-tight max-w-2xl tracking-tight">
+                  <TextReveal text="Je transforme des défis complexes en" />
+                  <TextReveal text="systèmes élégants." className="text-secondary/60" delay={0.5} />
+                </div>
               </div>
             </BentoCard>
 
@@ -88,12 +92,9 @@ export default function HomePage() {
             <BentoCard colSpan={1} className="flex flex-col items-center justify-center text-center min-h-[300px]">
               <h2 className="text-2xl font-bold mb-2">Un Projet ?</h2>
               <p className="text-secondary mb-8 text-sm">Discutons de votre vision.</p>
-              <button 
-                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white dark:bg-white dark:text-black font-semibold hover:opacity-90 transition-opacity w-full justify-center"
-                onClick={() => window.location.href = 'mailto:contact@example.com'}
-              >
+              <ButtonBorderBeam onClick={() => window.location.href = 'mailto:contact@example.com'}>
                 Me Contacter
-              </button>
+              </ButtonBorderBeam>
             </BentoCard>
 
             <BentoCard colSpan={1} className="relative group overflow-hidden bg-black min-h-[300px]">

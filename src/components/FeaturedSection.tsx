@@ -40,7 +40,7 @@ export function FeaturedSection() {
                 transition={{ delay: 0.2 }}
               >
                 <p className="text-secondary dark:text-gray-400 leading-relaxed text-lg">
-                  Mon approche est simple : chaque ligne de code doit avoir une raison d'être. Je privilégie la maintenabilité et la scalabilité sur la complexité inutile.
+                  Mon approche est simple : chaque ligne de code doit avoir une raison d&apos;être. Je privilégie la maintenabilité et la scalabilité sur la complexité inutile.
                 </p>
               </motion.div>
               
@@ -51,7 +51,7 @@ export function FeaturedSection() {
                 transition={{ delay: 0.4 }}
               >
                 <p className="text-secondary dark:text-gray-400 leading-relaxed text-lg">
-                  Spécialisé dans les écosystèmes React et Node.js, j'accompagne les startups et entreprises dans la construction de leurs produits, de l'idée au déploiement.
+                  Spécialisé dans les écosystèmes React et Node.js, j&apos;accompagne les startups et entreprises dans la construction de leurs produits, de l&apos;idée au déploiement.
                 </p>
               </motion.div>
             </div>
