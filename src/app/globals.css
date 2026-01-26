@@ -15,13 +15,14 @@
 
   /* Base body styles with theme transitions */
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-background text-primary antialiased;
+    @apply dark:bg-background-dark dark:text-primary-dark;
     @apply transition-colors duration-300;
     overflow-x: hidden;
   }
 
-  /* Top Red Glow Effect (Reference Image) */
-  body::before {
+  /* Top Red Glow Effect (Dark Mode Only) */
+  .dark body::before {
     content: '';
     position: absolute;
     top: -200px;
@@ -60,7 +61,7 @@
   /* Focus styles for accessibility */
   *:focus-visible {
     @apply outline-none ring-2 ring-accent ring-offset-2;
-    @apply ring-offset-background;
+    @apply ring-offset-background dark:ring-offset-background-dark;
   }
 }
 
@@ -89,34 +90,36 @@
   .btn-secondary {
     @apply inline-flex items-center justify-center;
     @apply px-6 py-3 rounded-xl font-medium;
-    @apply border border-white/10 text-white;
-    @apply hover:bg-white/10;
+    @apply border border-gray-200 text-primary;
+    @apply hover:bg-gray-100;
+    @apply dark:border-white/10 dark:text-white dark:hover:bg-white/10;
     @apply transition-all duration-200;
   }
 
   /* Card base style */
   .card {
-    @apply bg-surface;
+    @apply bg-surface dark:bg-surface-dark;
     @apply rounded-3xl p-6 md:p-8;
-    @apply border border-white/5;
+    @apply border border-gray-200 dark:border-white/5;
     @apply transition-all duration-300;
   }
 
   .card-hover {
-    @apply hover:border-white/10;
+    @apply hover:border-gray-300 dark:hover:border-white/10;
   }
 
   /* Badge/tag style for tech stack */
   .tech-badge {
     @apply inline-flex items-center gap-1.5;
     @apply px-3 py-1 rounded-full text-xs font-medium;
-    @apply bg-white/5 text-secondary border border-white/10;
+    @apply bg-gray-100 text-secondary border border-gray-200;
+    @apply dark:bg-white/5 dark:border-white/10;
   }
 
   /* Section title styling */
   .section-title {
     @apply text-3xl md:text-5xl font-bold text-center mb-6;
-    @apply text-white;
+    @apply text-primary dark:text-white;
   }
 
   .section-subtitle {
@@ -129,7 +132,8 @@
   /* Text gradient utility */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    @apply bg-gradient-to-r from-accent to-white;
+    @apply bg-gradient-to-r from-accent to-gray-800;
+    @apply dark:from-accent dark:to-white;
   }
 
   /* Subtle animation delay utilities */
@@ -140,36 +144,21 @@
 
 /* Selection styling */
 ::selection {
-  @apply bg-accent/30 text-white;
+  @apply bg-accent/30 text-primary dark:text-white;
 }
 
-/* Custom scrollbar for dark mode */
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-background-dark;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-gray-700 rounded-full;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-gray-600;
-  }
-}
-
-.dark ::-webkit-scrollbar {
+/* Custom scrollbar */
+::-webkit-scrollbar {
   width: 10px;
 }
-.dark ::-webkit-scrollbar-track {
-  @apply bg-background-dark;
+::-webkit-scrollbar-track {
+  @apply bg-background dark:bg-background-dark;
 }
-.dark ::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full;
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
 }
-.dark ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-600;
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
 }
 
 /* Smooth link underline animation */

@@ -10,22 +10,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Modern Dark Palette (Zinc + Red Accent)
+        // Semantic Palette (Light = Swiss Design, Dark = Modern Bento)
         background: {
-          DEFAULT: '#000000', // Pitch black
+          DEFAULT: '#ffffff',
           dark: '#000000',
         },
         surface: {
-          DEFAULT: '#09090b', // Zinc 950
-          dark: '#09090b',
-          hover: '#18181b', // Zinc 900
+          DEFAULT: '#f4f4f5', // Zinc 100
+          dark: '#09090b', // Zinc 950
+          hover: '#e4e4e7', // Zinc 200
+          'dark-hover': '#18181b', // Zinc 900
         },
         primary: {
-          DEFAULT: '#ffffff',
+          DEFAULT: '#18181b', // Zinc 900
           dark: '#ffffff',
         },
         secondary: {
-          DEFAULT: '#a1a1aa', // Zinc 400
+          DEFAULT: '#71717a', // Zinc 500
           dark: '#a1a1aa',
         },
         accent: {
@@ -34,7 +35,8 @@ const config: Config = {
           glow: 'rgba(239, 68, 68, 0.15)',
         },
         border: {
-          DEFAULT: '#27272a', // Zinc 800
+          DEFAULT: '#e4e4e7', // Zinc 200
+          dark: '#27272a', // Zinc 800
         },
       },
       fontFamily: {

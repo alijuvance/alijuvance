@@ -48,17 +48,17 @@ export function BentoCard({ children, className = '', colSpan = 1, rowSpan = 1 }
 
   return (
     <motion.div
-      className={`group relative overflow-hidden rounded-3xl bg-[#0a0a0a] border border-white/5 hover:border-white/10 transition-colors ${getSpanClass()} ${className}`}
+      className={`group relative overflow-hidden rounded-3xl bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-white/5 hover:border-accent dark:hover:border-white/10 transition-colors shadow-sm dark:shadow-none ${getSpanClass()} ${className}`}
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5 }}
     >
-      {/* Glossy Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+      {/* Glossy Gradient Overlay (Dark Mode) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden dark:block" />
       
-      {/* Red Glow Effect from Bottom */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-accent/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      {/* Red Glow Effect from Bottom (Dark Mode) */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-accent/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none hidden dark:block" />
 
       {/* Content */}
       <div className="relative z-10 w-full h-full p-6 md:p-8">
