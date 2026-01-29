@@ -31,62 +31,96 @@ export function ProjectsSection() {
       });
 
   return (
-    <section
-      id="projects"
-      className="section-padding"
-      aria-labelledby="projects-title"
-    >
+    <section id="projects" className="section-padding relative overflow-hidden" aria-labelledby="projects-title">
+      {/* Decorative Wave Line - High Visibility Fix */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+         <svg className="w-full h-full opacity-60" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Solid White Stroke to ensure visibility */}
+            <path 
+              d="M-100 600 C 400 600, 800 100, 1600 200" 
+              stroke="white" 
+              strokeWidth="2" 
+              strokeLinecap="round"
+            />
+         </svg>
+      </div>
+
       <div className="container-section">
-        {/* Section Header */}
-        <div className="mb-16">
-          <h2 id="projects-title" className="text-3xl font-bold text-primary dark:text-primary-dark mb-6">
-            Projets Sélectionnés
-          </h2>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          
+          {/* LEFT COLUMN - Sticky Title & Filters */}
+          <div className="lg:col-span-5">
+            <div className="sticky top-24">
+              <h2 id="projects-title" className="text-5xl md:text-6xl font-title font-bold text-white mb-8 tracking-tight uppercase leading-none">
+                Selected <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800 dark:from-gray-500 dark:to-gray-800">
+                  Projects
+                </span>
+              </h2>
 
-        {/* Filter Tabs - Minimalist Text */}
-        <div className="flex flex-wrap gap-8 mb-16 border-b border-gray-100 dark:border-white/5 pb-4">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`text-sm font-medium transition-colors relative pb-4 -mb-4 ${
-                activeCategory === category
-                  ? 'text-primary dark:text-primary-dark border-b-2 border-primary dark:border-primary-dark'
-                  : 'text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+              <div className="w-24 h-1 bg-white mb-8" /> {/* The White Line */}
 
-        {/* Projects Grid with Animation */}
-        <motion.div 
-          layout
-          className="grid gap-8 lg:gap-12"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ProjectCard project={project} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+              <p className="text-secondary text-lg mb-10 max-w-sm">
+                A curated selection of technical challenges and digital products extracted from my professional journey.
+              </p>
 
-        {/* Call to action */}
-        <div className="text-center mt-16">
-          <a href="https://github.com/Alijuvance" target="_blank" rel="noopener noreferrer" className="btn-secondary">
-            Voir plus sur GitHub
-          </a>
+              {/* Filters - Vertical List in Sidebar */}
+              <div className="flex flex-col items-start gap-4">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setActiveCategory(category)}
+                    className={`text-sm font-mono tracking-widest uppercase transition-all duration-300 flex items-center gap-4 ${
+                      activeCategory === category
+                        ? 'text-white pl-4'
+                        : 'text-gray-500 hover:text-white'
+                    }`}
+                  >
+                    {/* Active White Line Indicator */}
+                    {activeCategory === category && (
+                      <motion.div 
+                        layoutId="activeCategoryLine"
+                        className="w-12 h-[1px] bg-white absolute left-0"
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN - Project Cards */}
+          <div className="lg:col-span-7 flex flex-col gap-10">
+            <motion.div layout className="flex flex-col gap-8">
+              <AnimatePresence mode="popLayout">
+                {filteredProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <ProjectCard project={project} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </motion.div>
+
+            {/* View More Link */}
+            <div className="pt-8 border-t border-white/5 flex justify-end">
+               <a href="https://github.com/Alijuvance" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/50 hover:text-white transition-colors">
+                  <span className="font-mono text-xs tracking-widest uppercase">View all archives</span>
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+               </a>
+            </div>
+          </div>
+        
         </div>
       </div>
     </section>

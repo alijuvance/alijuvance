@@ -16,7 +16,7 @@ export function HeroSplit() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full aspect-[3/4] lg:aspect-[4/5] max-w-[370px] mx-auto lg:ml-auto lg:mr-0"
+          className="relative w-full aspect-[3/4] lg:aspect-[4/5] max-w-[280px] lg:max-w-[370px] mx-auto lg:ml-auto lg:mr-0"
         >
             {/* Red glow removed as requested */}
             

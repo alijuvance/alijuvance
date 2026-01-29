@@ -33,37 +33,43 @@ export default function HomePage() {
       <FloatingNav />
 
       {/* Main Content Container */}
-      <main className="pt-32 px-4 md:px-8 max-w-7xl mx-auto space-y-32 pb-32">
+      <div className="pt-32 pb-32 space-y-32">
         
-        {/* 1. HERO SECTION (Split Layout) */}
-        <HeroSplit />
+        {/* 1. HERO SECTION (Constrained) */}
+        <div className="px-4 md:px-8 max-w-7xl mx-auto">
+          <HeroSplit />
+        </div>
         
-        {/* 2. BRAND STRIP */}
+        {/* 2. BRAND STRIP (Full Width) */}
         <BrandStrip />
 
-        {/* 3. SERVICES GRID */}
+        {/* 3. SERVICES GRID (Full Width) */}
         <ServicesGrid />
 
-        {/* 3. EXPERIENCE SECTION */}
-        <AnimatedTimelineSection />
+        {/* Main Constrained Content */}
+        <main className="px-4 md:px-8 max-w-7xl mx-auto space-y-32">
 
-        {/* 4. PROJECTS SECTION */}
-        <section id="projects">
-          <ProjectsSection />
-        </section>
+          {/* 3. EXPERIENCE SECTION */}
+          <AnimatedTimelineSection />
 
-        {/* 5. SKILLS SECTION */}
-        <section id="skills">
-          <SkillsSection />
-        </section>
+          {/* 4. PROJECTS SECTION */}
+          <section id="projects">
+            <ProjectsSection />
+          </section>
 
-        {/* 6. EDUCATION & RECOGNITION */}
-        <EducationRecognition />
+          {/* 5. SKILLS SECTION */}
+          <section id="skills">
+            <SkillsSection />
+          </section>
 
-        {/* 7. CONTACT VISION */}
-        <ContactVision />
+          {/* 6. EDUCATION & RECOGNITION */}
+          <EducationRecognition />
 
-      </main>
+          {/* 7. CONTACT VISION */}
+          <ContactVision />
+
+        </main>
+      </div>
 
       {/* 8. FOOTER */}
       <Footer />

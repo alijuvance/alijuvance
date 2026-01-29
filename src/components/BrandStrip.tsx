@@ -47,15 +47,17 @@ const brands = [
 
 export function BrandStrip() {
   return (
-    <div className="w-full relative py-12 overflow-hidden bg-black/40 border-y border-white/5 backdrop-blur-md">
-      {/* Subtle Red Glow Effect requested by user */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-red-900/50 to-transparent blur-sm" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-red-900/50 to-transparent blur-sm" />
-      
-      {/* Ambient Red Glow */}
-      <div className="absolute inset-0 bg-red-900/5 blur-3xl pointer-events-none" />
+    <div className="w-full relative py-12 overflow-hidden border-y border-white/5 backdrop-blur-md">
+      {/* Background with Red Atmosphere - Reference Style */}
+      <div className="absolute inset-0 bg-black" /> {/* Deep Base */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-red-950/40 to-black z-0" /> {/* Horizontal Fade */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[150%] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-transparent to-transparent blur-3xl z-0" /> {/* Central Glow */}
 
-      <div className="container-section">
+      {/* Subtle Top/Bottom lines */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-red-500/20 to-transparent" />
+      
+      <div className="container-section relative z-10">
         <div className="flex flex-wrap justify-center lg:justify-between items-center gap-10 lg:gap-16 opacity-70 grayscale transition-all duration-500 hover:grayscale-0 hover:opacity-100">
           {brands.map((brand, index) => (
             <motion.div
