@@ -25,7 +25,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
       </blockquote>
 
       {/* Author Info */}
-      <footer className="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-800">
+      <footer className="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-white/5">
         {/* Avatar Placeholder */}
         <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent/20 to-blue-500/20 dark:from-accent-dark/20 dark:to-blue-400/20 flex items-center justify-center">
           <span className="text-lg font-bold text-accent dark:text-accent-dark">

@@ -41,7 +41,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        title: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'], // New Title Font
+        mono: ['var(--font-geist-mono)', 'monospace'], // Updated to Geist Mono
       },
       borderRadius: {
         '2xl': '1rem',

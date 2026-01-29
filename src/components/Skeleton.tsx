@@ -29,7 +29,7 @@ export function Skeleton({ className }: SkeletonProps) {
  */
 export function ProjectSkeleton() {
   return (
-    <div className="pt-8 pb-8 border-t border-gray-100 dark:border-gray-800 first:border-t-0">
+    <div className="pt-8 pb-8 border-t border-gray-100 dark:border-white/5 first:border-t-0">
       <div className="grid md:grid-cols-4 gap-6">
         <div className="md:col-span-1 space-y-2">
           <Skeleton className="h-6 w-3/4" />

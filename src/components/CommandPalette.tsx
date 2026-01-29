@@ -166,13 +166,13 @@ export function CommandPalette() {
                 label="Menu de commandes"
               >
                 {/* Search Input */}
-                <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center gap-3 px-4 py-3 border-b border-gray-200 dark:border-white/5">
                   <SearchIcon className="w-5 h-5 text-secondary dark:text-secondary-dark" />
                   <Command.Input
                     placeholder="Rechercher une action..."
                     className="flex-1 bg-transparent text-primary dark:text-primary-dark placeholder-secondary dark:placeholder-secondary-dark outline-none"
                   />
-                  <kbd className="px-2 py-1 text-xs text-secondary dark:text-secondary-dark bg-surface dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded">
+                  <kbd className="px-2 py-1 text-xs text-secondary dark:text-secondary-dark bg-surface dark:bg-surface-dark border border-gray-200 dark:border-white/10 rounded">
                     ESC
                   </kbd>
                 </div>
@@ -199,7 +199,7 @@ export function CommandPalette() {
                     ))}
                   </Command.Group>
 
-                  <Command.Group heading="Actions" className="border-t border-gray-100 dark:border-gray-800 pt-2">
+                  <Command.Group heading="Actions" className="border-t border-gray-100 dark:border-white/5 pt-2">
                     {items.slice(5).map((item) => (
                       <Command.Item
                         key={item.id}

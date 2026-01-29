@@ -1,45 +1,52 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useSpring, useMotionTemplate, useMotionValue } from 'framer-motion';
-
-/**
- * Spotlight Component
- * Adds a spotlight effect that follows the mouse cursor.
- * Inspired by Aceternity UI / Stripe.
- */
 
 interface SpotlightProps {
   children: React.ReactNode;
   className?: string;
-  fill?: string;
+  spotlightColor?: string;
 }
 
-export function Spotlight({ children, className = "", fill = "rgba(255, 255, 255, 0.1)" }: SpotlightProps) {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+export function Spotlight({
+  children,
+  className = '',
+  spotlightColor = 'rgba(255, 255, 255, 0.1)',
+}: SpotlightProps) {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
 
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!divRef.current) return;
+
+    const div = divRef.current;
+    const rect = div.getBoundingClientRect();
+
+    setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
 
   return (
     <div
-      className={`relative group overflow-hidden ${className}`}
+      ref={divRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={`relative overflow-hidden ${className}`}
     >
-      <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+      <div
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
         style={{
-          background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              ${fill},
-              transparent 80%
-            )
-          `,
+          opacity,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, ${spotlightColor}, transparent 40%)`,
         }}
       />
       {children}

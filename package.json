@@ -12,9 +12,12 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "framer-motion": "^12.29.0",
+    "geist": "^1.5.1",
     "next": "14.2.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icon-cloud": "^4.1.7",
+    "simple-icons": "^16.6.1",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {

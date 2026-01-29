@@ -45,7 +45,7 @@ export function ProjectsSection() {
         </div>
 
         {/* Filter Tabs - Minimalist Text */}
-        <div className="flex flex-wrap gap-8 mb-16 border-b border-gray-100 dark:border-gray-800 pb-4">
+        <div className="flex flex-wrap gap-8 mb-16 border-b border-gray-100 dark:border-white/5 pb-4">
           {categories.map((category) => (
             <button
               key={category}

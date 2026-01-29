@@ -41,7 +41,7 @@ export function Terminal({ title = 'terminal', children, language = 'bash' }: Te
       transition={{ duration: 0.5 }}
     >
       {/* Terminal Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-800 border-b border-gray-700">
+      <div className="flex items-center justify-between px-4 py-3 bg-gray-800 border-b border-white/5">
         <div className="flex items-center gap-2">
           {/* Traffic lights */}
           <div className="flex gap-1.5">
@@ -149,7 +149,7 @@ export function CodeBlock({ code, language = 'typescript', filename }: CodeBlock
   return (
     <div className="rounded-xl overflow-hidden bg-[#1e1e1e] shadow-xl">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-2 bg-[#2d2d2d] border-b border-[#3d3d3d]">
+      <div className="flex items-center justify-between px-4 py-2 bg-[#2d2d2d] border-b border-white/10">
         <div className="flex items-center gap-2">
           <span className="text-xs text-gray-400 font-mono">{filename || language}</span>
         </div>

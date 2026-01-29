@@ -121,7 +121,7 @@ export function ContactForm() {
           className={`w-full px-4 py-3 rounded-lg border bg-background dark:bg-background-dark text-primary dark:text-primary-dark placeholder-secondary dark:placeholder-secondary-dark transition-colors ${
             errors.name
               ? 'border-red-500 focus:ring-red-500'
-              : 'border-gray-200 dark:border-gray-700 focus:border-accent dark:focus:border-accent-dark focus:ring-accent dark:focus:ring-accent-dark'
+              : 'border-gray-200 dark:border-white/10 focus:border-accent dark:focus:border-accent-dark focus:ring-accent dark:focus:ring-accent-dark'
           } focus:outline-none focus:ring-2`}
           placeholder="Votre nom"
           aria-describedby={errors.name ? 'name-error' : undefined}
@@ -151,7 +151,7 @@ export function ContactForm() {
           className={`w-full px-4 py-3 rounded-lg border bg-background dark:bg-background-dark text-primary dark:text-primary-dark placeholder-secondary dark:placeholder-secondary-dark transition-colors ${
             errors.email
               ? 'border-red-500 focus:ring-red-500'
-              : 'border-gray-200 dark:border-gray-700 focus:border-accent dark:focus:border-accent-dark focus:ring-accent dark:focus:ring-accent-dark'
+              : 'border-gray-200 dark:border-white/10 focus:border-accent dark:focus:border-accent-dark focus:ring-accent dark:focus:ring-accent-dark'
           } focus:outline-none focus:ring-2`}
           placeholder="votre@email.com"
           aria-describedby={errors.email ? 'email-error' : undefined}
@@ -181,7 +181,7 @@ export function ContactForm() {
           className={`w-full px-4 py-3 rounded-lg border bg-background dark:bg-background-dark text-primary dark:text-primary-dark placeholder-secondary dark:placeholder-secondary-dark transition-colors resize-none ${
             errors.message
               ? 'border-red-500 focus:ring-red-500'
-              : 'border-gray-200 dark:border-gray-700 focus:border-accent dark:focus:border-accent-dark focus:ring-accent dark:focus:ring-accent-dark'
+              : 'border-gray-200 dark:border-white/10 focus:border-accent dark:focus:border-accent-dark focus:ring-accent dark:focus:ring-accent-dark'
           } focus:outline-none focus:ring-2`}
           placeholder="Décrivez votre projet ou posez-moi une question..."
           aria-describedby={errors.message ? 'message-error' : undefined}

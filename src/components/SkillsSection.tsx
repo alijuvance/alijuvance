@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { SkillMeter, technicalSkills, softSkills } from './SkillMeter';
 import { Terminal } from './Terminal';
+import { TechGlobe } from './TechGlobe';
 
 /**
  * Skills Section Component
@@ -60,10 +61,10 @@ const developer = {
 
         {/* Skills Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Skill Meters */}
-          <div className="space-y-8">
-            <SkillMeter skills={technicalSkills} title="Technologies" />
-            <SkillMeter skills={softSkills} title="Soft Skills" />
+          {/* Left: Tech Globe */}
+          <div className="flex justify-center items-center relative min-h-[400px]">
+            <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-purple-500/20 blur-[100px] rounded-full opacity-50" />
+            <TechGlobe />
           </div>
 
           {/* Right: Terminal */}
@@ -78,7 +79,7 @@ const developer = {
             </Terminal>
 
             {/* Additional info */}
-            <div className="mt-6 p-4 rounded-xl bg-surface dark:bg-surface-dark border border-gray-100 dark:border-gray-800">
+            <div className="mt-6 p-4 rounded-xl bg-surface dark:bg-surface-dark border border-gray-100 dark:border-white/5">
               <p className="text-sm text-secondary dark:text-secondary-dark">
                 💡 <span className="font-medium text-primary dark:text-primary-dark">Product-Minded Engineer</span> - 
                 Je ne code pas juste des fonctionnalités, je résous des problèmes business.
