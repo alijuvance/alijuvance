@@ -1,15 +1,15 @@
-# Portfolio - Senior Fullstack Developer
+Portfolio 
 
-Un portfolio premium one-page pour développeur senior, construit avec Next.js 14, TypeScript et Tailwind CSS.
+Un portfolio one-page pour développeur, construit avec Next.js 14, TypeScript et Tailwind CSS.
 
-## 🚀 Stack Technique
+Stack Technique
 
-- **Framework**: Next.js 14 (App Router)
-- **Langage**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS
-- **Mode Sombre**: Automatique + toggle manuel
+- Framework : Next.js 14 (App Router)
+- Langage : TypeScript (strict mode)
+- Styling : Tailwind CSS
+- Mode Sombre**: Automatique + toggle manuel
 
-## 📁 Structure
+📁 Structure
 
 ```
 src/
@@ -21,7 +21,7 @@ src/
 └── data/              # Données (projets, expériences, témoignages)
 ```
 
-## 🛠️ Commandes
+ Commandes
 
 ```bash
 # Installation
@@ -37,7 +37,7 @@ npm run build
 npm run start
 ```
 
-## ✏️ Personnalisation
+ Personnalisation
 
 1. **Photo**: Remplacez le placeholder dans `src/components/Hero.tsx`
 2. **Projets**: Modifiez `src/data/projects.ts`
@@ -46,14 +46,14 @@ npm run start
 5. **Liens sociaux**: Mettez à jour dans `src/components/Footer.tsx`
 6. **CV**: Ajoutez votre PDF dans `/public/cv.pdf`
 
-## 🎨 Design
+Design
 
 - Style Swiss Design / International Typographic Style
 - Palette: Noir, Blanc, Gris ardoise, Bleu profond
 - Police: Inter (chargée via next/font)
 - Responsive: Mobile, Tablet, Desktop
 
-## 📊 Performance
+Performance
 
 Optimisé pour atteindre un score Lighthouse de 100:
 - HTML sémantique
@@ -61,6 +61,6 @@ Optimisé pour atteindre un score Lighthouse de 100:
 - SEO optimisé
 - Images optimisées
 
-## 📄 Licence
+Licence
 
 MIT
