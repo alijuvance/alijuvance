@@ -21,7 +21,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       className="group pt-8 pb-8 border-t border-gray-100 dark:border-white/5 first:border-t-0"
       initial={prefersReducedMotion ? {} : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
     >
       <Spotlight className="rounded-3xl p-6 md:p-8 border border-transparent dark:border-white/5 bg-surface dark:bg-surface-dark/50 transition-colors">
         <div className="grid md:grid-cols-4 gap-6 relative z-10">

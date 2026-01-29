@@ -28,7 +28,7 @@ export function AboutSection() {
           className="max-w-4xl mx-auto"
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           {/* Section Title */}
@@ -63,7 +63,7 @@ export function AboutSection() {
                 className="text-center"
                 initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="text-4xl md:text-5xl font-bold text-primary dark:text-primary-dark mb-2 tracking-tight">

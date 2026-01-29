@@ -68,7 +68,7 @@ export function ServicesGrid() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="group relative bg-[#0a0a0a] border border-white/5 rounded-2xl p-8 hover:border-red-500/30 transition-colors duration-500"
             >

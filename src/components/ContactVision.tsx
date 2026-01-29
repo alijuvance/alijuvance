@@ -1,5 +1,8 @@
 'use client';
 
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+
 /**
  * Contact Vision Section
  * "Donnons vie à votre vision"
@@ -8,7 +11,9 @@
 
 export function ContactVision() {
   return (
-    <section id="contact" className="section-padding py-20 bg-black text-white border-t border-white/5">
+    <section id="contact" className="section-padding py-20 bg-black text-white border-t border-white/5 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-red-900/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="container-section max-w-7xl mx-auto px-4">
         
         {/* Header */}
@@ -32,37 +37,94 @@ export function ContactVision() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-secondary">Votre nom *</label>
-                  <input type="text" placeholder="Veuillez saisir votre nom complet" className="w-full p-3 rounded-lg bg-black/50 border border-white/10 focus:border-accent/50 focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-white/20" />
+                  <GlowingInput placeholder="Veuillez saisir votre nom complet" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-secondary">Adresse courriel *</label>
-                  <input type="email" placeholder="votre@email.com" className="w-full p-3 rounded-lg bg-black/50 border border-white/10 focus:border-accent/50 focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-white/20" />
+                  <GlowingInput type="email" placeholder="votre@email.com" />
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-2 relative z-50">
                 <label className="text-sm font-medium text-secondary">Type de projet</label>
-                <select className="w-full p-3 rounded-lg bg-black/50 border border-white/10 focus:border-accent/50 focus:ring-1 focus:ring-accent outline-none transition-all text-secondary">
-                  <option>Sélectionnez le type de votre projet</option>
-                  <option>Site Web Vitrine</option>
-                  <option>Application Web / SaaS</option>
-                  <option>E-commerce</option>
-                  <option>Blockchain / Web3</option>
-                  <option>Autre</option>
-                </select>
+                <CustomSelect 
+                  options={[
+                    "Site Web Vitrine",
+                    "Application Web / SaaS",
+                    "E-commerce", 
+                    "Blockchain / Web3",
+                    "Autre"
+                  ]}
+                  placeholder="Sélectionnez le type de votre projet"
+                />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-secondary">Détails du projet *</label>
-                <textarea rows={4} placeholder="Parlez-moi des objectifs de votre projet, de son calendrier..." className="w-full p-3 rounded-lg bg-black/50 border border-white/10 focus:border-accent/50 focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-white/20" />
+                <GlowingInput multiline rows={4} placeholder="Parlez-moi des objectifs de votre projet, de son calendrier..." />
               </div>
 
+              <div className="relative group w-full">
+                {/* The "Glow" behind the button */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-50 transition duration-1000 group-hover:duration-200" />
+                
+                <motion.button
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap={{ scale: 0.98 }}
+                  className="relative w-full py-4 rounded-2xl bg-black border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden"
+                >
+                  {/* Subtle Inner Gradient/Highlight */}
+                  <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                  
+                  {/* Spotlight Effect (Left Side Glow) */}
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-20 h-20 bg-blue-500/20 blur-xl rounded-full mix-blend-screen pointer-events-none transition-opacity duration-500 group-hover:opacity-40" />
 
+                  <div className="relative z-10 flex items-center justify-center gap-2 text-white/90">
+                     {/* Icon LEFT */}
+                     <motion.div
+                       variants={{
+                         initial: { opacity: 1, width: "auto", x: 0 },
+                         hover: { 
+                           x: [0, -3, 3, -3, 50],
+                           opacity: [1, 1, 1, 1, 0],
+                           width: 0,
+                           transition: { 
+                             duration: 0.6,
+                             times: [0, 0.2, 0.4, 0.6, 1],
+                             ease: "easeInOut" 
+                           } 
+                         }
+                       }}
+                       style={{ originX: 0.5 }}
+                     >
+                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                       </svg>
+                     </motion.div>
 
-              <button className="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-bold text-lg shadow-lg shadow-red-500/20 hover:shadow-red-500/40 transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group">
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
-                Envoyer un message et obtenez un devis gratuit
-              </button>
+                     <span className="font-title font-medium tracking-wide text-lg">Envoyer un message</span>
+
+                     {/* Icon RIGHT */}
+                     <motion.div
+                       variants={{
+                         initial: { opacity: 0, width: 0, x: -20 },
+                         hover: { 
+                           opacity: 1, 
+                           width: "auto", 
+                           x: 0,
+                           transition: { delay: 0.4, duration: 0.3, ease: "easeOut" }
+                       }
+                       }}
+                     >
+                       <svg className="w-5 h-5 rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                       </svg>
+                     </motion.div>
+                  </div>
+                </motion.button>
+              </div>
             </form>
           </div>
 
@@ -118,4 +180,114 @@ function InfoCard({ icon, title, content, sub }: any) {
       </div>
     </div>
   )
+}
+
+function GlowingInput({ multiline, ...props }: any) {
+  return (
+    <div className="relative group w-full">
+      {/* Background Glow */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-white/10 to-white/5 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
+      
+      <div className="relative rounded-2xl bg-black border border-white/10 shadow-xl overflow-hidden">
+        {/* Inner Highlights - Top Only */}
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        
+         {/* Spotlight Effect */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-20 h-20 bg-blue-500/10 blur-xl rounded-full mix-blend-screen pointer-events-none transition-opacity duration-500 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100" />
+
+        {multiline ? (
+          <textarea 
+            spellCheck={false}
+            autoComplete="off"
+            data-gramm="false"
+            className="w-full p-4 bg-transparent text-white placeholder:text-white/20 focus:outline-none focus:ring-0 focus-visible:ring-0 relative z-10 resize-y min-h-[120px]" 
+            {...props} 
+          />
+        ) : (
+          <input 
+            spellCheck={false}
+            autoComplete="off"
+            data-gramm="false"
+            className="w-full p-4 bg-transparent text-white placeholder:text-white/20 focus:outline-none focus:ring-0 focus-visible:ring-0 relative z-10" 
+            {...props} 
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+function CustomSelect({ options, placeholder }: { options: string[], placeholder: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selected, setSelected] = useState("");
+
+  const toggleOpen = () => setIsOpen(!isOpen);
+  const selectOption = (option: string) => {
+    setSelected(option);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="relative w-full">
+      {/* Trigger Button - Matches Input Style */}
+      <div 
+        onClick={toggleOpen}
+        className="relative group w-full cursor-pointer"
+      >
+        <div className="absolute -inset-0.5 bg-gradient-to-r from-white/10 to-white/5 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500" />
+        <div className="relative rounded-2xl bg-black border border-white/10 shadow-xl overflow-hidden p-4 flex items-center justify-between">
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            
+            <span className={`${selected ? 'text-white' : 'text-white/40'}`}>
+              {selected || placeholder}
+            </span>
+            
+            <motion.div 
+              animate={{ rotate: isOpen ? 180 : 0 }}
+              transition={{ duration: 0.2 }}
+              className="text-white/40"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+            </motion.div>
+        </div>
+      </div>
+
+      {/* Dropdown Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute z-50 w-full mt-2 rounded-2xl bg-[#0f0f10]/95 backdrop-blur-xl border border-white/10 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden"
+          >
+            <div className="p-2 space-y-1">
+              {options.map((option, index) => (
+                <motion.div
+                  key={index}
+                  onClick={() => selectOption(option)}
+                  className={`p-3 rounded-xl cursor-pointer transition-colors flex items-center justify-between group ${
+                    selected === option ? 'bg-white/10 text-white' : 'text-secondary hover:bg-white/5 hover:text-white'
+                  }`}
+                  whileHover={{ x: 5 }}
+                >
+                  <span>{option}</span>
+                  {selected === option && (
+                    <motion.div layoutId="check">
+                       <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                    </motion.div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      
+      {/* Click outside closer (simple transparent overlay) */}
+      {isOpen && (
+        <div className="fixed inset-0 z-40 bg-transparent" onClick={() => setIsOpen(false)} />
+      )}
+    </div>
+  );
 }

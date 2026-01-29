@@ -27,7 +27,7 @@ export function FeaturedSection() {
               className="text-3xl md:text-5xl font-bold leading-tight mb-8 font-sans"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               Étudiant en Licence Pro à l&apos;ENI, je fusionne <span className="text-accent">Web Moderne</span> et <span className="text-accent">Blockchain</span>.
             </motion.h2>
@@ -36,7 +36,7 @@ export function FeaturedSection() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: 0.2 }}
               >
                 <p className="text-secondary dark:text-gray-400 leading-relaxed text-lg">
@@ -47,7 +47,7 @@ export function FeaturedSection() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: 0.4 }}
               >
                 <p className="text-secondary dark:text-gray-400 leading-relaxed text-lg">

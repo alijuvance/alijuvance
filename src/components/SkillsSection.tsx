@@ -2,8 +2,8 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { SkillMeter, technicalSkills, softSkills } from './SkillMeter';
-import { Terminal } from './Terminal';
-import { TechGlobe } from './TechGlobe';
+import { MethodologyHub } from './MethodologyHub';
+import { TechBeam } from './TechBeam';
 
 /**
  * Skills Section Component
@@ -13,28 +13,7 @@ import { TechGlobe } from './TechGlobe';
 export function SkillsSection() {
   const prefersReducedMotion = useReducedMotion();
 
-  const codeSnippet = `// Mon approche du développement
-const developer = {
-  name: "Senior Fullstack Developer",
-  experience: "10+ years",
-  
-  principles: [
-    "Clean Code",
-    "SOLID",
-    "DRY",
-    "KISS"
-  ],
-  
-  solve: (problem) => {
-    const solution = analyze(problem)
-      .then(design)
-      .then(implement)
-      .then(test)
-      .then(deploy);
-    
-    return solution;
-  }
-};`;
+
 
   return (
     <section
@@ -48,7 +27,7 @@ const developer = {
           className="text-center mb-16"
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5 }}
         >
           <h2 id="skills-title" className="section-title">
@@ -61,30 +40,21 @@ const developer = {
 
         {/* Skills Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Tech Globe */}
+          {/* Left: Tech Beam (New AI Network Implementation) */}
           <div className="flex justify-center items-center relative min-h-[400px]">
-            <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-purple-500/20 blur-[100px] rounded-full opacity-50" />
-            <TechGlobe />
+             <div className="absolute inset-0 bg-gradient-to-r from-accent/5 to-purple-500/5 blur-[100px] rounded-full opacity-50" />
+             <TechBeam />
           </div>
 
-          {/* Right: Terminal */}
+          {/* Right: Methodology Hub (New "Mind Map" Style) */}
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-center justify-center"
           >
-            <Terminal title="developer.ts" language="typescript">
-              {codeSnippet}
-            </Terminal>
-
-            {/* Additional info */}
-            <div className="mt-6 p-4 rounded-xl bg-surface dark:bg-surface-dark border border-gray-100 dark:border-white/5">
-              <p className="text-sm text-secondary dark:text-secondary-dark">
-                💡 <span className="font-medium text-primary dark:text-primary-dark">Product-Minded Engineer</span> - 
-                Je ne code pas juste des fonctionnalités, je résous des problèmes business.
-              </p>
-            </div>
+            <MethodologyHub />
           </motion.div>
         </div>
       </div>

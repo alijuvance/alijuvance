@@ -75,7 +75,7 @@ export function BentoCard({ children, className = '', colSpan = 1, rowSpan = 1 }
       className={`group relative overflow-hidden rounded-3xl transition-colors shadow-sm dark:shadow-none ${getSpanClass()} ${className}`}
       initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
+      viewport={{ once: false, margin: '-50px' }}
       transition={{ duration: 0.5 }}
       style={{ perspective: 1000 }}
       onMouseMove={handleMouse}

@@ -115,7 +115,7 @@ export function TerminalLine({ prompt = '$', children, delay = 0 }: TerminalLine
       className="flex"
       initial={prefersReducedMotion ? {} : { opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: prefersReducedMotion ? 0 : delay }}
     >
       <span className="text-blue-400 mr-2 select-none">{prompt}</span>

@@ -9,7 +9,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-black text-white pt-20 pb-8 border-t border-white/5">
+    <footer className="bg-black text-white pt-20 pb-8 border-t border-white/5 relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-red-950/30 blur-[150px] rounded-full pointer-events-none" />
       <div className="container-section max-w-7xl mx-auto px-4">
         
         {/* Top Grid: 4 Columns */}

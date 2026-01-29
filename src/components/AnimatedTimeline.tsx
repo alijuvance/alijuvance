@@ -11,7 +11,10 @@ import { Spotlight } from './Spotlight';
 
 export function AnimatedTimelineSection() {
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="section-padding relative overflow-hidden">
+      {/* Background Atmosphere */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-900/40 to-transparent" />
       <div className="container-section">
         {/* Header */}
         <div className="mb-20">
@@ -37,7 +40,7 @@ function ExperienceCard({ experience, index }: { experience: any, index: number 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: false, margin: "-50px" }}
       transition={{ delay: index * 0.1 }}
       className="group relative"
     >

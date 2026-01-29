@@ -32,6 +32,10 @@ export function ProjectsSection() {
 
   return (
     <section id="projects" className="section-padding relative overflow-hidden" aria-labelledby="projects-title">
+      {/* Red Background Atmosphere - Unified Theme */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-red-900/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-[-20%] w-[600px] h-[600px] bg-red-900/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
       {/* Decorative Wave Line - High Visibility Fix */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
          <svg className="w-full h-full opacity-60" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">

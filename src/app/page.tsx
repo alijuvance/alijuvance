@@ -9,6 +9,7 @@ import { SkillsSection } from '@/components/SkillsSection';
 import { HeroSplit } from '@/components/HeroSplit';
 import { BrandStrip } from '@/components/BrandStrip';
 import { ServicesGrid } from '@/components/ServicesGrid';
+import { ProcessSteps } from '@/components/ProcessSteps';
 import { EducationRecognition } from '@/components/EducationRecognition';
 import { ContactVision } from '@/components/ContactVision';
 import { Footer } from '@/components/Footer';
@@ -45,6 +46,9 @@ export default function HomePage() {
 
         {/* 3. SERVICES GRID (Full Width) */}
         <ServicesGrid />
+
+        {/* 4. PROCESS STEPS (Full Width - New) */}
+        <ProcessSteps />
 
         {/* Main Constrained Content */}
         <main className="px-4 md:px-8 max-w-7xl mx-auto space-y-32">

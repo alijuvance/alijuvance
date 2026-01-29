@@ -10,24 +10,28 @@ import { useTheme } from './ThemeProvider';
  */
 
 const navLinks = [
-  { label: 'Maison', href: '#home', icon: <HomeIcon className="w-5 h-5" /> },
+  { label: 'Accueil', href: '#home', icon: <HomeIcon className="w-5 h-5" /> },
+  { label: 'À propos', href: '#about', icon: <UserIcon className="w-5 h-5" /> },
+  { label: 'Compétences', href: '#skills', icon: <LightningIcon className="w-5 h-5" /> },
+  { label: 'Expérience', href: '#experience', icon: <CompassIcon className="w-5 h-5" /> },
   { label: 'Projets', href: '#projects', icon: <LayersIcon className="w-5 h-5" /> },
-  { label: 'Parcours', href: '#experience', icon: <CompassIcon className="w-5 h-5" /> },
   { label: 'Contact', href: '#contact', icon: <SendIcon className="w-5 h-5" /> },
 ];
 
 const tabAngles: Record<string, number> = {
-  'Maison': 0,      // Left (0% width)
-  'Projets': 60,    // Center-Left (33% width)
-  'Parcours': 120,  // Center-Right (66% width)
-  'Contact': 180,   // Right (100% width)
+  'Accueil': 0,
+  'À propos': 36,
+  'Compétences': 72,
+  'Expérience': 108,
+  'Projets': 144,
+  'Contact': 180,
 };
 
 export function FloatingNav() {
-  const [activeTab, setActiveTab] = useState('Maison');
+  const [activeTab, setActiveTab] = useState('Accueil');
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [rotation, setRotation] = useState(180); // Start at Maison (180deg)
+  const [rotation, setRotation] = useState(180); // Start at 0 relative (but logic adds 180? let's keep logic)
 
   useEffect(() => setMounted(true), []);
 
@@ -35,12 +39,10 @@ export function FloatingNav() {
     setActiveTab(tab);
     
     // Calculate rotation to make the light "follow" the button
-    // We add 360 for a full spin, plus the difference to the target angle
     const targetAngle = tabAngles[tab] ?? 0;
     const currentEffective = rotation % 360;
     const delta = (targetAngle - currentEffective + 360) % 360;
     
-    // Ensure we always spin forward at least a bit + full turn
     setRotation(prev => prev + 360 + delta);
   };
 
@@ -65,7 +67,7 @@ export function FloatingNav() {
               key={link.label}
               href={link.href}
               onClick={() => handleTabChange(link.label)}
-              className={`relative px-3 py-2 md:px-4 md:py-2 text-sm font-medium transition-colors rounded-full ${
+              className={`relative px-3 py-2 md:px-3 md:py-2 text-sm font-medium transition-colors rounded-full ${
                 activeTab === link.label 
                   ? 'text-white' 
                   : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
@@ -106,8 +108,6 @@ export function FloatingNav() {
           )}
         </button>
 
-        {/* CTA Button */}
-
       </nav>
       </div>
     </div>
@@ -134,6 +134,22 @@ function HomeIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
+  );
+}
+
+function UserIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+    </svg>
+  );
+}
+
+function LightningIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
     </svg>
   );
 }
