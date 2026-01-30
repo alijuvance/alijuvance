@@ -1,131 +1,150 @@
+
+
 'use client';
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ProjectCard } from './ProjectCard';
+import { AquaFiProjectCard } from './AquaFiProjectCard'; // Make sure to import the new component
 import { projects } from '@/data/projects';
 
-/**
- * Filterable Projects Section - Parth Sharma Style
- * Features:
- * - Category filters (All, Web, App, etc.)
- * - Animated grid layout
- * - Updated section styling
- */
-
-const categories = ['Tous', 'Fullstack', 'Frontend', 'Backend', 'DevOps'];
-
 export function ProjectsSection() {
-  const [activeCategory, setActiveCategory] = useState('Tous');
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const filteredProjects = activeCategory === 'Tous'
-    ? projects
-    : projects.filter(project => {
-        // Simple logic to simulate categorization based on stack
-        // In a real app, projects would have a 'category' field
-        if (activeCategory === 'Fullstack') return project.stack.includes('Node.js') && project.stack.includes('React');
-        if (activeCategory === 'Backend') return project.stack.includes('Node.js') || project.stack.includes('Go') || project.stack.includes('Java');
-        if (activeCategory === 'Frontend') return project.stack.includes('React') && !project.stack.includes('Go');
-        if (activeCategory === 'DevOps') return project.stack.includes('Docker') || project.stack.includes('Kubernetes');
-        return true;
-      });
+  // Circular navigation helpers
+  const nextProject = () => {
+    setActiveIndex((prev) => (prev + 1) % projects.length);
+  };
+
+  const prevProject = () => {
+    setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
+  };
+
+  // Get visible projects (Previous, Current, Next)
+  // We need safe wrapping indices
+  const getProject = (offset: number) => {
+    const index = (activeIndex + offset + projects.length) % projects.length;
+    return projects[index];
+  };
 
   return (
-    <section id="projects" className="section-padding relative overflow-hidden" aria-labelledby="projects-title">
-      {/* Red Background Atmosphere - Unified Theme */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-red-900/5 blur-[120px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-[-20%] w-[600px] h-[600px] bg-red-900/5 blur-[120px] rounded-full pointer-events-none -z-10" />
-
-      {/* Decorative Wave Line - High Visibility Fix */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-         <svg className="w-full h-full opacity-60" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Solid White Stroke to ensure visibility */}
-            <path 
-              d="M-100 600 C 400 600, 800 100, 1600 200" 
-              stroke="white" 
-              strokeWidth="2" 
-              strokeLinecap="round"
-            />
-         </svg>
+    <section id="projects" className="py-32 relative overflow-hidden bg-[#030303]" aria-labelledby="projects-title">
+      
+      {/* Background Atmosphere (Stars & Glows) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Deep Red Glow Top Center */}
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-red-900/20 blur-[120px] rounded-full mix-blend-screen" />
+        
+        {/* Full Width Dot Pattern (Modern Grid) */}
+         <div 
+           className="absolute inset-0 opacity-20" 
+           style={{ 
+             backgroundImage: 'radial-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)', 
+             backgroundSize: '40px 40px',
+             maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)'
+           }}
+         ></div>
       </div>
 
-      <div className="container-section">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          
-          {/* LEFT COLUMN - Sticky Title & Filters */}
-          <div className="lg:col-span-5">
-            <div className="sticky top-24">
-              <h2 id="projects-title" className="text-5xl md:text-6xl font-title font-bold text-white mb-8 tracking-tight uppercase leading-none">
-                Selected <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-800 dark:from-gray-500 dark:to-gray-800">
-                  Projects
-                </span>
-              </h2>
-
-              <div className="w-24 h-1 bg-white mb-8" /> {/* The White Line */}
-
-              <p className="text-secondary text-lg mb-10 max-w-sm">
-                A curated selection of technical challenges and digital products extracted from my professional journey.
-              </p>
-
-              {/* Filters - Vertical List in Sidebar */}
-              <div className="flex flex-col items-start gap-4">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => setActiveCategory(category)}
-                    className={`text-sm font-mono tracking-widest uppercase transition-all duration-300 flex items-center gap-4 ${
-                      activeCategory === category
-                        ? 'text-white pl-4'
-                        : 'text-gray-500 hover:text-white'
-                    }`}
-                  >
-                    {/* Active White Line Indicator */}
-                    {activeCategory === category && (
-                      <motion.div 
-                        layoutId="activeCategoryLine"
-                        className="w-12 h-[1px] bg-white absolute left-0"
-                        transition={{ duration: 0.3 }}
-                      />
-                    )}
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN - Project Cards */}
-          <div className="lg:col-span-7 flex flex-col gap-10">
-            <motion.div layout className="flex flex-col gap-8">
-              <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
-                  <motion.div
-                    key={project.id}
-                    layout
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <ProjectCard project={project} />
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-            </motion.div>
-
-            {/* View More Link */}
-            <div className="pt-8 border-t border-white/5 flex justify-end">
-               <a href="https://github.com/Alijuvance" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 text-white/50 hover:text-white transition-colors">
-                  <span className="font-mono text-xs tracking-widest uppercase">View all archives</span>
-                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-               </a>
-            </div>
-          </div>
+      <div className="container-section relative z-10 flex flex-col items-center">
         
+        {/* Header Section */}
+        <div className="text-center mb-20 max-w-3xl mx-auto">
+           <h2 id="projects-title" className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight">
+             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Works</span>
+           </h2>
+           <p className="text-gray-400 text-lg">
+             An advanced AI-powered system that analyzes user preferences and delivers highly personalized content.
+           </p>
         </div>
+
+        {/* 3D Carousel Container */}
+        <div className="relative w-full h-[600px] flex items-center justify-center perspective-[1000px]">
+           
+           {/* Previous Card (Left, Tilted) */}
+           <motion.div 
+             className="absolute left-[5%] md:left-[15%] opacity-40 hover:opacity-60 transition-opacity z-0"
+             animate={{ 
+               scale: 0.8, 
+               rotateY: 25, 
+               x: -50,
+               filter: 'blur(2px)'
+             }}
+             transition={{ duration: 0.5 }}
+           >
+              <AquaFiProjectCard 
+                project={getProject(-1)} 
+                isActive={false} 
+                onClick={prevProject} 
+              />
+           </motion.div>
+
+           {/* Active Card (Center, Forward) */}
+           <motion.div 
+             className="relative z-20"
+             key={activeIndex} // Key change triggers animation
+             initial={{ scale: 0.9, opacity: 0 }}
+             animate={{ scale: 1, opacity: 1, rotateY: 0, x: 0 }}
+             transition={{ type: "spring", stiffness: 200, damping: 20 }}
+           >
+              <AquaFiProjectCard 
+                project={getProject(0)} 
+                isActive={true} 
+                onClick={() => {}} 
+              />
+           </motion.div>
+
+           {/* Next Card (Right, Tilted) */}
+           <motion.div 
+             className="absolute right-[5%] md:right-[15%] opacity-40 hover:opacity-60 transition-opacity z-0"
+             animate={{ 
+               scale: 0.8, 
+               rotateY: -25, 
+               x: 50,
+               filter: 'blur(2px)'
+             }}
+             transition={{ duration: 0.5 }}
+           >
+              <AquaFiProjectCard 
+                project={getProject(1)} 
+                isActive={false} 
+                onClick={nextProject} 
+              />
+           </motion.div>
+           
+           {/* Navigation Arrows (Optional visual indicators) */}
+           <button 
+             onClick={prevProject} 
+             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
+           >
+             ←
+           </button>
+           <button 
+             onClick={nextProject}
+             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
+           >
+             →
+           </button>
+
+        </div>
+
+        {/* Bottom Stats / Indicators */}
+        <div className="mt-12 flex items-center gap-8 text-gray-500 font-mono text-xs uppercase tracking-widest">
+           <div>
+             <span className="text-white block text-xl font-bold mb-1">1.3b</span>
+             Market Size
+           </div>
+           <div className="w-[1px] h-8 bg-white/10" />
+           <div>
+             <span className="text-white block text-xl font-bold mb-1">321k</span>
+             Transfers
+           </div>
+           <div className="w-[1px] h-8 bg-white/10" />
+           <div>
+              <span className="text-white block text-xl font-bold mb-1">{activeIndex + 1} / {projects.length}</span>
+              Project
+           </div>
+        </div>
+
       </div>
     </section>
   );
