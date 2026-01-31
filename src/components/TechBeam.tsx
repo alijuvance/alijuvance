@@ -63,6 +63,8 @@ export function TechBeam() {
         >
           {/* Connection Beams */}
           {skills.map((skill, index) => {
+            if (!skill.icon) return null; // Safety check for missing icons
+
             const itemY = startY + index * spacingY;
             const sx = startX + 40;
             const sy = itemY + 20;
@@ -122,7 +124,10 @@ export function TechBeam() {
 
         {/* Desktop Icons Column */}
         <div className="absolute left-0 top-0 w-20 flex flex-col items-center gap-[15px]" style={{ top: `${startY}px`, gap: '15px' }}> 
-          {skills.map((skill, index) => (
+          {skills.map((skill, index) => {
+            if (!skill.icon) return null;
+            
+            return (
             <motion.div
               key={skill.name}
               className="relative group cursor-pointer"
@@ -153,7 +158,8 @@ export function TechBeam() {
                 {skill.name}
               </span>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Desktop Center Node */}
@@ -260,6 +266,7 @@ function TechWheel({ skills }: { skills: any[] }) {
            }} 
          >
             {skills.map((skill, index) => {
+              if (!skill.icon) return null; // Safety check for missing icons
               const angle = index * angleStep; 
               
               return (
