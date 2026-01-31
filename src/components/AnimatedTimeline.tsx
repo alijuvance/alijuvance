@@ -1,8 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { experiences } from '@/data/experiences';
+// import { experiences } from '@/data/experiences'; // Using dynamic now
 import { Spotlight } from './Spotlight';
+import { useLanguage } from './LanguageContext';
 
 /**
  * Stacked Experiences Section (Laza Style)
@@ -10,6 +11,33 @@ import { Spotlight } from './Spotlight';
  */
 
 export function AnimatedTimelineSection() {
+  const { t } = useLanguage();
+
+  // Reconstruct experiences with translation
+  const experiences = [
+    {
+      id: 'freelance-2024',
+      period: '2024 - Present',
+      role: t('exp.freelance.role'),
+      company: t('exp.freelance.comp'),
+      description: t('exp.freelance.desc'),
+    },
+    {
+      id: 'stage-2024',
+      period: '2024',
+      role: t('exp.stage24.role'),
+      company: t('exp.stage24.comp'),
+      description: t('exp.stage24.desc'),
+    },
+    {
+      id: 'stage-2023',
+      period: '2023',
+      role: t('exp.stage23.role'),
+      company: t('exp.stage23.comp'),
+      description: t('exp.stage23.desc'),
+    },
+  ];
+
   return (
     <section id="experience" className="section-padding relative overflow-hidden">
       {/* Background Atmosphere */}
@@ -19,7 +47,7 @@ export function AnimatedTimelineSection() {
         {/* Header */}
         <div className="mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 font-sans tracking-tight">
-            Expérience <span className="text-secondary/40">Professionnelle</span>
+            {t('exp.title')} <span className="text-secondary/40">{t('exp.subtitle')}</span>
           </h2>
           <div className="h-1 w-20 bg-accent rounded-full" />
         </div>

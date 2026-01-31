@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { useLanguage } from './LanguageContext';
 
 /**
  * Contact Vision Section
@@ -10,6 +11,8 @@ import { useState } from 'react';
  */
 
 export function ContactVision() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="section-padding py-20 bg-black text-white border-t border-white/5 relative overflow-hidden">
       {/* Background Glow */}
@@ -18,9 +21,9 @@ export function ContactVision() {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Donnons vie à votre vision</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('contact.title')}</h2>
           <p className="text-secondary/60 max-w-2xl mx-auto">
-            Prêt à transformer votre présence en ligne ? Parlons de votre projet et voyons comment nous pouvons collaborer pour atteindre vos objectifs.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -30,23 +33,23 @@ export function ContactVision() {
           <div className="lg:col-span-2 p-8 rounded-2xl bg-[#0f0f10] border border-white/5">
             <div className="flex items-center gap-3 mb-8">
               <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
-              <h3 className="text-xl font-bold">Démarrez votre projet</h3>
+              <h3 className="text-xl font-bold">{t('contact.start')}</h3>
             </div>
             
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-secondary">Votre nom *</label>
-                  <GlowingInput placeholder="Veuillez saisir votre nom complet" />
+                  <label className="text-sm font-medium text-secondary">{t('contact.name')}</label>
+                  <GlowingInput placeholder={t('contact.name.ph')} />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-secondary">Adresse courriel *</label>
+                  <label className="text-sm font-medium text-secondary">{t('contact.email')}</label>
                   <GlowingInput type="email" placeholder="votre@email.com" />
                 </div>
               </div>
 
               <div className="space-y-2 relative z-50">
-                <label className="text-sm font-medium text-secondary">Type de projet</label>
+                <label className="text-sm font-medium text-secondary">{t('contact.type')}</label>
                 <CustomSelect 
                   options={[
                     "Site Web Vitrine",
@@ -55,13 +58,13 @@ export function ContactVision() {
                     "Blockchain / Web3",
                     "Autre"
                   ]}
-                  placeholder="Sélectionnez le type de votre projet"
+                  placeholder={t('contact.type.ph')}
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-medium text-secondary">Détails du projet *</label>
-                <GlowingInput multiline rows={4} placeholder="Parlez-moi des objectifs de votre projet, de son calendrier..." />
+                <label className="text-sm font-medium text-secondary">{t('contact.details')}</label>
+                <GlowingInput multiline rows={4} placeholder={t('contact.details.ph')} />
               </div>
 
               <div className="relative group w-full">
@@ -104,7 +107,7 @@ export function ContactVision() {
                        </svg>
                      </motion.div>
 
-                     <span className="font-title font-medium tracking-wide text-lg">Envoyer un message</span>
+                     <span className="font-title font-medium tracking-wide text-lg">{t('contact.send')}</span>
 
                      {/* Icon RIGHT */}
                      <motion.div
@@ -130,13 +133,13 @@ export function ContactVision() {
 
           {/* RIGHT: INFO PANELS */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-6">Entrer en contact</h3>
+            <h3 className="text-xl font-bold mb-6">{t('contact.connect')}</h3>
             
             <InfoCard 
               icon={<svg className="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>}
-              title="Emplacement"
-              content="Disponible dans le monde entier"
-              sub="Disponible pour le télétravail"
+              title={t('contact.location')}
+              content={t('contact.location.val')}
+              sub={t('contact.location.sub')}
             />
             
             <InfoCard 
@@ -155,12 +158,11 @@ export function ContactVision() {
 
             <InfoCard 
               icon={<svg className="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>}
-              title="Disponibilité"
-              content="Assistance 24/7"
-              sub="Horaires flexibles pour l&apos;international"
+              title={t('contact.availability')}
+              content={t('contact.availability.val')}
+              sub={t('contact.availability.sub')}
             />
           </div>
-
         </div>
       </div>
     </section>

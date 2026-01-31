@@ -67,6 +67,25 @@ export const translations: Record<Language, Record<string, string>> = {
     'contact.availability.val': 'Assistance 24/7',
     'contact.availability.sub': 'Horaires flexibles pour l\'international',
     
+    // Experience Section
+    'exp.title': 'Expérience',
+    'exp.subtitle': 'Professionnelle',
+    
+    // Exp: Freelance
+    'exp.freelance.role': 'Développeur Fullstack (Freelance)',
+    'exp.freelance.comp': 'Missions Globales',
+    'exp.freelance.desc': 'Conception et développement d\'applications web sur mesure pour des clients internationaux. Spécialisation Node.js, React et architectures Cloud.',
+    
+    // Exp: Stage 2024
+    'exp.stage24.role': 'Stagiaire Développeur web',
+    'exp.stage24.comp': 'Direction Régionale du Travail et des Lois Sociales (DRTLS) Boeny',
+    'exp.stage24.desc': 'Développement d\'une application de gestion des employés et d\'archivage numérique. Optimisation des processus administratifs internes.',
+
+    // Exp: Stage 2023
+    'exp.stage23.role': 'Stagiaire Développeur',
+    'exp.stage23.comp': 'Computer Store',
+    'exp.stage23.desc': 'Maintenance logicielle et assistance technique. Développement de scripts d\'automatisation pour la gestion de parc informatique.',
+
     // Education & Recognition
     'edu.title': 'Éducation et reconnaissance professionnelle',
     'edu.subtitle': 'Apprentissage continu et excellence académique reconnue dans le développement logiciel.',
@@ -200,6 +219,25 @@ export const translations: Record<Language, Record<string, string>> = {
     'contact.availability.val': '24/7 Support',
     'contact.availability.sub': 'Flexible hours for international work',
     
+    // Experience Section
+    'exp.title': 'Experience',
+    'exp.subtitle': 'Professional',
+    
+    // Exp: Freelance
+    'exp.freelance.role': 'Fullstack Developer (Freelance)',
+    'exp.freelance.comp': 'Global Missions',
+    'exp.freelance.desc': 'Design and development of custom web applications for international clients. Specializing in Node.js, React, and Cloud architectures.',
+    
+    // Exp: Stage 2024
+    'exp.stage24.role': 'Web Developer Intern',
+    'exp.stage24.comp': 'Regional Directorate of Labor (DRTLS) Boeny',
+    'exp.stage24.desc': 'Development of an employee management and digital archiving application. Optimization of internal administrative processes.',
+
+    // Exp: Stage 2023
+    'exp.stage23.role': 'Developer Intern',
+    'exp.stage23.comp': 'Computer Store',
+    'exp.stage23.desc': 'Software maintenance and technical support. Development of automation scripts for IT asset management.',
+
     // Education & Recognition
     'edu.title': 'Education and Professional Recognition',
     'edu.subtitle': 'Continuous learning and recognized academic excellence in software development.',
