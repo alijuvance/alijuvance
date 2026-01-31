@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
-import { useAiKnowledge } from './AiContext';
+import { useAiKnowledge, KnowledgeChunk } from './AiContext';
 import { Send, Sparkles, X, Bot, User } from 'lucide-react';
 
 interface Message {
@@ -11,10 +11,7 @@ interface Message {
   role: 'user' | 'assistant';
   content: string;
   timestamp: Date;
-}
-// ... imports
-import { useAiKnowledge, KnowledgeChunk } from './AiContext';
-// ... 
+} 
 
 export function AiAssistant() {
   const { language } = useLanguage();

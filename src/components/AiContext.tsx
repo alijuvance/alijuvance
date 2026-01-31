@@ -3,17 +3,6 @@
 import { createContext, useContext, ReactNode } from 'react';
 import { translations } from '@/components/LanguageContext';
 
-/**
- * AiContext
- * Aggregates portfolio data into a consumable format for the AI Assistant.
- * Currently uses the translation files as the "Knowledge Base".
- */
-
-'use client';
-
-import { createContext, useContext, ReactNode } from 'react';
-import { translations } from '@/components/LanguageContext';
-
 export interface KnowledgeChunk {
   id: string;
   keywords: string[];
@@ -88,14 +77,6 @@ export function AiProvider({ children }: { children: ReactNode }) {
       {children}
     </AiContext.Provider>
   );
-}
-
-export function useAiKnowledge() {
-  const context = useContext(AiContext);
-  if (context === undefined) {
-    throw new Error('useAiKnowledge must be used within an AiProvider');
-  }
-  return context;
 }
 
 export function useAiKnowledge() {
