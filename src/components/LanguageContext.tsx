@@ -130,6 +130,19 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.why.3': 'Communication transparente',
     'footer.why.4': 'Respect des délais',
 
+    // Process Steps (How It Works)
+    'process.pre': 'Flux de travail',
+    'process.title': 'Comment ça marche',
+    'process.desc': 'Une approche structurée et agile pour garantir la qualité et la rapidité, de la conception au déploiement final.',
+    'process.s1.title': 'Découverte',
+    'process.s1.desc': 'Compréhension approfondie de vos besoins, objectifs business et contraintes techniques.',
+    'process.s2.title': 'Architecture',
+    'process.s2.desc': 'Design de la solution technique, choix de la stack et planification détaillée.',
+    'process.s3.title': 'Développement',
+    'process.s3.desc': 'Codage itératif avec des points de contrôle réguliers et des standards de qualité élevés.',
+    'process.s4.title': 'Déploiement',
+    'process.s4.desc': 'Mise en production sécurisée, tests finaux et formation si nécessaire.',
+
     // Global
     'common.contact': "Contactez-moi",
   },
@@ -249,6 +262,19 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.why.2': 'Clean & Maintainable Code',
     'footer.why.3': 'Transparent Communication',
     'footer.why.4': 'Deadlines Respected',
+
+    // Process Steps (How It Works)
+    'process.pre': 'Workflow',
+    'process.title': 'How It Works',
+    'process.desc': 'A structured and agile approach to ensure high quality and speed, from concept to final deployment.',
+    'process.s1.title': 'Discovery',
+    'process.s1.desc': 'Deep understanding of your needs, business goals, and technical constraints.',
+    'process.s2.title': 'Architecture',
+    'process.s2.desc': 'Designing the technical solution, selecting the stack, and detailed planning.',
+    'process.s3.title': 'Development',
+    'process.s3.desc': 'Iterative coding with regular checkpoints and high quality standards.',
+    'process.s4.title': 'Deployment',
+    'process.s4.desc': 'Secure production rollout, final testing, and training if needed.',
 
     // Global
     'common.contact': "Get in touch",

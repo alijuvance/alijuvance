@@ -1,29 +1,34 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const steps = [
-  {
-    id: '01',
-    number: '1',
-    title: 'Discovery',
-    description: 'We dive deep into your business goals, target audience, and technical requirements to build a solid foundation.',
-  },
-  {
-    id: '02',
-    number: '2',
-    title: 'Strategy',
-    description: 'We craft a comprehensive roadmap and technical architecture that ensures scalability, performance, and security.',
-  },
-  {
-    id: '03',
-    number: '3',
-    title: 'Development',
-    description: 'We bring designs to life with clean, efficient code, using cutting-edge technologies and best practices.',
-  },
-];
+import { useLanguage } from './LanguageContext';
 
 export function ProcessSteps() {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      id: 1,
+      title: t('process.s1.title'),
+      description: t('process.s1.desc'),
+    },
+    {
+      id: 2,
+      title: t('process.s2.title'),
+      description: t('process.s2.desc'),
+    },
+    {
+      id: 3,
+      title: t('process.s3.title'),
+      description: t('process.s3.desc'),
+    },
+    {
+      id: 4,
+      title: t('process.s4.title'),
+      description: t('process.s4.desc'),
+    },
+  ];
+
   return (
     <section className="relative w-full py-20 lg:py-32 overflow-hidden bg-black">
       {/* Background Atmosphere - Red Glow */}
@@ -44,7 +49,7 @@ export function ProcessSteps() {
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6"
           >
             <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-xs font-mono text-gray-300 uppercase tracking-widest">Our Methodology</span>
+            <span className="text-xs font-mono text-gray-300 uppercase tracking-widest">{t('process.pre')}</span>
           </motion.div>
           
           <motion.h2
@@ -54,40 +59,43 @@ export function ProcessSteps() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-title font-bold text-white tracking-tight"
           >
-            How It Works
+            {t('process.title')}
           </motion.h2>
+          <p className="mt-4 text-secondary/60 max-w-2xl mx-auto text-lg">
+             {t('process.desc')}
+          </p>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative group"
             >
               {/* Card Container */}
-              <div className="relative p-8 lg:p-10 rounded-3xl border border-white/5 bg-[#0a0a0a] overflow-hidden hover:border-red-500/20 transition-colors duration-500 h-full">
+              <div className="relative p-8 rounded-3xl border border-white/5 bg-[#0a0a0a] overflow-hidden hover:border-red-500/20 transition-colors duration-500 h-full flex flex-col justify-between">
                 
                 {/* Large Background Number */}
-                <div className="absolute -right-4 -top-8 text-[180px] font-bold font-title text-white/[0.03] group-hover:text-red-500/[0.05] transition-colors duration-500 select-none leading-none">
-                  {step.number}
+                <div className="absolute -right-4 -top-8 text-[120px] font-bold font-title text-white/[0.03] group-hover:text-red-500/[0.05] transition-colors duration-500 select-none leading-none">
+                  {step.id}
                 </div>
 
                 {/* Content */}
-                <div className="relative z-10 flex flex-col h-full">
+                <div className="relative z-10">
                   <div className="mb-6">
-                    <span className="text-sm font-mono text-red-500 tracking-widest uppercase">Step-{step.id}</span>
+                    <span className="text-sm font-mono text-red-500 tracking-widest uppercase">Step-0{step.id}</span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:translate-x-1 transition-transform duration-300">
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:translate-x-1 transition-transform duration-300">
                     {step.title}
                   </h3>
                   
-                  <p className="text-gray-400 leading-relaxed text-sm lg:text-base">
+                  <p className="text-gray-400 leading-relaxed text-sm">
                     {step.description}
                   </p>
                 </div>
