@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLanguage } from './LanguageContext';
 
 /**
  * Education & Recognition Section
@@ -10,6 +11,8 @@ import { motion } from 'framer-motion';
  */
 
 export function EducationRecognition() {
+  const { t } = useLanguage();
+
   return (
     <section className="section-padding py-20 bg-black text-white border-t border-white/5 relative overflow-hidden">
       {/* Background Glow */}
@@ -18,9 +21,9 @@ export function EducationRecognition() {
         
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Éducation et reconnaissance professionnelle</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">{t('edu.title')}</h2>
           <p className="text-secondary/60 max-w-2xl mx-auto">
-            Apprentissage continu et excellence académique reconnue dans le développement logiciel.
+            {t('edu.subtitle')}
           </p>
         </div>
 
@@ -28,28 +31,28 @@ export function EducationRecognition() {
           
           {/* LEFT COLUMN: Education */}
           <div className="space-y-6">
-            <h3 className="text-xl font-bold mb-6 text-white/90">Éducation et formation</h3>
+            <h3 className="text-xl font-bold mb-6 text-white/90">{t('edu.col1')}</h3>
             
             {/* Card 1: ENI */}
             <EducationCard 
-              title="Licence Professionnelle Informatique"
-              subtitle="Ecole Nationale d'Informatique (ENI) • 2022 - 2025"
-              description="Parcours Informatique Générale. Formation intensive en algorithmique, génie logiciel, et développement web/mobile avancée. Major de promotion sur les modules techniques."
+              title={t('edu.eni.title')}
+              subtitle={t('edu.eni.sub')}
+              description={t('edu.eni.desc')}
               badges={['Génie Logiciel', 'Web', 'Mobile']}
             />
 
             {/* Card 2: Bac */}
             <EducationCard 
-              title="Baccalauréat Série D"
-              subtitle="Lycée Privé Adventiste Mahajanga • 2021 - 2022"
-              description="Obtention du baccalauréat avec mention. Bases solides en mathématiques et sciences."
+              title={t('edu.bac.title')}
+              subtitle={t('edu.bac.sub')}
+              description={t('edu.bac.desc')}
               badges={['Sciences', 'Mathématiques']}
             />
           </div>
 
           {/* RIGHT COLUMN: Recognition */}
           <div className="space-y-6">
-             <h3 className="text-xl font-bold mb-6 text-white/90">Reconnaissance professionnelle</h3>
+             <h3 className="text-xl font-bold mb-6 text-white/90">{t('edu.col2')}</h3>
 
              {/* Main Featured Card */}
              <div className="p-8 rounded-2xl bg-[#0f0f10] border border-white/5 relative overflow-hidden group">
@@ -59,13 +62,13 @@ export function EducationRecognition() {
                
                <div className="relative z-10">
                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-6 text-accent border border-accent/20">
-                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z"/></svg>
                  </div>
                  
-                 <h4 className="text-xl font-bold mb-2 text-white">Développeur Engagé</h4>
-                 <p className="text-sm text-secondary mb-4">Projets Académiques & Stages • 2023 - Aujourd&apos;hui</p>
+                 <h4 className="text-xl font-bold mb-2 text-white">{t('edu.rec.title')}</h4>
+                 <p className="text-sm text-secondary mb-4">{t('edu.rec.sub')}</p>
                  <p className="text-secondary/80 text-sm leading-relaxed mb-6">
-                   Participation active à des projets d&apos;envergure nationale (Ministère du Travail) et création de solutions d&apos;entreprise formelles dès le cursus universitaire.
+                   {t('edu.rec.desc')}
                  </p>
                  
                  <div className="flex items-center gap-2 text-accent text-sm font-medium">
@@ -78,12 +81,12 @@ export function EducationRecognition() {
              {/* Stats Rows */}
              <div className="grid grid-cols-1 gap-4">
                <StatCard 
-                 title="Projets Livrés" 
+                 title={t('edu.stat.projects')}
                  value="15+" 
                  icon={<svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>}
                />
                <StatCard 
-                 title="Satisfaction Tuteur/Client" 
+                 title={t('edu.stat.satisfaction')}
                  value="4.9/5" 
                  icon={<svg className="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>}
                />

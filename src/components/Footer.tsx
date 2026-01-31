@@ -5,7 +5,10 @@
  * Refactored to match "Ali Saleem" reference layout (4 columns)
  */
 
+import { useLanguage } from './LanguageContext';
+
 export function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -21,8 +24,7 @@ export function Footer() {
           <div className="space-y-6">
             <h2 className="text-2xl font-bold">Ali Juvance</h2>
             <p className="text-sm text-secondary/80 leading-relaxed">
-              Développeur Fullstack & Blockchain spécialisé dans la conception de solutions web scalables et sécurisées. 
-              Transformant des idées complexes en interfaces élégantes et performantes.
+              {t('footer.bio')}
             </p>
             <div className="flex gap-4">
               <SocialIcon icon="linkedin" />
@@ -43,44 +45,44 @@ export function Footer() {
 
           {/* Col 2: Services */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Services</h3>
+            <h3 className="text-lg font-bold mb-6">{t('footer.services')}</h3>
             <ul className="space-y-3 text-sm text-secondary/80">
-              <li><a href="#" className="hover:text-white transition-colors">Développement d&apos;Apps Web</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Solutions Blockchain (DApps)</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{t('services.web')}</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">Blockchain / DApps</a></li>
               <li><a href="#" className="hover:text-white transition-colors">API & Backend NestJS</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Architecture Microservices</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Refonte & Optimisation</a></li>
+              <li><a href="#" className="hover:text-white transition-colors">{t('services.ui')}</a></li>
             </ul>
           </div>
 
           {/* Col 3: Liens Rapides */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Liens rapides</h3>
+            <h3 className="text-lg font-bold mb-6">{t('footer.links')}</h3>
             <ul className="space-y-3 text-sm text-secondary/80">
-              <li><a href="#home" className="hover:text-white transition-colors">Accueil</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">À propos</a></li>
-              <li><a href="#skills" className="hover:text-white transition-colors">Compétences</a></li>
-              <li><a href="#projects" className="hover:text-white transition-colors">Projets</a></li>
-              <li><a href="#experience" className="hover:text-white transition-colors">Expérience</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#home" className="hover:text-white transition-colors">{t('nav.home')}</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">{t('nav.about')}</a></li>
+              <li><a href="#skills" className="hover:text-white transition-colors">{t('nav.skills')}</a></li>
+              <li><a href="#projects" className="hover:text-white transition-colors">{t('nav.projects')}</a></li>
+              <li><a href="#experience" className="hover:text-white transition-colors">{t('nav.experience')}</a></li>
+              <li><a href="#contact" className="hover:text-white transition-colors">{t('nav.contact')}</a></li>
             </ul>
           </div>
 
            {/* Col 4: FAQ (Optional based on image 3/4 content?) Or just extra info */}
            <div>
-            <h3 className="text-lg font-bold mb-6">Pourquoi moi ?</h3>
+            <h3 className="text-lg font-bold mb-6">{t('footer.why')}</h3>
              <ul className="space-y-3 text-sm text-secondary/80">
               <li className="flex gap-2">
-                <span className="text-accent">•</span> Expertise Fullstack (Front+Back)
+                <span className="text-accent">•</span> {t('footer.why.1')}
               </li>
               <li className="flex gap-2">
-                <span className="text-accent">•</span> Code propre & maintenable
+                <span className="text-accent">•</span> {t('footer.why.2')}
               </li>
               <li className="flex gap-2">
-                <span className="text-accent">•</span> Communication transparente
+                <span className="text-accent">•</span> {t('footer.why.3')}
               </li>
               <li className="flex gap-2">
-                <span className="text-accent">•</span> Respect des délais
+                <span className="text-accent">•</span> {t('footer.why.4')}
               </li>
             </ul>
           </div>
@@ -89,14 +91,14 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-secondary/60">
-            © {currentYear} Ali Juvance - Développeur Fullstack. Tous droits réservés.
+            {t('footer.copyright')}
           </p>
           
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center gap-2 text-xs font-medium text-white hover:text-accent transition-colors"
           >
-            Retour en haut de page
+            {t('footer.backtop')}
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
           </button>
         </div>

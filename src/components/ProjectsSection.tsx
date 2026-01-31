@@ -4,11 +4,52 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { AquaFiProjectCard } from './AquaFiProjectCard'; // Make sure to import the new component
-import { projects } from '@/data/projects';
+import { AquaFiProjectCard } from './AquaFiProjectCard';
+import { useLanguage } from './LanguageContext';
+// import { projects as staticProjects } from '@/data/projects'; // We'll assume the structure but use translations
+
+// Define ID type to match what we have in translation keys
+type ProjectId = 'diploma-auth' | 'hr-management' | 'stock-management';
 
 export function ProjectsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { t } = useLanguage();
+
+  // Reconstruct projects using translations
+  // Images/Layout data we might need, but text is dynamic.
+  // We'll mimic the Project interface structure expected by AquaFiProjectCard
+  const projects: any[] = [
+    {
+      id: 'diploma-auth',
+      title: t('proj.diploma.title'),
+      role: t('proj.diploma.role'),
+      challenge: t('proj.diploma.challenge'),
+      solution: t('proj.diploma.solution'),
+      metrics: [t('proj.diploma.m1'), t('proj.diploma.m2'), t('proj.diploma.m3')],
+      stack: ['Next.js', 'NestJS', 'Solidity', 'Ethereum', 'Web3.js', 'PostgreSQL'],
+      category: 'Blockchain',
+    },
+    {
+      id: 'hr-management',
+      title: t('proj.hr.title'),
+      role: t('proj.hr.role'),
+      challenge: t('proj.hr.challenge'),
+      solution: t('proj.hr.solution'),
+      metrics: [t('proj.hr.m1'), t('proj.hr.m2'), t('proj.hr.m3')],
+      stack: ['React.js', 'NestJS', 'MySQL', 'TailwindCSS', 'TypeScript'],
+      category: 'Fullstack',
+    },
+    {
+      id: 'stock-management',
+      title: t('proj.stock.title'),
+      role: t('proj.stock.role'),
+      challenge: t('proj.stock.challenge'),
+      solution: t('proj.stock.solution'),
+      metrics: [t('proj.stock.m1'), t('proj.stock.m2'), t('proj.stock.m3')],
+      stack: ['C++', 'Qt', 'SQL'],
+      category: 'Backend',
+    },
+  ];
 
   // Circular navigation helpers
   const nextProject = () => {
@@ -50,10 +91,10 @@ export function ProjectsSection() {
         {/* Header Section */}
         <div className="text-center mb-20 max-w-3xl mx-auto">
            <h2 id="projects-title" className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight">
-             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Works</span>
+             {t('projects.header')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">{t('projects.header.highlight')}</span>
            </h2>
            <p className="text-gray-400 text-lg">
-             An advanced AI-powered system that analyzes user preferences and delivers highly personalized content.
+             {t('projects.desc')}
            </p>
         </div>
 
