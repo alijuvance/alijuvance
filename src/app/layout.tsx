@@ -90,7 +90,10 @@ export default function RootLayout({
       <body className="min-h-screen bg-background dark:bg-background-dark">
         <ThemeProvider>
           <LanguageProvider>
-            {children}
+            <AiProvider>
+              {children}
+              <AiAssistant />
+            </AiProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
