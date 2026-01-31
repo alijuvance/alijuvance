@@ -2,44 +2,38 @@
 
 import { motion } from 'framer-motion';
 
+import { siFigma, siNextdotjs, siVercel, siOpenai } from 'simple-icons';
+
 const brands = [
   { 
-    name: 'TALK & ACTION', 
+    name: 'Design', 
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        <path d={siFigma.path}/>
       </svg>
     )
   },
   { 
-    name: 'RUBY', 
+    name: 'Fullstack', 
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2l-9.87 6.42L12 22l9.87-13.58L12 2z"/>
+        <path d={siNextdotjs.path}/>
       </svg>
     ) 
   },
   { 
-    name: 'Sky Cloud', 
+    name: 'Cloud Platform', 
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
+        <path d={siVercel.path}/>
       </svg>
     ) 
   },
   { 
-    name: 'WALK AWAY', 
+    name: 'AI', 
     icon: (
       <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/>
-      </svg>
-    ) 
-  },
-  { 
-    name: 'deepPay', 
-    icon: (
-      <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+        <path d={siOpenai.path}/>
       </svg>
     ) 
   },
