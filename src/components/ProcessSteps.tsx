@@ -46,10 +46,11 @@ export function ProcessSteps() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-6"
+            className="mb-4"
           >
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-xs font-mono text-gray-300 uppercase tracking-widest">{t('process.pre')}</span>
+            <span className="text-sm font-mono font-bold tracking-[0.3em] text-red-600 uppercase">
+              {t('process.pre')}
+            </span>
           </motion.div>
           
           <motion.h2
