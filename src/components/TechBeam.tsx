@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { useLanguage } from './LanguageContext';
 import { 
   siReact, siNextdotjs, siTypescript, siTailwindcss, 
   siPostgresql, siDocker, siGraphql, siFigma,
@@ -30,6 +31,7 @@ const skills = [
 
 export function TechBeam() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { t } = useLanguage();
 
   // Container Dimensions (Fixed reasoning for precise SVG paths)
   // We assume a responsive container, but the SVG viewBox will coordinate content.
@@ -165,7 +167,7 @@ export function TechBeam() {
              <div className="relative p-6 rounded-2xl bg-[#0f0f10] border border-white/10 shadow-2xl flex flex-col items-start gap-1">
                 <span className="text-xs font-mono text-blue-400 mb-1">core.system</span>
                 <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
-                   Ali Juvance
+                   {t('tech.title')}
                 </h3>
                 <div className="flex gap-2 mt-2">
                    <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">FULLSTACK</span>
@@ -181,8 +183,8 @@ export function TechBeam() {
         
         {/* Title / Core System */}
         <div className="absolute top-10 z-20 text-center pointer-events-none">
-           <span className="text-xs font-mono text-blue-400 mb-1 tracking-widest uppercase">Select Technology</span>
-           <h3 className="text-2xl font-bold text-white drop-shadow-md">Core System</h3>
+           <span className="text-xs font-mono text-blue-400 mb-1 tracking-widest uppercase">{t('tech.select')}</span>
+           <h3 className="text-2xl font-bold text-white drop-shadow-md">{t('tech.title')}</h3>
         </div>
 
         {/* The Wheel */}
@@ -191,7 +193,7 @@ export function TechBeam() {
         {/* Swipe Indicator */}
         <div className="absolute bottom-10 flex items-center gap-2 text-white/30 text-xs font-mono animate-pulse pointer-events-none">
            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
-           <span>SWIPE TO ROTATE</span>
+           <span>{t('tech.swipe')}</span>
            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
         </div>
 

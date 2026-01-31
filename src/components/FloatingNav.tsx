@@ -1,45 +1,47 @@
-'use client';
-
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from './ThemeProvider';
+import { useLanguage } from './LanguageContext';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 /**
  * Floating Navigation Component - "Pill" Style
  * Centered, detached navigation bar typical of modern SaaS designs
  */
 
-const navLinks = [
-  { label: 'Accueil', href: '#home', icon: <HomeIcon className="w-5 h-5" /> },
-  { label: 'À propos', href: '#about', icon: <UserIcon className="w-5 h-5" /> },
-  { label: 'Compétences', href: '#skills', icon: <LightningIcon className="w-5 h-5" /> },
-  { label: 'Expérience', href: '#experience', icon: <CompassIcon className="w-5 h-5" /> },
-  { label: 'Projets', href: '#projects', icon: <LayersIcon className="w-5 h-5" /> },
-  { label: 'Contact', href: '#contact', icon: <SendIcon className="w-5 h-5" /> },
-];
-
 const tabAngles: Record<string, number> = {
-  'Accueil': 0,
-  'À propos': 36,
-  'Compétences': 72,
-  'Expérience': 108,
-  'Projets': 144,
-  'Contact': 180,
+  'hero': 0,
+  'about': 36,
+  'skills': 72,
+  'experience': 108,
+  'projects': 144,
+  'contact': 180,
 };
 
 export function FloatingNav() {
-  const [activeTab, setActiveTab] = useState('Accueil');
+  const [activeTab, setActiveTab] = useState('hero');
   const { resolvedTheme, setTheme } = useTheme();
+  const { t, language } = useLanguage(); // Use language hook
   const [mounted, setMounted] = useState(false);
-  const [rotation, setRotation] = useState(180); // Start at 0 relative (but logic adds 180? let's keep logic)
+  const [rotation, setRotation] = useState(180);
 
   useEffect(() => setMounted(true), []);
 
-  const handleTabChange = (tab: string) => {
-    setActiveTab(tab);
+  // Dynamic Nav Links based on language
+  const navLinks = [
+    { id: 'hero', label: t('nav.home'), href: '#home', icon: <HomeIcon className="w-5 h-5" /> },
+    { id: 'about', label: t('nav.about'), href: '#about', icon: <UserIcon className="w-5 h-5" /> },
+    { id: 'skills', label: t('nav.skills'), href: '#skills', icon: <LightningIcon className="w-5 h-5" /> },
+    { id: 'experience', label: t('nav.experience'), href: '#experience', icon: <CompassIcon className="w-5 h-5" /> },
+    { id: 'projects', label: t('nav.projects'), href: '#projects', icon: <LayersIcon className="w-5 h-5" /> },
+    { id: 'contact', label: t('nav.contact'), href: '#contact', icon: <SendIcon className="w-5 h-5" /> },
+  ];
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
     
-    // Calculate rotation to make the light "follow" the button
-    const targetAngle = tabAngles[tab] ?? 0;
+    // Calculate rotation
+    const targetAngle = tabAngles[tabId] ?? 0;
     const currentEffective = rotation % 360;
     const delta = (targetAngle - currentEffective + 360) % 360;
     
@@ -51,7 +53,7 @@ export function FloatingNav() {
   return (
     <div className="fixed top-6 inset-x-0 mx-auto w-max max-w-[95vw] z-50">
       <div className="relative flex items-center justify-center overflow-hidden rounded-full p-[1px] shadow-lg dark:shadow-2xl">
-        {/* Border Beam - Animates only on change */}
+        {/* Border Beam */}
         <motion.span 
           animate={{ rotate: rotation }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -64,16 +66,16 @@ export function FloatingNav() {
         <div className="flex items-center">
           {navLinks.map((link) => (
             <a
-              key={link.label}
+              key={link.id}
               href={link.href}
-              onClick={() => handleTabChange(link.label)}
+              onClick={() => handleTabChange(link.id)}
               className={`relative px-3 py-2 md:px-3 md:py-2 text-sm font-medium transition-colors rounded-full ${
-                activeTab === link.label 
+                activeTab === link.id 
                   ? 'text-white' 
                   : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
               }`}
             >
-              {activeTab === link.label && (
+              {activeTab === link.id && (
                 <motion.div
                   layoutId="active-pill"
                   className="absolute inset-0 bg-black dark:bg-white/10 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.3)]"
@@ -95,18 +97,8 @@ export function FloatingNav() {
         {/* Separator */}
         <div className="w-px h-4 bg-gray-200 dark:bg-white/10 mx-2" />
 
-        {/* Theme Toggle */}
-        <button
-          onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-          className="p-2 rounded-full text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors"
-          aria-label="Toggle Theme"
-        >
-          {resolvedTheme === 'dark' ? (
-            <SunIcon className="w-5 h-5" />
-          ) : (
-            <MoonIcon className="w-5 h-5" />
-          )}
-        </button>
+        {/* Language Switcher (Replaces Theme Toggle) */}
+        <LanguageSwitcher />
 
       </nav>
       </div>

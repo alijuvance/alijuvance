@@ -2,11 +2,13 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { TextReveal } from './TextReveal';
 import { ButtonBorderBeam } from './ButtonBorderBeam';
-import profileImage from './image/image.jpeg'; // Importing correctly from the subfolder
+import profileImage from './image/image.jpeg';
+import { useLanguage } from './LanguageContext';
 
 export function HeroSplit() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 pb-10">
       <div className="container-section grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -37,7 +39,7 @@ export function HeroSplit() {
                 
                 {/* Overlay Text/Signature */}
                 <div className="absolute bottom-0 left-0 p-6 z-20 w-full bg-gradient-to-t from-black to-transparent">
-                    <p className="text-white/60 text-xs font-mono tracking-widest uppercase mb-1">Based in Madagascar</p>
+                    <p className="text-white/60 text-xs font-mono tracking-widest uppercase mb-1">{t('hero.based')}</p>
                     <div className="w-12 h-0.5 bg-accent" />
                 </div>
             </div>
@@ -54,12 +56,12 @@ export function HeroSplit() {
           <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-red-600/10 blur-[150px] rounded-full pointer-events-none -z-10" />
 
           <h2 className="text-sm font-mono font-bold tracking-[0.2em] text-secondary uppercase mb-6">
-            About Personal
+            {t('hero.pre')}
           </h2>
           
           <div className="mb-8">
             <h1 className="text-5xl md:text-7xl font-title font-bold text-white leading-[1.1] tracking-tight">
-              Hello, I&apos;m Ali <br />
+              {t('hero.greeting')} <br />
               <span className="text-red-600 dark:text-red-500">
                 Juvance
               </span>
@@ -70,7 +72,7 @@ export function HeroSplit() {
           </div>
 
           <p className="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
-            A Senior Fullstack Developer transforming complex challenges into elegant, high-performance digital systems. Focused on scalability, clean code, and premium user experiences.
+            {t('hero.desc')}
           </p>
           
           {/* Signature */}
@@ -83,7 +85,7 @@ export function HeroSplit() {
           <div className="flex flex-col md:flex-row items-center gap-8 justify-center lg:justify-start">
              <ButtonBorderBeam>
                 <span className="flex items-center gap-2">
-                    Download CV
+                    {t('hero.cta')}
                     <svg className="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
