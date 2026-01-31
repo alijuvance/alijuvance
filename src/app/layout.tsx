@@ -4,6 +4,8 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LanguageProvider } from '@/components/LanguageContext';
+import { AiProvider } from '@/components/AiContext';
+import { AiAssistant } from '@/components/AiAssistant';
 import './globals.css';
 
 /**
