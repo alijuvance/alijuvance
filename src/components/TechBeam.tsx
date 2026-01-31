@@ -6,7 +6,7 @@ import { useLanguage } from './LanguageContext';
 import { 
   siReact, siNextdotjs, siTypescript, siTailwindcss, 
   siPostgresql, siDocker, siGraphql, siFigma,
-  siNestjs, siSpringboot, siEthereum, siStreamlit, siHeroku
+  siNestjs, siSpringboot, siEthereum, siStreamlit, siPython
 } from 'simple-icons';
 
 /**
@@ -14,6 +14,14 @@ import {
  * A "Neural Network" style visualization where skills feed into a central core.
  * Replaces the TechGlobe with a more structured, "Gyanaguru 2.0" aesthetic.
  */
+
+// Manual fallback for Heroku (missing in some simple-icons versions)
+const customSiHeroku = {
+  title: 'Heroku',
+  slug: 'heroku',
+  hex: '430098',
+  path: 'M1.742 2.766v18.468C1.742 22.758 2.978 24 4.5 24h15c1.523 0 2.758-1.242 2.758-2.766V2.766C22.258 1.242 21.023 0 19.5 0h-15C2.978 0 1.742 1.242 1.742 2.766Zm14.225 14.868h-2.18V8.953H10.21v8.681H8.032V6.366h2.18v6.791h5.756V6.366h2.18v11.268Z'
+};
 
 // Icon mapping with specific colors for the "Beam" effect
 const skills = [
@@ -27,8 +35,9 @@ const skills = [
   { name: 'Streamlit', icon: siStreamlit, color: '#FF4B4B', y: 7 }, // Added Streamlit
   { name: 'PostgreSQL', icon: siPostgresql, color: '#4169E1', y: 8 },
   { name: 'Docker', icon: siDocker, color: '#2496ED', y: 9 },
-  { name: 'Heroku', icon: siHeroku, color: '#430098', y: 10 }, // Added Heroku
-  { name: 'GraphQL', icon: siGraphql, color: '#E10098', y: 11 },
+  { name: 'Python', icon: siPython, color: '#3776AB', y: 10 }, // Added Python
+  { name: 'Heroku', icon: customSiHeroku, color: '#430098', y: 11 }, // Heroku (Fixed)
+  { name: 'GraphQL', icon: siGraphql, color: '#E10098', y: 12 },
 ];
 
 export function TechBeam() {
