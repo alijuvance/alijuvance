@@ -35,7 +35,7 @@ const techIcons: Record<string, { icon: any; color: string; dim?: boolean }> = {
 export function AquaFiProjectCard({ project, isActive, onClick }: AquaFiProjectCardProps) {
   return (
     <div 
-      className={`relative w-[350px] md:w-[400px] h-[500px] cursor-pointer transition-all duration-500 rounded-[30px] ${isActive ? 'z-20 scale-100' : 'z-10 scale-90 opacity-60 hover:opacity-100'}`}
+      className={`relative w-[85vw] max-w-[400px] h-[500px] cursor-pointer transition-all duration-500 rounded-[30px] ${isActive ? 'z-20 scale-100' : 'z-10 scale-90 opacity-60 hover:opacity-100'}`}
       onClick={onClick}
     >
       {/* Glow Effect behind Active Card */}

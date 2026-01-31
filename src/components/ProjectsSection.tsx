@@ -60,9 +60,9 @@ export function ProjectsSection() {
         {/* 3D Carousel Container */}
         <div className="relative w-full h-[600px] flex items-center justify-center perspective-[1000px]">
            
-           {/* Previous Card (Left, Tilted) */}
+           {/* Previous Card (Left, Tilted) - Hidden on Mobile for Focus */}
            <motion.div 
-             className="absolute left-[5%] md:left-[15%] opacity-40 hover:opacity-60 transition-opacity z-0"
+             className="absolute left-[5%] md:left-[15%] opacity-40 hover:opacity-60 transition-opacity z-0 hidden md:block"
              animate={{ 
                scale: 0.8, 
                rotateY: 25, 
@@ -78,13 +78,25 @@ export function ProjectsSection() {
               />
            </motion.div>
 
-           {/* Active Card (Center, Forward) */}
+           {/* Active Card (Center, Forward) - Swipe Enabled */}
            <motion.div 
-             className="relative z-20"
-             key={activeIndex} // Key change triggers animation
+             className="relative z-20 touch-pan-y"
+             key={activeIndex}
              initial={{ scale: 0.9, opacity: 0 }}
              animate={{ scale: 1, opacity: 1, rotateY: 0, x: 0 }}
              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+             drag="x"
+             dragConstraints={{ left: 0, right: 0 }}
+             dragElastic={0.2}
+             onDragEnd={(e, { offset, velocity }) => {
+               const swipe = offset.x; // detected swipe distance
+               
+               if (swipe < -100) {
+                 nextProject();
+               } else if (swipe > 100) {
+                 prevProject();
+               }
+             }}
            >
               <AquaFiProjectCard 
                 project={getProject(0)} 
@@ -93,9 +105,9 @@ export function ProjectsSection() {
               />
            </motion.div>
 
-           {/* Next Card (Right, Tilted) */}
+           {/* Next Card (Right, Tilted) - Hidden on Mobile */}
            <motion.div 
-             className="absolute right-[5%] md:right-[15%] opacity-40 hover:opacity-60 transition-opacity z-0"
+             className="absolute right-[5%] md:right-[15%] opacity-40 hover:opacity-60 transition-opacity z-0 hidden md:block"
              animate={{ 
                scale: 0.8, 
                rotateY: -25, 
@@ -111,16 +123,26 @@ export function ProjectsSection() {
               />
            </motion.div>
            
-           {/* Navigation Arrows (Optional visual indicators) */}
+           {/* Mobile Navigation Indicators (Dots) */}
+           <div className="absolute bottom-10 flex md:hidden gap-2">
+              {projects.map((_, idx) => (
+                <div 
+                  key={idx}
+                  className={`w-2 h-2 rounded-full transition-all ${idx === activeIndex ? 'bg-red-500 w-6' : 'bg-white/20'}`}
+                />
+              ))}
+           </div>
+
+           {/* Navigation Arrows (Desktop) */}
            <button 
              onClick={prevProject} 
-             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
+             className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
            >
              ←
            </button>
            <button 
              onClick={nextProject}
-             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
+             className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
            >
              →
            </button>
