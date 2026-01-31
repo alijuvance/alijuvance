@@ -6,7 +6,7 @@ import { useLanguage } from './LanguageContext';
 import { 
   siReact, siNextdotjs, siTypescript, siTailwindcss, 
   siPostgresql, siDocker, siGraphql, siFigma,
-  siNestjs, siSpringboot, siEthereum
+  siNestjs, siSpringboot, siEthereum, siStreamlit, siHeroku
 } from 'simple-icons';
 
 /**
@@ -24,9 +24,11 @@ const skills = [
   { name: 'Spring Boot', icon: siSpringboot, color: '#6DB33F', y: 4 },
   { name: 'Tailwind', icon: siTailwindcss, color: '#06B6D4', y: 5 },
   { name: 'Ethereum', icon: siEthereum, color: '#627EEA', y: 6 },
-  { name: 'PostgreSQL', icon: siPostgresql, color: '#4169E1', y: 7 },
-  { name: 'Docker', icon: siDocker, color: '#2496ED', y: 8 },
-  { name: 'GraphQL', icon: siGraphql, color: '#E10098', y: 9 },
+  { name: 'Streamlit', icon: siStreamlit, color: '#FF4B4B', y: 7 }, // Added Streamlit
+  { name: 'PostgreSQL', icon: siPostgresql, color: '#4169E1', y: 8 },
+  { name: 'Docker', icon: siDocker, color: '#2496ED', y: 9 },
+  { name: 'Heroku', icon: siHeroku, color: '#430098', y: 10 }, // Added Heroku
+  { name: 'GraphQL', icon: siGraphql, color: '#E10098', y: 11 },
 ];
 
 export function TechBeam() {
