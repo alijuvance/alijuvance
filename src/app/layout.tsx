@@ -4,6 +4,7 @@ import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import { LanguageProvider } from '@/components/LanguageContext';
+import { Preloader } from '@/components/Preloader';
 import './globals.css';
 
 /**
@@ -88,6 +89,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-background dark:bg-background-dark">
+        <Preloader />
         <ThemeProvider>
           <LanguageProvider>
             {children}

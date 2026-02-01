@@ -12,6 +12,7 @@ export interface Project {
   metrics: string[];
   stack: string[];
   category?: 'Fullstack' | 'Frontend' | 'Backend' | 'DevOps' | 'Blockchain';
+  image?: string;
 }
 
 /**
