@@ -26,7 +26,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.pre': 'Profil Professionnel',
     'hero.greeting': "Bonjour, je suis",
     'hero.role': "Architecte & Développeur Fullstack",
-    'hero.desc': "Développeur Senior transformant des défis techniques complexes en solutions élégantes et performantes. Spécialisé en scalabilité, code propre et expérience utilisateur premium.",
+    'hero.desc': "Passionné par le développement Full Stack, je fusionne ingénierie moderne et conception intelligente. Fort d'une solide expérience des technologies actuelles et d'un sens aigu de l'expérience utilisateur, je poursuis actuellement un Master en Informatique Générale à l’École Nationale d’Informatique (ENI) de l’Université de Fianarantsoa.",
     'hero.cta': "Télécharger CV",
     'hero.based': "Basé à Madagascar",
 
@@ -178,7 +178,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.pre': 'About Personal',
     'hero.greeting': "Hello, I'm",
     'hero.role': "Fullstack Architect & Developer",
-    'hero.desc': "A Senior Fullstack Developer transforming complex challenges into elegant, high-performance digital systems. Focused on scalability, clean code, and premium user experiences.",
+    'hero.desc': "Passionate about Full Stack development, I merge modern engineering with intelligent design. With strong experience in current technologies and a keen sense of user experience, I am currently pursuing a Master's in General Computer Science at the National School of Computer Science (ENI) of the University of Fianarantsoa.",
     'hero.cta': "Download CV",
     'hero.based': "Based in Madagascar",
 

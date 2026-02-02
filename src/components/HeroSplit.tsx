@@ -71,7 +71,7 @@ export function HeroSplit() {
             <div className="w-24 h-1.5 bg-red-600 mt-6 mb-8 rounded-full" />
           </div>
 
-          <p className="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8">
+          <p className="text-lg text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed mb-8 whitespace-pre-line">
             {t('hero.desc')}
           </p>
           
