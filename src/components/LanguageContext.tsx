@@ -33,14 +33,14 @@ export const translations: Record<Language, Record<string, string>> = {
     // Services (About)
     'services.pre': 'Nos Services',
     'services.title': 'Ce que nous faisons.',
-    'services.brand': 'Identité de Marque',
-    'services.brand.desc': 'Nous rassemblons les bonnes personnes pour remettre en question les idées reçues et conduire la transformation.',
-    'services.web': 'Design Site Web',
-    'services.web.desc': 'Création d\'interfaces modernes et réactives qui captivent votre audience dès le premier regard.',
+    'services.brand': 'Solutions Blockchain',
+    'services.brand.desc': 'Architecture d\'applications décentralisées (DApps), Smart Contracts et intégration Web3 sécurisée.',
+    'services.web': 'Développement Web & Mobile',
+    'services.web.desc': 'Applications performantes et scalables sur mesure, utilisant React, Next.js et des architectures modernes.',
     'services.ui': 'Design UI & UX',
-    'services.ui.desc': 'Conception centrée utilisateur pour des expériences fluides, intuitives et mémorables.',
-    'services.video': 'Marketing Vidéo',
-    'services.video.desc': 'Stratégies vidéo percutantes pour amplifier votre message et engager votre communauté.',
+    'services.ui.desc': 'Interfaces intuitives et centrées utilisateur. Maquettage précis et expériences fluides sur tous les supports.',
+    'services.video': 'API & Backend Robuste',
+    'services.video.desc': 'Conception d\'APIs REST/GraphQL performantes, gestion de bases de données et optimisation serveur.',
 
     // Tech
     'tech.title': 'Système Central',
@@ -48,7 +48,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'tech.swipe': 'GLISSER POUR TOURNER',
 
     // Contact
-    'contact.title': 'Donnons vie à votre vision',
+    'contact.title': 'Entrer en contact',
     'contact.subtitle': 'Prêt à transformer votre présence en ligne ? Parlons de votre projet et voyons comment nous pouvons collaborer.',
     'contact.start': 'Démarrez votre projet',
     'contact.name': 'Votre nom *',
@@ -70,6 +70,7 @@ export const translations: Record<Language, Record<string, string>> = {
     // Experience Section
     'exp.title': 'Expérience',
     'exp.subtitle': 'Professionnelle',
+    'exp.desc': "Mon parcours professionnel et les entreprises exceptionnelles avec lesquelles j'ai eu le privilège de travailler.",
     
     // Exp: Freelance
     'exp.freelance.role': 'Développeur Fullstack (Freelance)',
@@ -106,13 +107,13 @@ export const translations: Record<Language, Record<string, string>> = {
     // Projects Section
     'projects.header': 'Sélection de',
     'projects.header.highlight': 'Projets',
-    'projects.desc': 'Un système avancé alimenté par l\'IA qui analyse les préférences des utilisateurs et fournit un contenu hautement personnalisé.',
+    'projects.desc': "Découvrez mes derniers travaux.",
     'projects.metrics': 'Métrique',
     'projects.role': 'Rôle',
     
     // Project: Diploma Auth
     'proj.diploma.title': 'Authentification Diplômes Blockchain',
-    'proj.diploma.role': 'Lead Developer',
+    'proj.diploma.role': 'Développement web',
     'proj.diploma.challenge': 'La falsification de diplômes et la lenteur des vérifications manuelles posaient un problème de confiance majeur pour le Ministère et les recruteurs.',
     'proj.diploma.solution': 'Développement d\'une plateforme décentralisée sur Ethereum (Testnet Sepolia). Chaque diplôme est un token/hash unique vérifiable instantanément via QR Code, garantissant une immutabilité totale.',
     'proj.diploma.m1': 'Sécurité 100% inviolable (Blockchain)',
@@ -121,7 +122,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Project: HR Management
     'proj.hr.title': 'Digitalisation RH Computer Store',
-    'proj.hr.role': 'Fullstack Developer',
+    'proj.hr.role': 'Développement web',
     'proj.hr.challenge': 'La gestion des employés reposait sur des processus papier et Excel dispersés, entraînant des erreurs de saisie et une perte de temps pour les managers.',
     'proj.hr.solution': 'Création d\'un portail employé/RH centralisé. Automatisation des congés, fiches de paie et suivi de carrière via une interface React fluide connectée à une API NestJS robuste.',
     'proj.hr.m1': 'Centralisation des données RH',
@@ -129,13 +130,32 @@ export const translations: Record<Language, Record<string, string>> = {
     'proj.hr.m3': 'Interface temps réel',
     
     // Project: Stock Management
-    'proj.stock.title': 'Gestion Commerciale Desktop',
-    'proj.stock.role': 'Développeur C++',
-    'proj.stock.challenge': 'Nécessité d\'une solution performante hors-ligne pour la gestion de vente d\'une épicerie avec un grand volume de transactions.',
-    'proj.stock.solution': 'Logiciel desktop natif développé en C++ avec framework Qt. Base de données locale optimisée et interface ergonomique pour une saisie rapide en caisse.',
-    'proj.stock.m1': 'Performance native (haute rapidité)',
-    'proj.stock.m2': 'Fonctionnement 100% hors-ligne',
-    'proj.stock.m3': 'Gestion de stock temps réel',
+    // Project: EcoSphere Analytics
+    'proj.stock.title': 'EcoSphere Analytics',
+    'proj.stock.role': 'Fullstack Architect',
+    'proj.stock.challenge': 'La surveillance écologique traditionnelle manquait de données centralisées pour analyser l\'impact environnemental en temps réel.',
+    'proj.stock.solution': 'Plateforme SaaS de monitoring écologique. Visualisation de données IoT complexes via Next.js, API NestJS haute performance et stockage séries temporelles PostgreSQL.',
+    'proj.stock.m1': 'Analytics Temps Réel',
+    'proj.stock.m2': 'Architecture Scalable (Docker)',
+    'proj.stock.m3': 'Interface "Nature-Tech"',
+    
+    // Project: Nexus AI (Sentient UI)
+    'proj.nexus.title': 'Sentient UI Engine',
+    'proj.nexus.role': 'AI UX Architect',
+    'proj.nexus.challenge': 'Interfaces statiques incapables de s\'adapter au contexte émotionnel et contextuel de l\'utilisateur.',
+    'proj.nexus.solution': 'Moteur de génération d\'interface en temps réel. Analyse biométrique locale (Edge AI) pilotant une UI générative fluide et instantanée.',
+    'proj.nexus.m1': 'Adaptation Émotionnelle',
+    'proj.nexus.m2': 'Rendering WebGPU (<1ms)',
+    'proj.nexus.m3': 'Confidentialité Totale (Local)',
+
+    // Project: Vortex (Decentralized)
+    'proj.vortex.title': 'Vortex Mesh Network',
+    'proj.vortex.role': 'Systems Engineer',
+    'proj.vortex.challenge': 'La dépendance aux clouds centralisés crée des vulnérabilités de sécurité et des coûts d\'infrastructure élevés.',
+    'proj.vortex.solution': 'Réseau de calcul distribué pair-à-pair nouvelle génération. Exploitation de la puissance inactive via WebAssembly et sécurisé par ZK-Proofs.',
+    'proj.vortex.m1': 'Infrastructure Décentralisée',
+    'proj.vortex.m2': 'Vérification ZK-Snark',
+    'proj.vortex.m3': 'Performance Native WASM',
 
     // Footer
     'footer.bio': 'Développeur Fullstack & Blockchain spécialisé dans la conception de solutions web scalables et sécurisées. Transformant des idées complexes en interfaces élégantes et performantes.',
@@ -185,14 +205,14 @@ export const translations: Record<Language, Record<string, string>> = {
     // Services (About)
     'services.pre': 'Our Services',
     'services.title': 'What We Do.',
-    'services.brand': 'Brand Identity',
-    'services.brand.desc': 'We bring the right people together to challenge established thinking and drive transformation.',
-    'services.web': 'Website Design',
-    'services.web.desc': 'Creating modern and responsive interfaces that captivate your audience from the first glance.',
+    'services.brand': 'Blockchain Solutions',
+    'services.brand.desc': 'Decentralized application (DApp) architecture, specialized Smart Contracts, and secure Web3 integration.',
+    'services.web': 'Web & Mobile Development',
+    'services.web.desc': 'High-performance, scalable custom applications built with React, Next.js, and modern architectures.',
     'services.ui': 'UI & UX Design',
-    'services.ui.desc': 'User-centered design for fluid, intuitive, and memorable experiences.',
-    'services.video': 'Video Marketing',
-    'services.video.desc': 'Impactful video strategies to amplify your message and engage your community.',
+    'services.ui.desc': 'Intuitive, user-centered interfaces. Precise prototyping and fluid experiences across all devices.',
+    'services.video': 'Robust API & Backend',
+    'services.video.desc': 'High-performance REST/GraphQL API design, database management, and server optimization.',
 
     // Tech
     'tech.title': 'Core System',
@@ -200,7 +220,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'tech.swipe': 'SWIPE TO ROTATE',
 
     // Contact
-    'contact.title': 'Let\'s bring your vision to life',
+    'contact.title': 'Get in touch',
     'contact.subtitle': 'Ready to transform your online presence? Let\'s discuss your project and see how we can collaborate.',
     'contact.start': 'Start your project',
     'contact.name': 'Your name *',
@@ -222,6 +242,7 @@ export const translations: Record<Language, Record<string, string>> = {
     // Experience Section
     'exp.title': 'Experience',
     'exp.subtitle': 'Professional',
+    'exp.desc': "My professional journey and the exceptional companies I've had the privilege to work with.",
     
     // Exp: Freelance
     'exp.freelance.role': 'Fullstack Developer (Freelance)',
@@ -258,13 +279,13 @@ export const translations: Record<Language, Record<string, string>> = {
     // Projects Section
     'projects.header': 'Selected',
     'projects.header.highlight': 'Works',
-    'projects.desc': 'An advanced AI-powered system that analyzes user preferences and delivers highly personalized content.',
+    'projects.desc': "Discover my latest work.",
     'projects.metrics': 'Metrics',
     'projects.role': 'Role',
 
     // Project: Diploma Auth
     'proj.diploma.title': 'Blockchain Diploma Auth',
-    'proj.diploma.role': 'Lead Developer',
+    'proj.diploma.role': 'Web Development',
     'proj.diploma.challenge': 'Diploma forgery and slow manual verifications posed a major trust issue for the Ministry and recruiters.',
     'proj.diploma.solution': 'Development of a decentralized platform on Ethereum (Sepolia Testnet). Each diploma is a unique, instantly verifiable token/hash via QR Code, ensuring total immutability.',
     'proj.diploma.m1': '100% Tamper-proof Security',
@@ -273,7 +294,7 @@ export const translations: Record<Language, Record<string, string>> = {
     
     // Project: HR Management
     'proj.hr.title': 'Computer Store HR Digitalization',
-    'proj.hr.role': 'Fullstack Developer',
+    'proj.hr.role': 'Web Development',
     'proj.hr.challenge': 'Employee management relied on scattered paper and Excel processes, leading to entry errors and lost time for managers.',
     'proj.hr.solution': 'Creation of a centralized Employee/HR portal. Automation of leave, payroll, and career tracking via a fluid React interface connected to a robust NestJS API.',
     'proj.hr.m1': 'Centralized HR Data',
@@ -281,13 +302,32 @@ export const translations: Record<Language, Record<string, string>> = {
     'proj.hr.m3': 'Real-time Interface',
     
     // Project: Stock Management
-    'proj.stock.title': 'Desktop Commercial Management',
-    'proj.stock.role': 'C++ Developer',
-    'proj.stock.challenge': 'Need for a high-performance offline solution for grocery sales management with a high transaction volume.',
-    'proj.stock.solution': 'Native desktop software developed in C++ with Qt framework. Optimized local database and ergonomic interface for rapid checkout entry.',
-    'proj.stock.m1': 'Native Performance (High Speed)',
-    'proj.stock.m2': '100% Offline Operation',
-    'proj.stock.m3': 'Real-time Stock Management',
+    // Project: EcoSphere Analytics
+    'proj.stock.title': 'EcoSphere Analytics',
+    'proj.stock.role': 'Fullstack Architect',
+    'proj.stock.challenge': 'Traditional ecological monitoring lacked centralized data to analyze environmental impact in real-time.',
+    'proj.stock.solution': 'SaaS ecological monitoring platform. Complex IoT data visualization via Next.js, high-performance NestJS API, and PostgreSQL time-series storage.',
+    'proj.stock.m1': 'Real-time Analytics',
+    'proj.stock.m2': 'Scalable Architecture (Docker)',
+    'proj.stock.m3': '"Nature-Tech" Interface',
+
+    // Project: Nexus AI (Sentient UI)
+    'proj.nexus.title': 'Sentient UI Engine',
+    'proj.nexus.role': 'AI UX Architect',
+    'proj.nexus.challenge': 'Static interfaces unable to adapt to user emotional and situational context.',
+    'proj.nexus.solution': 'Real-time interface generation engine. Local biometric analysis (Edge AI) driving a fluid, instant generative UI.',
+    'proj.nexus.m1': 'Emotional Adaptation',
+    'proj.nexus.m2': 'WebGPU Rendering (<1ms)',
+    'proj.nexus.m3': 'Total Privacy (Local)',
+
+    // Project: Vortex (Decentralized)
+    'proj.vortex.title': 'Vortex Mesh Network',
+    'proj.vortex.role': 'Systems Engineer',
+    'proj.vortex.challenge': 'Reliance on centralized clouds creates security vulnerabilities and high infrastructure costs.',
+    'proj.vortex.solution': 'Next-gen peer-to-peer distributed compute network. Harnessing idle power via WebAssembly and secured by ZK-Proofs.',
+    'proj.vortex.m1': 'Decentralized Infrastructure',
+    'proj.vortex.m2': 'ZK-Snark Verification',
+    'proj.vortex.m3': 'WASM Native Performance',
 
     // Footer
     'footer.bio': 'Fullstack & Blockchain Developer specializing in designing scalable and secure web solutions. Transforming complex ideas into elegant and high-performance interfaces.',

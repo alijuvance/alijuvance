@@ -4,7 +4,8 @@ import { Project } from '@/data/projects';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   siReact, siNextdotjs, siNodedotjs, siTypescript, siTailwindcss, siPostgresql,
-  siDocker, siKubernetes, siAmazonaws, siMongodb, siNestjs, siSpringboot, siSolidity, siEthereum
+  siDocker, siKubernetes, siAmazonaws, siMongodb, siNestjs, siSpringboot, siSolidity, siEthereum, siMysql,
+  siTensorflow, siRust, siWebassembly, siThreedotjs
 } from 'simple-icons/icons';
 
 interface AquaFiProjectCardProps {
@@ -26,10 +27,27 @@ const techIcons: Record<string, { icon: any; color: string; dim?: boolean }> = {
   'Kubernetes': { icon: siKubernetes, color: '#326CE5' },
   'AWS': { icon: siAmazonaws, color: '#FF9900' },
   'MongoDB': { icon: siMongodb, color: '#47A248' }, 
+  'MySQL': { icon: siMysql, color: '#4479A1' }, 
   'NestJS': { icon: siNestjs, color: '#E0234E' },
   'Spring Boot': { icon: siSpringboot, color: '#6DB33F' },
   'Solidity': { icon: siSolidity, color: '#64748b', dim: true }, // Grey/Dim
   'Ethereum': { icon: siEthereum, color: '#64748b', dim: true }, // Grey/Dim
+  'Web3.js': { 
+    icon: { path: "M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9zM12 4.15L6.04 7.5 12 10.85l5.96-3.35L12 4.15zM5 8.91v7.19l6 3.38v-7.22L5 8.91zm8 10.57 6-3.38V8.91l-6 3.35v7.22z" }, 
+    color: '#3B82F6' 
+  },
+  'TensorFlow.js': { icon: siTensorflow, color: '#FF6F00' },
+  'Rust': { icon: siRust, color: '#DEA584' },
+  'WebAssembly': { icon: siWebassembly, color: '#654FF0' },
+  'Three.js': { icon: siThreedotjs, color: '#FFFFFF' },
+  'WebGPU': { 
+    icon: { path: "M4 6h16v12H4zm2 2v8h12V8H6zm3 2h6v4H9z" }, 
+    color: '#01C8A6' 
+  }, 
+  'SolidJS': { 
+    icon: { path: "M13 2L3 14h9l-1 8 10-12h-9l1-8z" }, 
+    color: '#446b9e' 
+  },
 };
 
 export function AquaFiProjectCard({ project, isActive, onClick }: AquaFiProjectCardProps) {

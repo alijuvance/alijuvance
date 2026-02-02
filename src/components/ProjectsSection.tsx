@@ -28,6 +28,7 @@ export function ProjectsSection() {
       metrics: [t('proj.diploma.m1'), t('proj.diploma.m2'), t('proj.diploma.m3')],
       stack: ['Next.js', 'NestJS', 'Solidity', 'Ethereum', 'Web3.js', 'PostgreSQL'],
       category: 'Blockchain',
+      image: '/projects/blockchain.png',
     },
     {
       id: 'hr-management',
@@ -46,8 +47,31 @@ export function ProjectsSection() {
       challenge: t('proj.stock.challenge'),
       solution: t('proj.stock.solution'),
       metrics: [t('proj.stock.m1'), t('proj.stock.m2'), t('proj.stock.m3')],
-      stack: ['C++', 'Qt', 'SQL'],
-      category: 'Backend',
+      stack: ['Next.js', 'NestJS', 'PostgreSQL', 'TypeScript', 'Docker', 'TailwindCSS'],
+      category: 'Fullstack',
+      image: '/projects/ecosphere.png',
+    },
+    {
+      id: 'sentient-ui',
+      title: t('proj.nexus.title'),
+      role: t('proj.nexus.role'),
+      challenge: t('proj.nexus.challenge'),
+      solution: t('proj.nexus.solution'),
+      metrics: [t('proj.nexus.m1'), t('proj.nexus.m2'), t('proj.nexus.m3')],
+      stack: ['TensorFlow.js', 'SolidJS', 'WebGPU', 'TypeScript'],
+      category: 'AI',
+      image: '/projects/project.jpeg',
+    },
+    {
+      id: 'vortex-mesh',
+      title: t('proj.vortex.title'),
+      role: t('proj.vortex.role'),
+      challenge: t('proj.vortex.challenge'),
+      solution: t('proj.vortex.solution'),
+      metrics: [t('proj.vortex.m1'), t('proj.vortex.m2'), t('proj.vortex.m3')],
+      stack: ['Rust', 'WebAssembly', 'Three.js', 'WebGPU', 'TypeScript'],
+      category: 'System',
+      image: '/projects/vortex.png',
     },
   ];
 
@@ -192,16 +216,6 @@ export function ProjectsSection() {
 
         {/* Bottom Stats / Indicators */}
         <div className="mt-12 flex items-center gap-8 text-gray-500 font-mono text-xs uppercase tracking-widest">
-           <div>
-             <span className="text-white block text-xl font-bold mb-1">1.3b</span>
-             Market Size
-           </div>
-           <div className="w-[1px] h-8 bg-white/10" />
-           <div>
-             <span className="text-white block text-xl font-bold mb-1">321k</span>
-             Transfers
-           </div>
-           <div className="w-[1px] h-8 bg-white/10" />
            <div>
               <span className="text-white block text-xl font-bold mb-1">{activeIndex + 1} / {projects.length}</span>
               Project

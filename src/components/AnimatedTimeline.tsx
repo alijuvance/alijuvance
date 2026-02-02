@@ -49,7 +49,10 @@ export function AnimatedTimelineSection() {
           <h2 className="text-4xl md:text-6xl font-bold mb-6 font-sans tracking-tight">
             {t('exp.title')} <span className="text-secondary/40">{t('exp.subtitle')}</span>
           </h2>
-          <div className="h-1 w-20 bg-accent rounded-full" />
+          <div className="h-1 w-20 bg-accent rounded-full mb-8" />
+          <p className="text-secondary/80 max-w-2xl text-lg">
+            {t('exp.desc')}
+          </p>
         </div>
 
         {/* Stacked List */}
