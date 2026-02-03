@@ -16,31 +16,34 @@ export function AnimatedTimelineSection() {
   // Reconstruct experiences with translation
   const experiences = [
     {
-      id: 'freelance-2024',
-      period: '2024 - Present',
+      id: 'stage-mtefop',
+      period: '2025',
       role: t('exp.freelance.role'),
       company: t('exp.freelance.comp'),
       description: t('exp.freelance.desc'),
+      tags: ['Next.js', 'NestJS', 'Solidity', 'Ethereum', 'PostgreSQL']
     },
     {
       id: 'stage-2024',
-      period: '2024',
+      period: '2025',
       role: t('exp.stage24.role'),
       company: t('exp.stage24.comp'),
       description: t('exp.stage24.desc'),
+      tags: ['React', 'TypeScript', 'Git', 'Agile', 'Docker']
     },
     {
       id: 'stage-2023',
-      period: '2023',
+      period: 'Sept. 2024 - Nov. 2024',
       role: t('exp.stage23.role'),
       company: t('exp.stage23.comp'),
       description: t('exp.stage23.desc'),
+      tags: ['React', 'NestJS', 'MySQL', 'Tailwind CSS', 'TypeScript']
     },
   ];
 
   return (
     <section id="experience" className="section-padding relative overflow-hidden">
-      {/* Background Atmosphere */}
+      {/* ... keeping background ... */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full pointer-events-none -z-10" />
       <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-red-900/40 to-transparent" />
       <div className="container-section">
@@ -95,13 +98,13 @@ function ExperienceCard({ experience, index }: { experience: any, index: number 
         </div>
 
         {/* Description */}
-        <p className="text-secondary dark:text-gray-400 leading-relaxed max-w-3xl text-lg">
+        <p className="text-secondary dark:text-gray-400 leading-relaxed max-w-3xl text-lg whitespace-pre-line">
           {experience.description}
         </p>
 
-        {/* Tech Stack (Mockup if not in data) */}
+        {/* Tech Stack */}
         <div className="flex flex-wrap gap-2 mt-6">
-           {['React', 'TypeScript', 'System Design'].map((tag, i) => (
+           {(experience.tags || []).map((tag: string, i: number) => (
              <span key={i} className="text-xs font-mono text-secondary/60 border border-gray-200 dark:border-white/5 px-2 py-1 rounded hover:bg-surface dark:hover:bg-white/5 transition-colors">
                {tag}
              </span>

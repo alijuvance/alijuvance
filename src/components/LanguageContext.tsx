@@ -73,19 +73,20 @@ export const translations: Record<Language, Record<string, string>> = {
     'exp.desc': "Mon parcours professionnel et les entreprises exceptionnelles avec lesquelles j'ai eu le privilège de travailler.",
     
     // Exp: Freelance
-    'exp.freelance.role': 'Développeur Fullstack (Freelance)',
-    'exp.freelance.comp': 'Missions Globales',
-    'exp.freelance.desc': 'Conception et développement d\'applications web sur mesure pour des clients internationaux. Spécialisation Node.js, React et architectures Cloud.',
+    // Exp: Stage MTEFoP
+    'exp.freelance.role': 'Stagiaire en développement Web',
+    'exp.freelance.comp': 'MTEFoP (Tananarive 67ha)',
+    'exp.freelance.desc': 'Conception et réalisation d’un système web sécurisé d’authentification des diplômes en utilisant la technologie Blockchain et Code QR',
     
     // Exp: Stage 2024
     'exp.stage24.role': 'Stagiaire Développeur web',
-    'exp.stage24.comp': 'Direction Régionale du Travail et des Lois Sociales (DRTLS) Boeny',
-    'exp.stage24.desc': 'Développement d\'une application de gestion des employés et d\'archivage numérique. Optimisation des processus administratifs internes.',
+    'exp.stage24.comp': 'Nexia Systems',
+    'exp.stage24.desc': 'Développement, maintenance d\'applications avec collaboration active au sein d\'équipes multidisciplinaires, conception et implémentation des solutions logicielles',
 
-    // Exp: Stage 2023
-    'exp.stage23.role': 'Stagiaire Développeur',
+    // Exp: Stage 2023 (Computer Store)
+    'exp.stage23.role': 'Stagiaire en développement Web',
     'exp.stage23.comp': 'Computer Store',
-    'exp.stage23.desc': 'Maintenance logicielle et assistance technique. Développement de scripts d\'automatisation pour la gestion de parc informatique.',
+    'exp.stage23.desc': 'Conception et réalisation d\'une application Web de gestion d\'employés. qui automatisent les tâches administratives, centralisent les données et simplifient le quotidien des équipes RH et des managers. Remplacer les processus papier par des outils digitaux',
 
     // Education & Recognition
     'edu.title': 'Éducation et reconnaissance professionnelle',
@@ -245,19 +246,20 @@ export const translations: Record<Language, Record<string, string>> = {
     'exp.desc': "My professional journey and the exceptional companies I've had the privilege to work with.",
     
     // Exp: Freelance
-    'exp.freelance.role': 'Fullstack Developer (Freelance)',
-    'exp.freelance.comp': 'Global Missions',
-    'exp.freelance.desc': 'Design and development of custom web applications for international clients. Specializing in Node.js, React, and Cloud architectures.',
+    // Exp: MTEFoP Intern
+    'exp.freelance.role': 'Web Development Intern',
+    'exp.freelance.comp': 'MTEFoP (Antananarivo 67ha)',
+    'exp.freelance.desc': 'Design and implementation of a secure web system for diploma authentication using Blockchain technology and QR Code',
     
     // Exp: Stage 2024
     'exp.stage24.role': 'Web Developer Intern',
-    'exp.stage24.comp': 'Regional Directorate of Labor (DRTLS) Boeny',
-    'exp.stage24.desc': 'Development of an employee management and digital archiving application. Optimization of internal administrative processes.',
+    'exp.stage24.comp': 'Nexia Systems',
+    'exp.stage24.desc': 'Development and maintenance of applications with active collaboration within multidisciplinary teams, design and implementation of software solutions',
 
     // Exp: Stage 2023
-    'exp.stage23.role': 'Developer Intern',
+    'exp.stage23.role': 'Web Development Intern',
     'exp.stage23.comp': 'Computer Store',
-    'exp.stage23.desc': 'Software maintenance and technical support. Development of automation scripts for IT asset management.',
+    'exp.stage23.desc': 'Design and implementation of a Web employee management application. Automating administrative tasks, centralizing data, and simplifying the daily operations of HR teams and managers. Replacing paper processes with digital tools.',
 
     // Education & Recognition
     'edu.title': 'Education and Professional Recognition',
