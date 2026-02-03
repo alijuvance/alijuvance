@@ -79,7 +79,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'exp.freelance.desc': 'Conception et réalisation d’un système web sécurisé d’authentification des diplômes en utilisant la technologie Blockchain et Code QR',
     
     // Exp: Stage 2024
-    'exp.stage24.role': 'Stagiaire Développeur web',
+    'exp.stage24.role': 'Stagiaire en développement Web',
     'exp.stage24.comp': 'Nexia Systems',
     'exp.stage24.desc': 'Développement, maintenance d\'applications avec collaboration active au sein d\'équipes multidisciplinaires, conception et implémentation des solutions logicielles',
 

@@ -31,10 +31,10 @@ export function SkillsSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 id="skills-title" className="section-title">
-            Compétences Techniques
+            Compétences et expertise
           </h2>
           <p className="section-subtitle">
-            Des bases solides acquises sur plus d&apos;une décennie de développement professionnel.
+            Concevoir des solutions avec précision et passion
           </p>
         </motion.div>
 
