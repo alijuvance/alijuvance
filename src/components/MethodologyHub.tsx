@@ -83,10 +83,10 @@ export function MethodologyHub() {
         <div className="absolute -right-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50" />
         
         <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">
-          ENGINEERING<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">VISION 2026</span>
+          DIGITAL<br/>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">ARCHITECT</span>
         </h3>
-        <p className="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-2">The Future of Digital</p>
+        <p className="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-2">Building Modern Experiences</p>
       </motion.div>
 
       {/* Nodes */}
