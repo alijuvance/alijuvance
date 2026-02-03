@@ -182,11 +182,7 @@ export function TechBeam() {
            <div className="relative">
              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-30 animate-pulse" />
              <div className="relative p-6 rounded-2xl bg-[#0f0f10] border border-white/10 shadow-2xl flex flex-col items-start gap-1">
-                <span className="text-xs font-mono text-blue-400 mb-1">core.system</span>
-                <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
-                   {t('tech.title')}
-                </h3>
-                <div className="grid grid-cols-2 gap-2 mt-3 w-full">
+                <div className="grid grid-cols-2 gap-2 w-full">
                    <div className="flex items-center justify-center px-2 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-bold text-emerald-400 tracking-wider shadow-[0_0_10px_-5px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform duration-300">BACKEND</div>
                    <div className="flex items-center justify-center px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-[9px] font-bold text-cyan-400 tracking-wider shadow-[0_0_10px_-5px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform duration-300">FRONTEND</div>
                    <div className="flex items-center justify-center px-2 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-[9px] font-bold text-amber-400 tracking-wider shadow-[0_0_10px_-5px_rgba(245,158,11,0.3)] hover:scale-105 transition-transform duration-300">BDD</div>
