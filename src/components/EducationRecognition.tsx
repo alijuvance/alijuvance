@@ -14,7 +14,7 @@ export function EducationRecognition() {
   const { t } = useLanguage();
 
   return (
-    <section className="section-padding py-20 bg-black text-white border-t border-white/5 relative overflow-hidden">
+    <section id="education" className="section-padding py-20 bg-black text-white border-t border-white/5 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-red-900/5 blur-[100px] rounded-full pointer-events-none" />
       <div className="container-section max-w-7xl mx-auto px-4">

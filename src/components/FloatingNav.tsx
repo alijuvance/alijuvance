@@ -10,16 +10,16 @@ import { LanguageSwitcher } from './LanguageSwitcher';
  */
 
 const tabAngles: Record<string, number> = {
-  'hero': 0,
-  'about': 36,
-  'skills': 72,
-  'experience': 108,
-  'projects': 144,
+  'about': 30,
+  'experience': 60,
+  'projects': 90,
+  'skills': 120,
+  'education': 150,
   'contact': 180,
 };
 
 export function FloatingNav() {
-  const [activeTab, setActiveTab] = useState('hero');
+  const [activeTab, setActiveTab] = useState('about');
   const { resolvedTheme, setTheme } = useTheme();
   const { t, language } = useLanguage(); // Use language hook
   const [mounted, setMounted] = useState(false);
@@ -29,11 +29,11 @@ export function FloatingNav() {
 
   // Dynamic Nav Links based on language
   const navLinks = [
-    { id: 'hero', label: t('nav.home'), href: '#home', icon: <HomeIcon className="w-5 h-5" /> },
     { id: 'about', label: t('nav.about'), href: '#about', icon: <UserIcon className="w-5 h-5" /> },
-    { id: 'skills', label: t('nav.skills'), href: '#skills', icon: <LightningIcon className="w-5 h-5" /> },
     { id: 'experience', label: t('nav.experience'), href: '#experience', icon: <CompassIcon className="w-5 h-5" /> },
     { id: 'projects', label: t('nav.projects'), href: '#projects', icon: <LayersIcon className="w-5 h-5" /> },
+    { id: 'skills', label: t('nav.skills'), href: '#skills', icon: <LightningIcon className="w-5 h-5" /> },
+    { id: 'education', label: t('nav.education'), href: '#education', icon: <EducationIcon className="w-5 h-5" /> },
     { id: 'contact', label: t('nav.contact'), href: '#contact', icon: <SendIcon className="w-5 h-5" /> },
   ];
 
@@ -42,11 +42,52 @@ export function FloatingNav() {
     
     // Calculate rotation
     const targetAngle = tabAngles[tabId] ?? 0;
-    const currentEffective = rotation % 360;
-    const delta = (targetAngle - currentEffective + 360) % 360;
     
-    setRotation(prev => prev + 360 + delta);
+    setRotation(prev => {
+        const currentEffective = prev % 360;
+        const delta = (targetAngle - currentEffective + 360) % 360;
+        return prev + 360 + delta;
+    });
   };
+
+  // Scroll Spy Logic
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const offset = 300; // Trigger point (approx 1/3 viewport)
+
+      // Get valid sections from navLinks
+      const sections = navLinks
+        .map(link => ({ id: link.id, element: document.getElementById(link.id) }))
+        .filter(section => section.element !== null);
+
+      // Find current section
+      const currentSection = sections.find(section => {
+        const { offsetTop, offsetHeight } = section.element!;
+        return scrollY + offset >= offsetTop && scrollY + offset < offsetTop + offsetHeight;
+      });
+
+      if (currentSection && currentSection.id !== activeTab) {
+        // Update without triggering scroll (just visual state)
+        // We replicate handleTabChange logic here to safely use inside effect
+        setActiveTab(currentSection.id);
+        
+        const targetAngle = tabAngles[currentSection.id] ?? 0;
+        setRotation(prev => {
+           const currentEffective = prev % 360;
+           const delta = (targetAngle - currentEffective + 360) % 360;
+           // Reduced rotation for scroll to be less dizzying? No, keep consistent.
+           return prev + 360 + delta;
+        });
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [activeTab, navLinks]); // Re-run if links change (lang) or tab changes (to prevent fighting)
 
   if (!mounted) return null;
 
@@ -168,6 +209,16 @@ function SendIcon({ className }: { className?: string }) {
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M22 2L11 13" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M22 2l-7 20-4-9-9-4 20-7z" />
+    </svg>
+  );
+}
+
+function EducationIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path d="M12 14l9-5-9-5-9 5 9 5z" />
+      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
     </svg>
   );
 }

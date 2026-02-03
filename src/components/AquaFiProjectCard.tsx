@@ -4,7 +4,7 @@ import { Project } from '@/data/projects';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   siReact, siNextdotjs, siNodedotjs, siTypescript, siTailwindcss, siPostgresql,
-  siDocker, siKubernetes, siAmazonaws, siMongodb, siNestjs, siSpringboot, siSolidity, siEthereum, siMysql,
+  siDocker, siKubernetes, siMongodb, siNestjs, siSpringboot, siSolidity, siEthereum, siMysql,
   siTensorflow, siRust, siWebassembly, siThreedotjs
 } from 'simple-icons/icons';
 
@@ -25,7 +25,7 @@ const techIcons: Record<string, { icon: any; color: string; dim?: boolean }> = {
   'PostgreSQL': { icon: siPostgresql, color: '#4169E1' },
   'Docker': { icon: siDocker, color: '#2496ED' },
   'Kubernetes': { icon: siKubernetes, color: '#326CE5' },
-  'AWS': { icon: siAmazonaws, color: '#FF9900' },
+  'AWS': { icon: { path: "M11.16 9.42c-1.4.95-2.19 2.11-1.95 3.74.2 1.35 1.16 2.11 2.51 2.11 1.35 0 2.27-.8 2.47-2.15.2-1.35-.64-2.71-3.03-3.7zM18.3 7.79c-1.16-.8-3.34-1.27-5.02-1.27-2.83 0-5.18 1.11-5.69 4.62-.48 3.26 1.55 5.33 5.25 5.33 2.95 0 5.5-1.91 5.97-5.14l.96-6.53h-2.19l-.52 3.5c-.36-.4-.84-.52-1.28-.52zM6.86 17.5h2.35l-1.47 5.5h2.35l.44-2.59h2.83l.44 2.59h2.35l-4.66-5.5zm-1.08 4.38l.8-2.83h.04l.95 2.83H5.78zM24 13.9c0 3.82-6.17 4.94-9.16 4.94-3.59 0-5.89-1.08-5.89-3.66 0-2.35 2.51-4.14 6.61-4.14 1.24 0 2.63.2 3.03.32l.72-4.82c-1.48-.44-3.39-.6-4.98-.6-3.9 0-7.01 1.4-7.01 4.98 0 3.7 4.02 4.82 6.85 5.41 2.51.52 3.58.84 3.58 1.95 0 1.23-1.24 1.91-3.67 1.91-1.63 0-3.62-.52-5.06-1.31l-.8 2.83c1.55.88 4.02 1.35 6.1 1.35 4.1 0 7.2-1.55 7.2-5.18 0-3.74-4.22-4.9-7.09-5.49-2.19-.48-3.15-.84-3.15-1.83 0-1.04 1.08-1.59 3.11-1.59 1.39 0 2.91.28 4.1.64l.64-4.26c-.16 0 .44 4.5 .44 4.5s2.27 4.54 4.62 9.08h-2.43l-1.79-4.14-1.95 4.14h-2.15l3.15-5.93 1.63-3.26-.48 3.26z" }, color: '#FF9900' },
   'MongoDB': { icon: siMongodb, color: '#47A248' }, 
   'MySQL': { icon: siMysql, color: '#4479A1' }, 
   'NestJS': { icon: siNestjs, color: '#E0234E' },
@@ -173,9 +173,8 @@ export function AquaFiProjectCard({ project, isActive, onClick }: AquaFiProjectC
                       <p className="text-[9px] text-red-500/40 uppercase">Role</p>
                       <p className="text-xs text-red-50 font-medium tracking-wide">{project.role}</p>
                    </div>
-                   <div className="flex items-center gap-1.5 text-[10px] text-red-500 font-mono cursor-pointer hover:text-red-400 transition-colors tracking-widest uppercase">
-                      Case Study 
-                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                   <div className="group/github p-2 rounded-full border border-red-500/20 bg-red-500/5 hover:bg-red-500/10 hover:border-red-500/40 hover:scale-110 transition-all duration-300 shadow-[0_0_15px_-5px_rgba(239,68,68,0.2)] cursor-pointer">
+                      <svg className="w-5 h-5 text-red-500/80 group-hover/github:text-red-400 drop-shadow-[0_0_8px_rgba(239,68,68,0.5)] transition-colors" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                    </div>
                  </div>
                </motion.div>
