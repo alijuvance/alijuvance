@@ -186,9 +186,11 @@ export function TechBeam() {
                 <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
                    {t('tech.title')}
                 </h3>
-                <div className="flex gap-2 mt-2">
-                   <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-blue-500/10 text-blue-400 border border-blue-500/20">FULLSTACK</span>
-                   <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">ARCHITECT</span>
+                <div className="grid grid-cols-2 gap-2 mt-3 w-full">
+                   <div className="flex items-center justify-center px-2 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-[9px] font-bold text-emerald-400 tracking-wider shadow-[0_0_10px_-5px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform duration-300">BACKEND</div>
+                   <div className="flex items-center justify-center px-2 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-[9px] font-bold text-cyan-400 tracking-wider shadow-[0_0_10px_-5px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform duration-300">FRONTEND</div>
+                   <div className="flex items-center justify-center px-2 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-[9px] font-bold text-amber-400 tracking-wider shadow-[0_0_10px_-5px_rgba(245,158,11,0.3)] hover:scale-105 transition-transform duration-300">BDD</div>
+                   <div className="flex items-center justify-center px-2 py-1 rounded-md bg-rose-500/10 border border-rose-500/20 text-[9px] font-bold text-rose-400 tracking-wider shadow-[0_0_10px_-5px_rgba(244,63,94,0.3)] hover:scale-105 transition-transform duration-300">OUTILS</div>
                 </div>
              </div>
            </div>
