@@ -12,8 +12,8 @@ import { motion } from 'framer-motion';
 const nodes = [
   { 
     id: 1, 
-    title: "Bold Visuals", 
-    desc: "Impactful Design", 
+    title: "Visual Mastery", 
+    desc: "Pixel Perfection", 
     color: "#a855f7", // Purple
     icon: <CubeIcon />,
     position: { x: 5, y: 15 },
@@ -21,8 +21,8 @@ const nodes = [
   },
   { 
     id: 2, 
-    title: "System Thinking", 
-    desc: "Holistic Approach", 
+    title: "System Arch.", 
+    desc: "Scalable Foundation", 
     color: "#d946ef", // Magenta
     icon: <AbstractIcon />,
     position: { x: 50, y: 5 },
@@ -30,8 +30,8 @@ const nodes = [
   },
   { 
     id: 3, 
-    title: "AI-Driven", 
-    desc: "Smart Logic", 
+    title: "Neural AI", 
+    desc: "Intelligent Logic", 
     color: "#3b82f6", // Blue
     icon: <CpuIcon />,
     position: { x: 95, y: 15 },
@@ -39,8 +39,8 @@ const nodes = [
   },
   { 
     id: 4, 
-    title: "Ultra-Fast", 
-    desc: "Next.js & Edge", 
+    title: "Peak Perf.", 
+    desc: "Edge Computing", 
     color: "#0ea5e9", // Sky
     icon: <SpeedIcon />,
     position: { x: 5, y: 75 },
@@ -48,8 +48,8 @@ const nodes = [
   },
   { 
     id: 5, 
-    title: "Clean UI", 
-    desc: "Dark Mode First", 
+    title: "Premium UI", 
+    desc: "Modern Aesthetics", 
     color: "#6366f1", // Indigo
     icon: <MoonIcon />,
     position: { x: 50, y: 85 },
@@ -57,8 +57,8 @@ const nodes = [
   },
   { 
     id: 6, 
-    title: "Micro-Motion", 
-    desc: "Framer Magic", 
+    title: "Fluid Motion", 
+    desc: "Interactive Feel", 
     color: "#ec4899", // Pink
     icon: <PlayIcon />,
     position: { x: 95, y: 75 },
