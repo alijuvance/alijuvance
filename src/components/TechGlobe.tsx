@@ -93,10 +93,7 @@ const icons = [
 ];
 
 export function TechGlobe() {
-  const { resolvedTheme } = useTheme();
-  // Default to dark if theme is undefined during hydration to avoid mismatch, 
-  // or handle mounting state. For simplicity here:
-  const theme = resolvedTheme || 'dark';
+  const { theme } = useTheme(); // Always 'dark'
 
   return (
     <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden rounded-lg pb-20 pt-8 ">

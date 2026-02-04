@@ -20,7 +20,7 @@ const tabAngles: Record<string, number> = {
 
 export function FloatingNav() {
   const [activeTab, setActiveTab] = useState('about');
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme } = useTheme(); // Always 'dark'
   const { t, language } = useLanguage(); // Use language hook
   const [mounted, setMounted] = useState(false);
   const [rotation, setRotation] = useState(180);

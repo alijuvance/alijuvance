@@ -28,7 +28,7 @@ const navLinks: NavLink[] = [
 ];
 
 export function Header() {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme } = useTheme(); // Always 'dark'
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -57,9 +57,7 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  const toggleTheme = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
-  };
+
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
@@ -105,17 +103,7 @@ export function Header() {
             ))}
           </div>
 
-          <button
-            onClick={toggleTheme}
-            className="text-secondary dark:text-secondary-dark hover:text-primary dark:hover:text-primary-dark transition-colors"
-            aria-label="Toggle theme"
-          >
-            {resolvedTheme === 'dark' ? (
-              <SunIcon className="w-5 h-5" />
-            ) : (
-              <MoonIcon className="w-5 h-5" />
-            )}
-          </button>
+
 
           {/* Mobile Menu Button - Minimal */}
           <button

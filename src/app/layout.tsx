@@ -87,8 +87,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
-      <body className="min-h-screen bg-background dark:bg-background-dark">
+    <html lang="fr" className={`dark ${inter.variable} ${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <body className="min-h-screen bg-background-dark">
         <Preloader />
         <ThemeProvider>
           <LanguageProvider>
