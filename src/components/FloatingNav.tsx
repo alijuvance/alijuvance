@@ -29,12 +29,12 @@ export function FloatingNav() {
 
   // Dynamic Nav Links based on language
   const navLinks = [
-    { id: 'about', label: t('nav.about'), href: '#about', icon: <UserIcon className="w-5 h-5" /> },
-    { id: 'experience', label: t('nav.experience'), href: '#experience', icon: <CompassIcon className="w-5 h-5" /> },
-    { id: 'projects', label: t('nav.projects'), href: '#projects', icon: <LayersIcon className="w-5 h-5" /> },
-    { id: 'skills', label: t('nav.skills'), href: '#skills', icon: <LightningIcon className="w-5 h-5" /> },
-    { id: 'education', label: t('nav.education'), href: '#education', icon: <EducationIcon className="w-5 h-5" /> },
-    { id: 'contact', label: t('nav.contact'), href: '#contact', icon: <SendIcon className="w-5 h-5" /> },
+    { id: 'about', label: t('nav.about'), href: '#about', icon: <UserIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
+    { id: 'experience', label: t('nav.experience'), href: '#experience', icon: <CompassIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
+    { id: 'projects', label: t('nav.projects'), href: '#projects', icon: <LayersIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
+    { id: 'skills', label: t('nav.skills'), href: '#skills', icon: <LightningIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
+    { id: 'education', label: t('nav.education'), href: '#education', icon: <EducationIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
+    { id: 'contact', label: t('nav.contact'), href: '#contact', icon: <SendIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
   ];
 
   const handleTabChange = (tabId: string) => {
@@ -92,7 +92,7 @@ export function FloatingNav() {
   if (!mounted) return null;
 
   return (
-    <div className="fixed top-6 inset-x-0 mx-auto w-max max-w-[95vw] z-50">
+    <div className="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 w-auto max-w-[calc(100vw-24px)] z-50">
       <div className="relative flex items-center justify-center overflow-hidden rounded-full p-[1px] shadow-lg dark:shadow-2xl">
         {/* Border Beam */}
         <motion.span 
@@ -101,7 +101,7 @@ export function FloatingNav() {
           className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#ffffff_50%,#000000_100%)] opacity-0 md:opacity-100" 
         />
         
-        <nav className="relative w-full h-full flex items-center gap-1 p-1 pl-2 pr-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-xl transition-colors">
+        <nav className="relative w-full h-full flex items-center gap-0.5 sm:gap-1 p-1 px-1.5 sm:px-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-xl transition-colors">
         
         {/* Navigation Links */}
         <div className="flex items-center">
@@ -110,7 +110,7 @@ export function FloatingNav() {
               key={link.id}
               href={link.href}
               onClick={() => handleTabChange(link.id)}
-              className={`relative px-3 py-2 md:px-3 md:py-2 text-sm font-medium transition-colors rounded-full ${
+              className={`relative px-2 py-1.5 sm:px-3 sm:py-2 text-sm font-medium transition-colors rounded-full ${
                 activeTab === link.id 
                   ? 'text-white' 
                   : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
