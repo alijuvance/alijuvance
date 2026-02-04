@@ -187,6 +187,7 @@ export function TechBeam() {
                    <div className="flex items-center justify-center px-3 py-1.5 rounded-sm bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-bold text-cyan-400 tracking-wider shadow-[0_0_10px_-5px_rgba(6,182,212,0.3)] hover:scale-105 transition-transform duration-300">FRONTEND</div>
                    <div className="flex items-center justify-center px-3 py-1.5 rounded-sm bg-amber-500/10 border border-amber-500/20 text-[10px] font-bold text-amber-400 tracking-wider shadow-[0_0_10px_-5px_rgba(245,158,11,0.3)] hover:scale-105 transition-transform duration-300">BDD</div>
                    <div className="flex items-center justify-center px-3 py-1.5 rounded-sm bg-rose-500/10 border border-rose-500/20 text-[10px] font-bold text-rose-400 tracking-wider shadow-[0_0_10px_-5px_rgba(244,63,94,0.3)] hover:scale-105 transition-transform duration-300">OUTILS</div>
+                   <div className="flex items-center justify-center px-3 py-1.5 rounded-sm bg-violet-500/10 border border-violet-500/20 text-[10px] font-bold text-violet-400 tracking-wider shadow-[0_0_10px_-5px_rgba(139,92,246,0.3)] hover:scale-105 transition-transform duration-300 col-span-2">WEB3</div>
                 </div>
              </div>
            </div>
