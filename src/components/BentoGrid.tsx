@@ -86,7 +86,7 @@ export function BentoCard({ children, className = '', colSpan = 1, rowSpan = 1 }
         style={{ rotateX: prefersReducedMotion ? 0 : rotateX, rotateY: prefersReducedMotion ? 0 : rotateY }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       >
-        <Spotlight className="h-full w-full rounded-3xl" fill="rgba(255, 255, 255, 0.03)">
+        <Spotlight className="h-full w-full rounded-3xl" spotlightColor="rgba(255, 255, 255, 0.03)">
           {/* Glossy Gradient Overlay (Dark Mode) */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none hidden dark:block rounded-3xl" />
           
