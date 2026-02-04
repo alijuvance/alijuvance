@@ -24,12 +24,12 @@ export const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
     
     // Hero
-    'hero.pre': 'Profil Professionnel',
+    'hero.pre': 'À Propos de moi',
     'hero.greeting': "Bonjour, je suis",
     'hero.role': "Architecte & Développeur Fullstack",
     'hero.desc': "Passionné par le développement Full Stack, je fusionne ingénierie moderne et conception intelligente. Fort d'une solide expérience des technologies actuelles et d'un sens aigu de l'expérience utilisateur, je poursuis actuellement un Master en Informatique Générale à l’École Nationale d’Informatique (ENI) de l’Université de Fianarantsoa.",
     'hero.cta': "Télécharger CV",
-    'hero.based': "Basé à Madagascar",
+    'hero.based': 'Ingénieur de données | Développeur Fullstack',
 
     // Services (About)
     'services.pre': 'Nos Services',
@@ -68,6 +68,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'contact.availability.val': 'Assistance 24/7',
     'contact.availability.sub': 'Horaires flexibles pour l\'international',
     
+    // Skills Section
+    'skills.title': 'Compétences et expertise',
+    'skills.subtitle': 'Concevoir des solutions avec précision et passion',
+    
     // Experience Section
     'exp.title': 'Expérience',
     'exp.subtitle': 'Professionnelle',
@@ -95,7 +99,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'edu.col1': 'Éducation et formation',
     'edu.eni.title': 'Licence Professionnelle Informatique',
     'edu.eni.sub': 'Ecole Nationale d\'Informatique (ENI) • 2022 - 2025',
-    'edu.eni.desc': 'Cursus d\'excellence en Ingénierie des Systèmes Complexes. Spécialisation approfondie en architectures distribuées, haute performance et algorithmique avancée. Major de promotion.',
+    'edu.eni.desc': 'Parcours Informatique Generale',
     'edu.bac.title': 'Baccalauréat Série D',
     'edu.bac.sub': 'Lycée Privé Adventiste Mahajanga • 2021 - 2022',
     'edu.bac.desc': 'Obtention du baccalauréat avec mention. Bases solides en mathématiques et sciences.',
@@ -203,7 +207,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'hero.role': "Fullstack Architect & Developer",
     'hero.desc': "Passionate about Full Stack development, I merge modern engineering with intelligent design. With strong experience in current technologies and a keen sense of user experience, I am currently pursuing a Master's in General Computer Science at the National School of Computer Science (ENI) of the University of Fianarantsoa.",
     'hero.cta': "Download CV",
-    'hero.based': "Based in Madagascar",
+    'hero.based': 'Data Engineer | Fullstack Developer',
 
     // Services (About)
     'services.pre': 'Our Services',
@@ -240,7 +244,11 @@ export const translations: Record<Language, Record<string, string>> = {
     'contact.location.sub': 'Available for remote work',
     'contact.availability': 'Availability',
     'contact.availability.val': '24/7 Support',
-    'contact.availability.sub': 'Flexible hours for international work',
+    'contact.availability.sub': 'Flexible hours for international clients',
+    
+    // Skills Section
+    'skills.title': 'Skills & Expertise',
+    'skills.subtitle': 'Designing solutions with precision and passion',
     
     // Experience Section
     'exp.title': 'Experience',
@@ -269,7 +277,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'edu.col1': 'Education and Training',
     'edu.eni.title': 'Professional Bachelor in Computer Science',
     'edu.eni.sub': 'National School of Computer Science (ENI) • 2022 - 2025',
-    'edu.eni.desc': 'Excellence track in Complex Systems Engineering. Advanced specialization in distributed architectures, high performance, and algorithmic mastery. Valedictorian.',
+    'edu.eni.desc': 'General Computer Science Track',
     'edu.bac.title': 'Baccalaureate Series D',
     'edu.bac.sub': 'Adventist Private High School Mahajanga • 2021 - 2022',
     'edu.bac.desc': 'Obtained Baccalaureate with honors. Strong foundation in mathematics and sciences.',

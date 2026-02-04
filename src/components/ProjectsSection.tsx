@@ -39,6 +39,7 @@ export function ProjectsSection() {
       metrics: [t('proj.hr.m1'), t('proj.hr.m2'), t('proj.hr.m3')],
       stack: ['React.js', 'NestJS', 'MySQL', 'TailwindCSS', 'TypeScript'],
       category: 'Fullstack',
+      image: '/projects/rh.jpg',
     },
     {
       id: 'stock-management',
@@ -49,7 +50,7 @@ export function ProjectsSection() {
       metrics: [t('proj.stock.m1'), t('proj.stock.m2'), t('proj.stock.m3')],
       stack: ['Next.js', 'NestJS', 'PostgreSQL', 'TypeScript', 'Docker', 'TailwindCSS'],
       category: 'Fullstack',
-      image: '/projects/ecosphere.png',
+      image: '/projects/projet2.jpeg',
     },
     {
       id: 'sentient-ui',

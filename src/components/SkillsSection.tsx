@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { SkillMeter, technicalSkills, softSkills } from './SkillMeter';
 import { MethodologyHub } from './MethodologyHub';
 import { TechBeam } from './TechBeam';
+import { useLanguage } from './LanguageContext';
 
 /**
  * Skills Section Component
@@ -12,6 +13,7 @@ import { TechBeam } from './TechBeam';
 
 export function SkillsSection() {
   const prefersReducedMotion = useReducedMotion();
+  const { t } = useLanguage();
 
 
 
@@ -31,10 +33,10 @@ export function SkillsSection() {
           transition={{ duration: 0.5 }}
         >
           <h2 id="skills-title" className="section-title">
-            Compétences et expertise
+            {t('skills.title')}
           </h2>
           <p className="section-subtitle">
-            Concevoir des solutions avec précision et passion
+            {t('skills.subtitle')}
           </p>
         </motion.div>
 

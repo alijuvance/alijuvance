@@ -12,8 +12,8 @@ import { motion } from 'framer-motion';
 const nodes = [
   { 
     id: 1, 
-    title: "Visual Mastery", 
-    desc: "Pixel Perfection", 
+    title: "Cyber Design", 
+    desc: "Next-Gen UI", 
     color: "#a855f7", // Purple
     icon: <CubeIcon />,
     position: { x: 5, y: 15 },
