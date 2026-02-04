@@ -70,79 +70,129 @@ export function MethodologyHub() {
   const [hoveredNode, setHoveredNode] = useState<number | null>(null);
 
   return (
-    <div className="relative w-full h-[600px] flex items-center justify-center">
+    <div className="relative w-full">
       
-      {/* Central Hub */}
-      <motion.div 
-        className="relative z-20 w-[280px] h-[150px] rounded-2xl bg-[#080808] border border-white/10 flex flex-col items-center justify-center text-center p-6 shadow-[0_0_50px_-10px_rgba(100,50,255,0.15)]"
-        initial={{ scale: 0.9, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: false }}
-      >
-        <div className="absolute -left-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50" />
-        <div className="absolute -right-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50" />
-        
-        <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">
-          DIGITAL<br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">ARCHITECT</span>
-        </h3>
-        <p className="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-2">Building Modern Experiences</p>
-      </motion.div>
+      {/* Mobile Layout - Stacked Grid */}
+      <div className="lg:hidden flex flex-col items-center gap-4 p-4">
+        {/* Central Hub - Mobile */}
+        <motion.div 
+          className="relative z-20 w-full max-w-[280px] py-6 px-4 rounded-2xl bg-[#080808] border border-white/10 flex flex-col items-center justify-center text-center shadow-[0_0_50px_-10px_rgba(100,50,255,0.15)]"
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: false }}
+        >
+          <div className="absolute -left-1 top-6 bottom-6 w-1 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50" />
+          <div className="absolute -right-1 top-6 bottom-6 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50" />
+          
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 tracking-tight">
+            DIGITAL<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">ARCHITECT</span>
+          </h3>
+          <p className="text-[9px] sm:text-[10px] text-gray-500 tracking-[0.15em] sm:tracking-[0.2em] uppercase mt-2">Building Modern Experiences</p>
+        </motion.div>
 
-      {/* Nodes */}
-      {nodes.map((node, i) => {
-        const isCenter = i === 1 || i === 4;
-        const isLeft = i === 0 || i === 3;
-        
-        let style: any = { 
+        {/* Nodes Grid - Mobile */}
+        <div className="grid grid-cols-2 gap-3 w-full max-w-[400px]">
+          {nodes.map((node, i) => (
+            <motion.div
+              key={node.id}
+              className="z-10"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.05 * i }}
+            >
+              <div className="relative w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0a0a0a] border border-white/5 group hover:border-white/20 transition-all duration-300 flex flex-col gap-2 overflow-hidden">
+                {/* Hover Glow */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at center, ${node.color}, transparent 70%)` }} 
+                />
+                
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div 
+                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-300 flex-shrink-0"
+                    style={{ color: node.color }}
+                  >
+                    {node.icon}
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <h4 className="font-bold text-white text-xs sm:text-sm truncate">{node.title}</h4>
+                    <p className="text-[8px] sm:text-[10px] text-gray-500 truncate">{node.desc}</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop Layout - Absolute Positioning */}
+      <div className="hidden lg:flex relative w-full h-[600px] items-center justify-center">
+        {/* Central Hub - Desktop */}
+        <motion.div 
+          className="relative z-20 w-[280px] h-[150px] rounded-2xl bg-[#080808] border border-white/10 flex flex-col items-center justify-center text-center p-6 shadow-[0_0_50px_-10px_rgba(100,50,255,0.15)]"
+          initial={{ scale: 0.9, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: false }}
+        >
+          <div className="absolute -left-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50" />
+          <div className="absolute -right-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50" />
+          
+          <h3 className="text-3xl font-bold text-white mb-2 tracking-tight">
+            DIGITAL<br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">ARCHITECT</span>
+          </h3>
+          <p className="text-[10px] text-gray-500 tracking-[0.2em] uppercase mt-2">Building Modern Experiences</p>
+        </motion.div>
+
+        {/* Nodes - Desktop */}
+        {nodes.map((node, i) => {
+          let style: any = { 
             position: 'absolute',
             left: `${node.position.x}%`, 
             top: `${node.position.y}%`,
             transform: 'translate(-50%, -50%)'
-        };
-        // Manual tweaks for exact centering based on the 95% / 5% logic
-        if (i === 0 || i === 3) style.transform = 'translate(0, -50%)'; // Left align
-        if (i === 2 || i === 5) style.transform = 'translate(-100%, -50%)'; // Right align
+          };
+          if (i === 0 || i === 3) style.transform = 'translate(0, -50%)';
+          if (i === 2 || i === 5) style.transform = 'translate(-100%, -50%)';
 
-        return (
-          <motion.div
-            key={node.id}
-            style={style}
-            className="z-10"
-            onMouseEnter={() => setHoveredNode(i)}
-            onMouseLeave={() => setHoveredNode(null)}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: false }}
-            transition={{ delay: 0.1 * i }}
-          >
-             <div className={`
-                relative w-[200px] p-4 rounded-2xl bg-[#0a0a0a] border border-white/5 
-                group hover:border-white/20 transition-all duration-300
-                flex flex-col gap-3 overflow-hidden
-             `}>
+          return (
+            <motion.div
+              key={node.id}
+              style={style}
+              className="z-10"
+              onMouseEnter={() => setHoveredNode(i)}
+              onMouseLeave={() => setHoveredNode(null)}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: false }}
+              transition={{ delay: 0.1 * i }}
+            >
+              <div className="relative w-[200px] p-4 rounded-2xl bg-[#0a0a0a] border border-white/5 group hover:border-white/20 transition-all duration-300 flex flex-col gap-3 overflow-hidden">
                 {/* Hover Glow */}
                 <div 
-                    className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
-                    style={{ background: `radial-gradient(circle at center, ${node.color}, transparent 70%)` }} 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+                  style={{ background: `radial-gradient(circle at center, ${node.color}, transparent 70%)` }} 
                 />
                 
                 <div className="flex items-center gap-3">
-                   <div 
-                     className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-300"
-                     style={{ color: node.color }}
-                   >
-                     {node.icon}
-                   </div>
-                   <div className="flex flex-col">
-                      <h4 className="font-bold text-white text-sm">{node.title}</h4>
-                      <p className="text-[10px] text-gray-500">{node.desc}</p>
-                   </div>
+                  <div 
+                    className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-300"
+                    style={{ color: node.color }}
+                  >
+                    {node.icon}
+                  </div>
+                  <div className="flex flex-col">
+                    <h4 className="font-bold text-white text-sm">{node.title}</h4>
+                    <p className="text-[10px] text-gray-500">{node.desc}</p>
+                  </div>
                 </div>
-             </div>
-          </motion.div>
-        );
-      })}
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
 
     </div>
   );
