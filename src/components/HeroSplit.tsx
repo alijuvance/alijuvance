@@ -39,7 +39,13 @@ export function HeroSplit() {
                 
                 {/* Overlay Text/Signature */}
                 <div className="absolute bottom-0 left-0 p-6 z-20 w-full bg-gradient-to-t from-black to-transparent">
-                    <p className="text-white/60 text-xs font-mono tracking-widest uppercase mb-1">{t('hero.based')}</p>
+                    <div className="flex items-center gap-2 mb-1">
+                      <p className="text-white/60 text-xs font-mono tracking-widest uppercase">{t('hero.based')}</p>
+                      <div className="flex items-baseline gap-1 text-[#ff3b3b] font-bold drop-shadow-[0_0_8px_rgba(255,59,59,0.5)]">
+                        <span className="text-xl leading-none tracking-tight">+3</span>
+                        <span className="text-[10px] uppercase tracking-widest opacity-90 font-medium">ans</span>
+                      </div>
+                    </div>
                     <div className="w-12 h-0.5 bg-accent" />
                 </div>
             </div>
@@ -83,7 +89,7 @@ export function HeroSplit() {
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-8 justify-center lg:justify-start">
-             <ButtonBorderBeam>
+             <ButtonBorderBeam href="/cv.pdf" download="CV_Ali_Juvance.pdf">
                 <span className="flex items-center gap-2">
                     {t('hero.cta')}
                     <svg className="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">

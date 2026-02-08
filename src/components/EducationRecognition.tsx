@@ -79,7 +79,7 @@ export function EducationRecognition() {
              <div className="grid grid-cols-1 gap-4">
                <StatCard 
                  title={t('edu.stat.projects')}
-                 value="15+" 
+                 value="5+" 
                  icon={<svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>}
                />
                <StatCard 
