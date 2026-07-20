@@ -79,7 +79,7 @@ export function MethodologyHub() {
           className="relative z-20 w-full max-w-[280px] py-6 px-4 rounded-2xl bg-[#080808] border border-white/10 flex flex-col items-center justify-center text-center shadow-[0_0_50px_-10px_rgba(100,50,255,0.15)]"
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <div className="absolute -left-1 top-6 bottom-6 w-1 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50" />
           <div className="absolute -right-1 top-6 bottom-6 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50" />
@@ -99,7 +99,7 @@ export function MethodologyHub() {
               className="z-10"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ delay: 0.05 * i }}
             >
               <div className="relative w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#0a0a0a] border border-white/5 group hover:border-white/20 transition-all duration-300 flex flex-col gap-2 overflow-hidden">
@@ -134,7 +134,7 @@ export function MethodologyHub() {
           className="relative z-20 w-[280px] h-[150px] rounded-2xl bg-[#080808] border border-white/10 flex flex-col items-center justify-center text-center p-6 shadow-[0_0_50px_-10px_rgba(100,50,255,0.15)]"
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
           <div className="absolute -left-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-purple-500 to-transparent opacity-50" />
           <div className="absolute -right-1 top-8 bottom-8 w-1 bg-gradient-to-b from-transparent via-blue-500 to-transparent opacity-50" />
@@ -166,7 +166,7 @@ export function MethodologyHub() {
               onMouseLeave={() => setHoveredNode(null)}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ delay: 0.1 * i }}
             >
               <div className="relative w-[200px] p-4 rounded-2xl bg-[#0a0a0a] border border-white/5 group hover:border-white/20 transition-all duration-300 flex flex-col gap-3 overflow-hidden">

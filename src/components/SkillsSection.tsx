@@ -29,7 +29,7 @@ export function SkillsSection() {
           className="text-center mb-16"
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <h2 id="skills-title" className="section-title">
@@ -52,7 +52,7 @@ export function SkillsSection() {
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center justify-center"
           >

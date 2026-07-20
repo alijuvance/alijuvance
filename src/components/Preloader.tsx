@@ -15,13 +15,36 @@ export function Preloader() {
       return;
     }
 
-    // Simulate loading time (Set to 5s as requested)
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-      sessionStorage.setItem('portfolio_visited', 'true');
-    }, 5000);
+    // Smart preloader: finishes when page is ready (min 1.5s, max 2.5s)
+    const startTime = Date.now();
+    const minDelay = 1500;
+    let cleaned = false;
 
-    return () => clearTimeout(timer);
+    const finish = () => {
+      if (cleaned) return;
+      cleaned = true;
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, minDelay - elapsed);
+      setTimeout(() => {
+        setIsLoading(false);
+        sessionStorage.setItem('portfolio_visited', 'true');
+      }, remaining);
+    };
+
+    if (document.readyState === 'complete') {
+      finish();
+    } else {
+      window.addEventListener('load', finish, { once: true });
+    }
+
+    // Safety fallback max timeout
+    const fallback = setTimeout(finish, 2500);
+
+    return () => {
+      cleaned = true;
+      clearTimeout(fallback);
+      window.removeEventListener('load', finish);
+    };
   }, []);
 
   return (

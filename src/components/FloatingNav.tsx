@@ -101,7 +101,7 @@ export function FloatingNav() {
           className="absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#000000_0%,#ffffff_50%,#000000_100%)] opacity-0 md:opacity-100" 
         />
         
-        <nav className="relative w-full h-full flex items-center gap-0.5 sm:gap-1 p-1 px-1.5 sm:px-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-xl transition-colors">
+        <nav aria-label="Navigation principale" role="navigation" className="relative w-full h-full flex items-center gap-0.5 sm:gap-1 p-1 px-1.5 sm:px-2 rounded-full bg-white/90 dark:bg-black/90 backdrop-blur-xl transition-colors">
         
         {/* Navigation Links */}
         <div className="flex items-center">
@@ -110,6 +110,8 @@ export function FloatingNav() {
               key={link.id}
               href={link.href}
               onClick={() => handleTabChange(link.id)}
+              aria-current={activeTab === link.id ? 'page' : undefined}
+              aria-label={link.label}
               className={`relative px-2 py-1.5 sm:px-3 sm:py-2 text-sm font-medium transition-colors rounded-full ${
                 activeTab === link.id 
                   ? 'text-white' 

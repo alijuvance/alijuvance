@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useReducedMotion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 import { 
   siReact, siNextdotjs, siTypescript, siTailwindcss, 
@@ -43,6 +43,7 @@ const skills = [
 export function TechBeam() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const { t } = useLanguage();
+  const prefersReducedMotion = useReducedMotion();
 
   // Container Dimensions (Fixed reasoning for precise SVG paths)
   // We assume a responsive container, but the SVG viewBox will coordinate content.
@@ -110,11 +111,11 @@ export function TechBeam() {
                   animate={{ 
                     pathLength: 1, 
                     opacity: isHovered ? 1 : 0.3,
-                    strokeDashoffset: [0, -100]
+                    strokeDashoffset: prefersReducedMotion ? 0 : [0, -100]
                   }}
                   transition={{ 
                     duration: 2, 
-                    repeat: Infinity, 
+                    repeat: prefersReducedMotion ? 0 : Infinity, 
                     ease: "linear",
                     delay: index * 0.1
                   }}
@@ -146,7 +147,7 @@ export function TechBeam() {
               whileHover={{ scale: 1.1, x: 5 }}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false }}
+              viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
             >
               <div 
@@ -177,10 +178,10 @@ export function TechBeam() {
           style={{ right: '40px' }}
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }}
         >
            <div className="relative">
-             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-30 animate-pulse" />
+             <div className={`absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-30 ${prefersReducedMotion ? '' : 'animate-pulse'}`} />
              <div className="relative p-3 rounded-xl bg-[#0f0f10] border border-white/10 shadow-2xl flex flex-col items-start gap-1">
                 <div className="grid grid-cols-2 gap-1.5 mt-1 w-full">
                    <div className="flex items-center justify-center px-3 py-1.5 rounded-sm bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-bold text-emerald-400 tracking-wider shadow-[0_0_10px_-5px_rgba(16,185,129,0.3)] hover:scale-105 transition-transform duration-300">BACKEND</div>
@@ -222,6 +223,7 @@ export function TechBeam() {
 // Sub-component for the Mobile Wheel Logic ("Planets around Sun" / Arch Style)
 function TechWheel({ skills }: { skills: any[] }) {
   const [rotation, setRotation] = useState(0);
+  const prefersReducedMotion = useReducedMotion();
   
   // Configuration
   const radius = 260; // Large radius for the "Arch" effect
@@ -255,7 +257,7 @@ function TechWheel({ skills }: { skills: any[] }) {
          <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-t from-orange-600 via-red-600 to-transparent blur-[80px] opacity-60" />
          {/* Core Orb */}
          <div className="relative w-[140px] h-[140px] rounded-full bg-[#0a0000] border border-red-500/30 flex items-center justify-center shadow-[0_0_60px_rgba(220,38,38,0.4)]">
-             <div className="absolute inset-2 rounded-full border border-red-500/20 w-full h-full animate-pulse" />
+             <div className={`absolute inset-2 rounded-full border border-red-500/20 w-full h-full ${prefersReducedMotion ? '' : 'animate-pulse'}`} />
              <span className="text-xs font-mono text-red-400 font-bold uppercase tracking-widest pt-4">CORE</span>
          </div>
       </div>
@@ -266,7 +268,13 @@ function TechWheel({ skills }: { skills: any[] }) {
          <motion.div
            className="relative flex items-center justify-center"
            animate={{ rotate: rotation }}
-           transition={{ type: "spring", stiffness: 60, damping: 15, mass: 1 }}
+           transition={{ 
+             type: prefersReducedMotion ? "tween" : "spring", 
+             stiffness: 60, 
+             damping: 15, 
+             mass: 1,
+             duration: prefersReducedMotion ? 0 : undefined
+           }}
            style={{ 
              width: 0, 
              height: 0,

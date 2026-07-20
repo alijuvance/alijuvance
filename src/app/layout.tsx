@@ -22,37 +22,46 @@ const inter = Inter({
  * Optimized for search engines and social sharing
  */
 export const metadata: Metadata = {
-  title: 'Senior Fullstack Developer & Architecte Système | Portfolio',
+  metadataBase: new URL('https://alijuvance.com'), // Adjust URL to the real domain if known, this is standard
+  title: 'Ali Juvance | Senior Fullstack Developer & Architecte Système',
   description:
-    'Développeur Fullstack Senior avec +10 ans d\'expérience. Je transforme des défis techniques complexes en solutions business scalables et performantes. Expert en architecture logicielle, Backend, Frontend et DevOps.',
+    'Portfolio d\'Ali Juvance, Développeur Fullstack Senior avec +10 ans d\'expérience. Expert en architecture logicielle, Backend, Frontend et DevOps.',
   keywords: [
+    'Ali Juvance',
     'Développeur Fullstack',
     'Senior Developer',
     'Architecte Logiciel',
     'React',
     'Node.js',
     'TypeScript',
-    'PHP',
-    'Java',
-    'C#',
     'Microservices',
     'DevOps',
   ],
-  authors: [{ name: 'Senior Fullstack Developer' }],
-  creator: 'Senior Fullstack Developer',
+  authors: [{ name: 'Ali Juvance' }],
+  creator: 'Ali Juvance',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
-    title: 'Senior Fullstack Developer & Architecte Système',
+    url: 'https://alijuvance.com',
+    title: 'Ali Juvance | Senior Fullstack Developer',
     description:
       'Je transforme des défis techniques complexes en solutions business scalables et performantes.',
-    siteName: 'Portfolio - Senior Fullstack Developer',
+    siteName: 'Portfolio Ali Juvance',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Ali Juvance Portfolio',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Senior Fullstack Developer & Architecte Système',
+    title: 'Ali Juvance | Senior Fullstack Developer',
     description:
       'Je transforme des défis techniques complexes en solutions business scalables et performantes.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,

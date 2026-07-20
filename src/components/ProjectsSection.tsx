@@ -202,12 +202,14 @@ export function ProjectsSection() {
            {/* Navigation Arrows (Desktop) */}
            <button 
              onClick={prevProject} 
+             aria-label="Projet précédent"
              className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
            >
              ←
            </button>
            <button 
              onClick={nextProject}
+             aria-label="Projet suivant"
              className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/5 border border-white/10 items-center justify-center text-white hover:bg-white/10 transition-colors z-30"
            >
              →

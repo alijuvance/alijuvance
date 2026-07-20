@@ -75,7 +75,7 @@ function ExperienceCard({ experience, index }: { experience: any, index: number 
     <motion.div
       initial={{ opacity: 0, x: -50 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: false, margin: "-50px" }}
+      viewport={{ once: true, margin: "-50px" }}
       transition={{ delay: index * 0.2, duration: 0.8 }}
       className="group relative isolate"
     >

@@ -169,6 +169,11 @@
     animation-delay: 400ms;
   }
 
+  /* Force GPU compositing for animated elements */
+  .animate-pulse {
+    will-change: opacity;
+  }
+
   /* Glassmorphism 2.0 Utilities */
   .glass-panel {
     @apply bg-white/5 backdrop-blur-xl border border-white/10;
